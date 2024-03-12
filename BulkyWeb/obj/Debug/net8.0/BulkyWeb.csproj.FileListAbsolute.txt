@@ -1,0 +1,62 @@
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\appsettings.Development.json
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\appsettings.json
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\BulkyWeb.staticwebassets.runtime.json
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\BulkyWeb.exe
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\BulkyWeb.deps.json
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\BulkyWeb.runtimeconfig.json
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\BulkyWeb.dll
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\BulkyWeb.pdb
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.GeneratedMSBuildEditorConfig.editorconfig
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.AssemblyInfoInputs.cache
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.AssemblyInfo.cs
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.csproj.CoreCompileInputs.cache
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.MvcApplicationPartsAssemblyInfo.cache
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.RazorAssemblyInfo.cache
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.RazorAssemblyInfo.cs
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.sourcelink.json
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\staticwebassets.build.json
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\staticwebassets.development.json
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\staticwebassets\msbuild.BulkyWeb.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\staticwebassets\msbuild.build.BulkyWeb.props
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.BulkyWeb.props
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.BulkyWeb.props
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\scopedcss\bundle\BulkyWeb.styles.css
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\scopedcss\projectbundle\BulkyWeb.bundle.scp.css
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.dll
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\refint\BulkyWeb.dll
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.pdb
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.genruntimeconfig.cache
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\ref\BulkyWeb.dll
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\appsettings.json
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\BulkyWeb.staticwebassets.runtime.json
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\BulkyWeb.exe
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\BulkyWeb.deps.json
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\BulkyWeb.runtimeconfig.json
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\BulkyWeb.dll
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\BulkyWeb.pdb
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.AssemblyInfoInputs.cache
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.AssemblyInfo.cs
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.csproj.CoreCompileInputs.cache
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.RazorAssemblyInfo.cache
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.RazorAssemblyInfo.cs
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.sourcelink.json
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\staticwebassets\msbuild.BulkyWeb.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\staticwebassets\msbuild.build.BulkyWeb.props
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.BulkyWeb.props
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.BulkyWeb.props
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\scopedcss\bundle\BulkyWeb.styles.css
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\scopedcss\projectbundle\BulkyWeb.bundle.scp.css
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.dll
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\refint\BulkyWeb.dll
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.pdb
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.genruntimeconfig.cache
+C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\ref\BulkyWeb.dll
