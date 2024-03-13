@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BulkyWeb.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BulkyWeb.Data
@@ -12,5 +13,7 @@ namespace BulkyWeb.Data
         {
             
         }
+
+        public DbSet<Category> Categories { get; set; }
     }
 }
