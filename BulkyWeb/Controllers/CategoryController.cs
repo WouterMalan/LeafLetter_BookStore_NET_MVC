@@ -16,7 +16,7 @@ namespace BulkyWeb.Controllers
         {
             List<Category> objCategoryList = dbContext.Categories.ToList();
 
-            return View();
+            return View(objCategoryList);
         }
 
     private readonly ApplicationDbContext dbContext;
