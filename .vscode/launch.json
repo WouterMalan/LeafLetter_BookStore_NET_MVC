@@ -5,7 +5,6 @@
             "name": ".NET Core Launch (web)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
             "program": "${workspaceFolder}/BulkyWeb/bin/Debug/net8.0/BulkyWeb.dll",
             "args": [],
             "cwd": "${workspaceFolder}/BulkyWeb",

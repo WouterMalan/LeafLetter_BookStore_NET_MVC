@@ -60,3 +60,4 @@ C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\re
 C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.pdb
 C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.genruntimeconfig.cache
 C:\Users\WouterMalan\source\repos\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\ref\BulkyWeb.dll
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.csproj.AssemblyReference.cache
