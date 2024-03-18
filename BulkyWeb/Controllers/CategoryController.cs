@@ -36,6 +36,7 @@ namespace BulkyWeb.Controllers
             {
                 dbContext.Categories.Add(obj);
                 dbContext.SaveChanges();
+                TempData["Success"] = "Category created successfully";
                 return RedirectToAction("Index");
             }
             
@@ -67,6 +68,7 @@ namespace BulkyWeb.Controllers
             {
                 dbContext.Categories.Update(obj);
                 dbContext.SaveChanges();
+                TempData["Success"] = "Category updated successfully";
                 return RedirectToAction("Index");
             }
             
@@ -95,7 +97,7 @@ namespace BulkyWeb.Controllers
         ActionName("Delete")]
         public IActionResult DeletePost(int? id)
         {
-            Category category = dbContext.Categories.Find(id);
+            Category? category = dbContext.Categories.Find(id);
 
             if (category == null)
             {
@@ -104,7 +106,7 @@ namespace BulkyWeb.Controllers
 
             dbContext.Categories.Remove(category);
             dbContext.SaveChanges();
-
+            TempData["Success"] = "Category deleted successfully";
             return RedirectToAction("Index");
         }
 
