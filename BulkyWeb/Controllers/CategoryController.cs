@@ -14,7 +14,7 @@ namespace BulkyWeb.Controllers
 
         public IActionResult Index()
         {
-            List<Category> objCategoryList = dbContext.Categories.ToList();
+            List<Category> objCategoryList = dbContext.Categories.OrderBy(x => x.DisplayOrder).ToList();
 
             return View(objCategoryList);
         }
@@ -72,6 +72,40 @@ namespace BulkyWeb.Controllers
             
             return View(obj);
           
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == 0)
+            {
+                return NotFound();
+            }
+
+            Category? categoryFromDb = dbContext.Categories.Find(id);
+
+            if (categoryFromDb == null)
+            {
+                return NotFound();
+            }
+
+            return View(categoryFromDb);
+        }
+
+        [HttpPost,
+        ActionName("Delete")]
+        public IActionResult DeletePost(int? id)
+        {
+            Category category = dbContext.Categories.Find(id);
+
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+            dbContext.Categories.Remove(category);
+            dbContext.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
     private readonly ApplicationDbContext dbContext;
