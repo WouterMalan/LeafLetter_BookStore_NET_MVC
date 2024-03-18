@@ -43,6 +43,37 @@ namespace BulkyWeb.Controllers
           
         }
 
+        public IActionResult Edit(int? id)
+        {
+            if (id == 0)
+            {
+                return NotFound();
+            }
+
+            Category? categoryFromDb = dbContext.Categories.Find(id);
+
+            if (categoryFromDb == null)
+            {
+                return NotFound();
+            }
+
+            return View(categoryFromDb);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Category obj)
+        {
+            if (ModelState.IsValid)
+            {
+                dbContext.Categories.Update(obj);
+                dbContext.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            
+            return View(obj);
+          
+        }
+
     private readonly ApplicationDbContext dbContext;
 
     }
