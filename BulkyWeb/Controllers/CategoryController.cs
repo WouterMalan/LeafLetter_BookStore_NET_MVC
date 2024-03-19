@@ -30,6 +30,7 @@ namespace BulkyWeb.Controllers
             if (obj.Name == obj.DisplayOrder.ToString())
             {
                 ModelState.AddModelError("Name", "Category Name and Display Order should not be the same");
+                TempData["Error"] = "Category Name and Display Order should not be the same";
             }
 
             if (ModelState.IsValid)
