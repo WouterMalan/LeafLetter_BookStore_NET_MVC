@@ -303,3 +303,9 @@ D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\BulkyWeb\obj\Debug\net
 D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\BulkyWeb\obj\Debug\net8.0\BulkyWeb.pdb
 D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\BulkyWeb\obj\Debug\net8.0\BulkyWeb.genruntimeconfig.cache
 D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\BulkyWeb\obj\Debug\net8.0\ref\BulkyWeb.dll
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\Bulky.DataAccess.dll
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\Bulky.Models.dll
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\Bulky.Utility.dll
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\Bulky.DataAccess.pdb
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\Bulky.Models.pdb
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\Bulky.Utility.pdb

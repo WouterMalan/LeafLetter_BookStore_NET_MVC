@@ -1,0 +1,12 @@
+C:\Udemy Courses\NETCoreMvc Course\Bulky.Utility\bin\Debug\net8.0\Bulky.Utility.deps.json
+C:\Udemy Courses\NETCoreMvc Course\Bulky.Utility\bin\Debug\net8.0\Bulky.Utility.dll
+C:\Udemy Courses\NETCoreMvc Course\Bulky.Utility\bin\Debug\net8.0\Bulky.Utility.pdb
+C:\Udemy Courses\NETCoreMvc Course\Bulky.Utility\obj\Debug\net8.0\Bulky.Utility.GeneratedMSBuildEditorConfig.editorconfig
+C:\Udemy Courses\NETCoreMvc Course\Bulky.Utility\obj\Debug\net8.0\Bulky.Utility.AssemblyInfoInputs.cache
+C:\Udemy Courses\NETCoreMvc Course\Bulky.Utility\obj\Debug\net8.0\Bulky.Utility.AssemblyInfo.cs
+C:\Udemy Courses\NETCoreMvc Course\Bulky.Utility\obj\Debug\net8.0\Bulky.Utility.csproj.CoreCompileInputs.cache
+C:\Udemy Courses\NETCoreMvc Course\Bulky.Utility\obj\Debug\net8.0\Bulky.Utility.sourcelink.json
+C:\Udemy Courses\NETCoreMvc Course\Bulky.Utility\obj\Debug\net8.0\Bulky.Utility.dll
+C:\Udemy Courses\NETCoreMvc Course\Bulky.Utility\obj\Debug\net8.0\refint\Bulky.Utility.dll
+C:\Udemy Courses\NETCoreMvc Course\Bulky.Utility\obj\Debug\net8.0\Bulky.Utility.pdb
+C:\Udemy Courses\NETCoreMvc Course\Bulky.Utility\obj\Debug\net8.0\ref\Bulky.Utility.dll
