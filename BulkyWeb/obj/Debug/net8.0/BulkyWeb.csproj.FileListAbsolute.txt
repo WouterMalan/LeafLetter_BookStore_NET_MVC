@@ -309,3 +309,9 @@ C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\ru\Microsoft.CodeAn
 C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\BulkyWeb\bin\Debug\net8.0\Bulky.DataAccess.dll
+D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\BulkyWeb\bin\Debug\net8.0\Bulky.Models.dll
+D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\BulkyWeb\bin\Debug\net8.0\Bulky.Utility.dll
+D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\BulkyWeb\bin\Debug\net8.0\Bulky.DataAccess.pdb
+D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\BulkyWeb\bin\Debug\net8.0\Bulky.Models.pdb
+D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\BulkyWeb\bin\Debug\net8.0\Bulky.Utility.pdb
