@@ -24,12 +24,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
         public IActionResult Index()
         {
             List<Product> productList = unitOfWork.Product.GetAll().OrderBy(x => x.Description).ToList();
-            IEnumerable<SelectListItem> categoryList = unitOfWork.Category.GetAll().Select(i => new SelectListItem
-            {
-                Text = i.Name,
-                Value = i.Id.ToString()
-            });
-
+        
             return View(productList);
         }
 
@@ -41,6 +36,14 @@ namespace BulkyWeb.Areas.Admin.Controllers
 
         public IActionResult Create()
         {
+             IEnumerable<SelectListItem> categoryList = unitOfWork.Category.GetAll().Select(i => new SelectListItem
+            {
+                Text = i.Name,
+                Value = i.Id.ToString()
+            });
+
+            ViewBag.CategoryList = categoryList;
+
             return View();
         }
 
