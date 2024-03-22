@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6JQ6oqj80cFdc5ch5GR8NwWUM9gkTZbHefeDuzJpVYg2dSgwAqfVaNcqcwI/fMQQKJEDBzfGPsPtVokyYFRGBQ==",
+  "dgSpecHash": "K5R5O3AOax+fReZ4SjjImLNafXpnG46cI3QA8C7yXhdAim/ZS6XS98AP3zUN+R8zcc1sH8HpbQNRAdYUkHy/dQ==",
   "success": true,
-  "projectFilePath": "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\Bulky.Utility\\Bulky.Utility.csproj",
+  "projectFilePath": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Utility\\Bulky.Utility.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
