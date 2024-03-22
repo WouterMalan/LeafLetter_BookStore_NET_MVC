@@ -29,7 +29,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
                 Text = i.Name,
                 Value = i.Id.ToString()
             });
-            
+
             return View(productList);
         }
 
@@ -43,7 +43,6 @@ namespace BulkyWeb.Areas.Admin.Controllers
         {
             return View();
         }
-
 
         [HttpPost]
         public IActionResult Create(Product product)
