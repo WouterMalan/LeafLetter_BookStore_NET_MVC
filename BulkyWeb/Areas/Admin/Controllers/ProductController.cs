@@ -87,7 +87,6 @@ namespace BulkyWeb.Areas.Admin.Controllers
             }
         }
 
-
         public IActionResult Delete(int? id)
         {
             if (id == 0)
