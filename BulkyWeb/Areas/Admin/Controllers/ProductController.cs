@@ -26,7 +26,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            List<Product> productList = unitOfWork.Product.GetAll().OrderBy(x => x.Description).ToList();
+            List<Product> productList = unitOfWork.Product.GetAll(includeProperties:"Category").OrderBy(x => x.Description).ToList();
         
             return View(productList);
         }
@@ -101,15 +101,14 @@ namespace BulkyWeb.Areas.Admin.Controllers
                 if (productVM.Product.Id != 0)
                 {
                     unitOfWork.Product.Update(productVM.Product);
+                TempData["Success"] = "Product updated successfully";
                 }
                 else
                 {
                     unitOfWork.Product.Add(productVM.Product);
+                    TempData["Success"] = "Product created successfully";
                 }
-                
-                unitOfWork.Product.Add(productVM.Product);
                 unitOfWork.Save();
-                TempData["Success"] = "Product created successfully";
                 return RedirectToAction("Index");
             }
             else
@@ -162,5 +161,16 @@ namespace BulkyWeb.Areas.Admin.Controllers
             TempData["Success"] = "Product deleted successfully";
             return RedirectToAction("Index");
         }
+
+        #region API CALLS
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            List<Product> allObjProduct = unitOfWork.Product.GetAll(includeProperties:"Category").ToList();
+            return Json(new { data = allObjProduct });
+        }
+
+        #endregion
     }
 }

@@ -13,6 +13,42 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\images\\product\\07955ca0-5164-474c-b2c9-40cac636b3b8.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\07955ca0-5164-474c-b2c9-40cac636b3b8.jpg"
+    },
+    {
+      "Id": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\images\\product\\0c98dd91-b9a5-41b7-8125-44ecf82f3bc9.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\0c98dd91-b9a5-41b7-8125-44ecf82f3bc9.jpg"
+    },
+    {
+      "Id": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\images\\product\\240f9b74-702e-4329-8e49-be3edb4ed4b5.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\240f9b74-702e-4329-8e49-be3edb4ed4b5.jpg"
+    },
+    {
+      "Id": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\images\\product\\471ed4a2-4474-43c0-949c-6b2360206cdf.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\471ed4a2-4474-43c0-949c-6b2360206cdf.jpg"
+    },
+    {
+      "Id": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\images\\product\\aeaadfb0-0474-45c6-9376-cf5a804111b5.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\aeaadfb0-0474-45c6-9376-cf5a804111b5.jpg"
+    },
+    {
+      "Id": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\images\\product\\b7802e41-335c-4e4d-a3e0-ea10d6674c2e.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\b7802e41-335c-4e4d-a3e0-ea10d6674c2e.jpg"
+    },
+    {
+      "Id": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\images\\product\\c88c0922-cfa6-4abd-82b7-6ae305be2c99.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\c88c0922-cfa6-4abd-82b7-6ae305be2c99.jpg"
+    },
+    {
+      "Id": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\images\\product\\f1627143-769c-4064-9ab3-65bcf4a8e3b9.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\f1627143-769c-4064-9ab3-65bcf4a8e3b9.jpg"
+    },
+    {
+      "Id": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\js\\product.js",
+      "PackagePath": "staticwebassets\\js\\product.js"
+    },
+    {
       "Id": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
