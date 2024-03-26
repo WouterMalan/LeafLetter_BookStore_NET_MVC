@@ -81,6 +81,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
 
                 if (!string.IsNullOrEmpty(productVM.Product.ImageUrl))
                 {
+                    // delete the old image
                     var oldImagePath = Path.Combine(webRootPath, productVM.Product.ImageUrl.TrimStart('\\'));
 
                     if (System.IO.File.Exists(oldImagePath))
