@@ -1,8 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "K5R5O3AOax+fReZ4SjjImLNafXpnG46cI3QA8C7yXhdAim/ZS6XS98AP3zUN+R8zcc1sH8HpbQNRAdYUkHy/dQ==",
+  "dgSpecHash": "GXNIuOx9qUnuPgOIvtOanh1LssbbEl8Ze/5DcJ6InhForFHgsfOpbHKydeAAeF/kXLDIIwCwDcFqQ6P9x9sl0w==",
   "success": true,
   "projectFilePath": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Utility\\Bulky.Utility.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\WouterMalan\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.3\\microsoft.aspnetcore.cryptography.internal.8.0.3.nupkg.sha512",
+    "C:\\Users\\WouterMalan\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\8.0.3\\microsoft.aspnetcore.cryptography.keyderivation.8.0.3.nupkg.sha512",
+    "C:\\Users\\WouterMalan\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.3\\microsoft.aspnetcore.identity.ui.8.0.3.nupkg.sha512",
+    "C:\\Users\\WouterMalan\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\WouterMalan\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "C:\\Users\\WouterMalan\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\WouterMalan\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\8.0.0\\microsoft.extensions.fileproviders.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\WouterMalan\\.nuget\\packages\\microsoft.extensions.fileproviders.embedded\\8.0.3\\microsoft.extensions.fileproviders.embedded.8.0.3.nupkg.sha512",
+    "C:\\Users\\WouterMalan\\.nuget\\packages\\microsoft.extensions.identity.core\\8.0.3\\microsoft.extensions.identity.core.8.0.3.nupkg.sha512",
+    "C:\\Users\\WouterMalan\\.nuget\\packages\\microsoft.extensions.identity.stores\\8.0.3\\microsoft.extensions.identity.stores.8.0.3.nupkg.sha512",
+    "C:\\Users\\WouterMalan\\.nuget\\packages\\microsoft.extensions.logging\\8.0.0\\microsoft.extensions.logging.8.0.0.nupkg.sha512",
+    "C:\\Users\\WouterMalan\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\WouterMalan\\.nuget\\packages\\microsoft.extensions.options\\8.0.2\\microsoft.extensions.options.8.0.2.nupkg.sha512",
+    "C:\\Users\\WouterMalan\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
