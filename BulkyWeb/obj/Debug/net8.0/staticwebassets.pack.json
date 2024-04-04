@@ -45,6 +45,10 @@
       "PackagePath": "staticwebassets\\images\\product\\f1627143-769c-4064-9ab3-65bcf4a8e3b9.jpg"
     },
     {
+      "Id": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\js\\company.js",
+      "PackagePath": "staticwebassets\\js\\company.js"
+    },
+    {
       "Id": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\js\\product.js",
       "PackagePath": "staticwebassets\\js\\product.js"
     },
