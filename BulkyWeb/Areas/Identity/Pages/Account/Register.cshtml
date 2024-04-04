@@ -3,8 +3,10 @@
 
 <div class="card shadow border-0 mt-4">
     <div class="card-header bg-secondary bg-gradient ml-0 py-4">
-        <div class="col-12 text-center">
+        <div class="row">
+            <div class="col-12 text-center">
             <h2 class="py-2 text-white">Register</h2>
+        </div>
         </div>
     </div>
 
@@ -34,15 +36,15 @@
                 <select asp-for="Input.Role" asp-items="@Model.Input.RoleList" class="form-select">
                     <option disabled selected value="">-Select Role-</option>
                 </select>
-                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
             </div>
             <div class="col-12">
                 <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
             </div>
         </form>
     </div>
-    <div class="col-md-6 col-md-12">
+    <div class="col-md-12">
         <p class="divider-text d-flex pt-3">or</p>
+
         <section>
             <h3>Use another service to register.</h3>
 
