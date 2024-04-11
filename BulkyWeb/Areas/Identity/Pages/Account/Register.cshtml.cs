@@ -201,6 +201,12 @@ namespace BulkyWeb.Areas.Identity.Pages.Account
                 user.PostalAddress = Input.PostalAddress;
                 user.PhoneNumber = Input.PhoneNumber;
 
+
+                if (Input.Role == SD.Role_Company)
+                {
+                    user.CompanyId = Input.CompanyId;
+                }
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
