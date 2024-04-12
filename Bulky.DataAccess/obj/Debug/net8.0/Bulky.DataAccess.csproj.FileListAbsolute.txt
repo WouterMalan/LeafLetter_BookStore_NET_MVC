@@ -12,7 +12,6 @@ C:\Udemy Courses\NETCoreMvc Course\Bulky.DataAccess\obj\Debug\net8.0\Bulky.DataA
 C:\Udemy Courses\NETCoreMvc Course\Bulky.DataAccess\obj\Debug\net8.0\Bulky.DataAccess.AssemblyInfo.cs
 C:\Udemy Courses\NETCoreMvc Course\Bulky.DataAccess\obj\Debug\net8.0\Bulky.DataAccess.csproj.CoreCompileInputs.cache
 C:\Udemy Courses\NETCoreMvc Course\Bulky.DataAccess\obj\Debug\net8.0\Bulky.DataAccess.sourcelink.json
-C:\Udemy Courses\NETCoreMvc Course\Bulky.DataAccess\obj\Debug\net8.0\Bulky.Da.6DBD1FC4.Up2Date
 C:\Udemy Courses\NETCoreMvc Course\Bulky.DataAccess\obj\Debug\net8.0\Bulky.DataAccess.dll
 C:\Udemy Courses\NETCoreMvc Course\Bulky.DataAccess\obj\Debug\net8.0\refint\Bulky.DataAccess.dll
 C:\Udemy Courses\NETCoreMvc Course\Bulky.DataAccess\obj\Debug\net8.0\Bulky.DataAccess.pdb
@@ -38,3 +37,4 @@ D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\Bulky.DataAccess\obj\D
 D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\Bulky.DataAccess\obj\Debug\net8.0\Bulky.DataAccess.pdb
 D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\Bulky.DataAccess\obj\Debug\net8.0\Bulky.DataAccess.genruntimeconfig.cache
 D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\Bulky.DataAccess\obj\Debug\net8.0\ref\Bulky.DataAccess.dll
+C:\Udemy Courses\NETCoreMvc Course\Bulky.DataAccess\obj\Debug\net8.0\Bulky.DataAccess.csproj.CopyComplete
