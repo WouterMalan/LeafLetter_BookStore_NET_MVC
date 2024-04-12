@@ -601,4 +601,4 @@ C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\runtimes\win-arm\na
 C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
-C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.csproj.CopyComplete
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\obj\Debug\net8.0\BulkyWeb.csproj.Up2Date

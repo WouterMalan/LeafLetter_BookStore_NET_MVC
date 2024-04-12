@@ -19,11 +19,11 @@ public class UnitOfWork : IUnitOfWork
     public UnitOfWork(ApplicationDbContext dbContext)
     {
         this.dbContext = dbContext;
+        ApplicationUser = new ApplicationUserRepository(dbContext);
         Category = new CategoryRepository(dbContext);
         Product = new ProductRepository(dbContext);
         Company = new CompanyRepository(dbContext);
         ShoppingCart = new ShoppingCartRepository(dbContext);
-        ApplicationUser = new ApplicationUserRepository(dbContext);
     }
 
     public void Save()

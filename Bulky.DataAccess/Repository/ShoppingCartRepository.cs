@@ -18,16 +18,9 @@ namespace Bulky.DataAccess.Repository
             this.dbContext = dbContext;
         }
 
-        public void Update(ShoppingCart product)
+        public void Update(ShoppingCart shoppingCart)
         {
-            var objFromDb = dbContext.ShoppingCarts.FirstOrDefault(s => s.Id == product.Id);
-
-            if (objFromDb != null)
-            {
-                objFromDb.ProductId = product.ProductId;
-                objFromDb.Count = product.Count;
-                objFromDb.ApplicationUserId = product.ApplicationUserId;
-            }
+            dbContext.ShoppingCarts.Update(shoppingCart);
         }
     }
 }
