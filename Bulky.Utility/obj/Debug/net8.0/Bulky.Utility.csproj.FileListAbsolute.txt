@@ -23,3 +23,4 @@ D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\Bulky.Utility\obj\Debu
 D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\Bulky.Utility\obj\Debug\net8.0\Bulky.Utility.pdb
 D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\Bulky.Utility\obj\Debug\net8.0\ref\Bulky.Utility.dll
 C:\Udemy Courses\NETCoreMvc Course\Bulky.Utility\obj\Debug\net8.0\Bulky.Utility.csproj.AssemblyReference.cache
+D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\Bulky.Utility\obj\Debug\net8.0\Bulky.Utility.csproj.AssemblyReference.cache

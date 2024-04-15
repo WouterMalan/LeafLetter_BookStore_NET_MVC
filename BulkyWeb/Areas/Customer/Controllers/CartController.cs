@@ -46,6 +46,52 @@ namespace BulkyWeb.Areas.Customer.Controllers
             return View(ShoppingCartVM);
         }
 
+        public IActionResult Summary()
+        {
+            return View();
+        }
+
+        public IActionResult Plus(int cartId)
+        {
+            var cart = unitOfWork.ShoppingCart.Get(x => x.Id == cartId, includeProperties: "Product");
+            cart.Count += 1;
+
+            unitOfWork.ShoppingCart.Update(cart);
+
+            unitOfWork.Save();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Minus(int cartId)
+        {
+            var cart = unitOfWork.ShoppingCart.Get(x => x.Id == cartId, includeProperties: "Product");
+
+            if (cart.Count == 1)
+            {
+                unitOfWork.ShoppingCart.Remove(cart);
+            }
+            else
+            {
+                cart.Count -= 1;
+                unitOfWork.ShoppingCart.Update(cart);
+            }
+
+            unitOfWork.Save();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Remove(int cartId)
+        {
+            var cart = unitOfWork.ShoppingCart.Get(x => x.Id == cartId);
+
+            unitOfWork.ShoppingCart.Remove(cart);
+            unitOfWork.Save();
+
+            return RedirectToAction(nameof(Index));
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

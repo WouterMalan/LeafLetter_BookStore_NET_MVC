@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\BulkyWeb.csproj": {}
+    "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\BulkyWeb\\BulkyWeb.csproj": {}
   },
   "projects": {
-    "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.DataAccess\\Bulky.DataAccess.csproj": {
+    "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\Bulky.DataAccess\\Bulky.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.DataAccess\\Bulky.DataAccess.csproj",
+        "projectUniqueName": "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\Bulky.DataAccess\\Bulky.DataAccess.csproj",
         "projectName": "Bulky.DataAccess",
-        "projectPath": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.DataAccess\\Bulky.DataAccess.csproj",
-        "packagesPath": "C:\\Users\\WouterMalan\\.nuget\\packages\\",
-        "outputPath": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.DataAccess\\obj\\",
+        "projectPath": "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\Bulky.DataAccess\\Bulky.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\Wouter\\.nuget\\packages\\",
+        "outputPath": "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\Bulky.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\WouterMalan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Wouter\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -33,11 +33,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Models\\Bulky.Models.csproj": {
-                "projectPath": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Models\\Bulky.Models.csproj"
+              "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\Bulky.Models\\Bulky.Models.csproj": {
+                "projectPath": "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\Bulky.Models\\Bulky.Models.csproj"
               },
-              "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Utility\\Bulky.Utility.csproj": {
-                "projectPath": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Utility\\Bulky.Utility.csproj"
+              "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\Bulky.Utility\\Bulky.Utility.csproj": {
+                "projectPath": "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\Bulky.Utility\\Bulky.Utility.csproj"
               }
             }
           }
@@ -92,24 +92,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Models\\Bulky.Models.csproj": {
+    "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\Bulky.Models\\Bulky.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Models\\Bulky.Models.csproj",
+        "projectUniqueName": "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\Bulky.Models\\Bulky.Models.csproj",
         "projectName": "Bulky.Models",
-        "projectPath": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Models\\Bulky.Models.csproj",
-        "packagesPath": "C:\\Users\\WouterMalan\\.nuget\\packages\\",
-        "outputPath": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Models\\obj\\",
+        "projectPath": "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\Bulky.Models\\Bulky.Models.csproj",
+        "packagesPath": "C:\\Users\\Wouter\\.nuget\\packages\\",
+        "outputPath": "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\Bulky.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\WouterMalan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Wouter\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -166,24 +166,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Utility\\Bulky.Utility.csproj": {
+    "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\Bulky.Utility\\Bulky.Utility.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Utility\\Bulky.Utility.csproj",
+        "projectUniqueName": "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\Bulky.Utility\\Bulky.Utility.csproj",
         "projectName": "Bulky.Utility",
-        "projectPath": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Utility\\Bulky.Utility.csproj",
-        "packagesPath": "C:\\Users\\WouterMalan\\.nuget\\packages\\",
-        "outputPath": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Utility\\obj\\",
+        "projectPath": "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\Bulky.Utility\\Bulky.Utility.csproj",
+        "packagesPath": "C:\\Users\\Wouter\\.nuget\\packages\\",
+        "outputPath": "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\Bulky.Utility\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\WouterMalan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Wouter\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -237,24 +237,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\BulkyWeb.csproj": {
+    "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\BulkyWeb\\BulkyWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\BulkyWeb.csproj",
+        "projectUniqueName": "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\BulkyWeb\\BulkyWeb.csproj",
         "projectName": "BulkyWeb",
-        "projectPath": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\BulkyWeb.csproj",
-        "packagesPath": "C:\\Users\\WouterMalan\\.nuget\\packages\\",
-        "outputPath": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\obj\\",
+        "projectPath": "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\BulkyWeb\\BulkyWeb.csproj",
+        "packagesPath": "C:\\Users\\Wouter\\.nuget\\packages\\",
+        "outputPath": "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\BulkyWeb\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\WouterMalan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Wouter\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -270,11 +270,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.DataAccess\\Bulky.DataAccess.csproj": {
-                "projectPath": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.DataAccess\\Bulky.DataAccess.csproj"
+              "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\Bulky.DataAccess\\Bulky.DataAccess.csproj": {
+                "projectPath": "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\Bulky.DataAccess\\Bulky.DataAccess.csproj"
               },
-              "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Models\\Bulky.Models.csproj": {
-                "projectPath": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Models\\Bulky.Models.csproj"
+              "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\Bulky.Models\\Bulky.Models.csproj": {
+                "projectPath": "D:\\Udemy Courses\\NET MVC Course\\BulkyNETMVC\\Bulky_NET_MVC\\Bulky.Models\\Bulky.Models.csproj"
               }
             }
           }
@@ -348,7 +348,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

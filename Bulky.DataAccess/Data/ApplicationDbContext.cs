@@ -2,6 +2,7 @@ using Bulky.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 
 namespace Bulky.DataAccess.Data
 {
@@ -21,6 +22,10 @@ namespace Bulky.DataAccess.Data
         public DbSet<Company> Companies { get; set; }   
 
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
+
+        public DbSet<OrderHeader> OrderHeaders { get; set; }
+
+        public DbSet<OrderDetail> OrderDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -90,7 +95,7 @@ namespace Bulky.DataAccess.Data
                     Price = 50,
                     Price50 = 40,
                     Price100 = 35,
-                     CategoryId=2,
+                    CategoryId=2,
                     ImageUrl=""
                 },
                 new Product
