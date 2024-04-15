@@ -45,5 +45,11 @@ namespace Bulky.Models
             [ForeignKey("ApplicationUserId")]
             [ValidateNever]
             public ApplicationUser ApplicationUser { get; set; }
+
+            /// <summary>
+            /// Gets or sets the price of the product in the shopping cart item.
+            /// </summary>
+            [NotMapped]
+            public double Price { get; set; }
     }
 }

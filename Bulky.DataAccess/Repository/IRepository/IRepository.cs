@@ -13,7 +13,7 @@ namespace Bulky.DataAccess.Repository.IRepository
 
         void Add (T entity);
 
-        IEnumerable<T> GetAll(string? includeProperties = null);
+        IEnumerable<T> GetAll(Expression<Func<T, bool>>? filters = null, string? includeProperties = null);
 
         void Remove(T entity);
 
