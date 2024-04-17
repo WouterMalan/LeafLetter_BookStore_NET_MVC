@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "X8Y0JeVoihXYMYm/VxPhnljtmUsh4ASXA/le7BbZu3/p3qlQdVZDxRP8sb2yGJ1lRu1TWlt1/r9zmbuMLnGjSw==",
+  "dgSpecHash": "qBRzC7p+ZWWLg9U1pEvFQ2lPHTLIIBSAc8fojPIp9Bl13i5myQU1xdHhIjTigR14K7q1Rf5iNt5kbauDXOh+3A==",
   "success": true,
   "projectFilePath": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\BulkyWeb.csproj",
   "expectedPackageFiles": [
@@ -148,6 +148,7 @@
     "C:\\Users\\WouterMalan\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
     "C:\\Users\\WouterMalan\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.6\\sqlitepclraw.lib.e_sqlite3.2.1.6.nupkg.sha512",
     "C:\\Users\\WouterMalan\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.6\\sqlitepclraw.provider.e_sqlite3.2.1.6.nupkg.sha512",
+    "C:\\Users\\WouterMalan\\.nuget\\packages\\stripe.net\\44.2.0\\stripe.net.44.2.0.nupkg.sha512",
     "C:\\Users\\WouterMalan\\.nuget\\packages\\system.codedom\\5.0.0\\system.codedom.5.0.0.nupkg.sha512",
     "C:\\Users\\WouterMalan\\.nuget\\packages\\system.collections.immutable\\7.0.0\\system.collections.immutable.7.0.0.nupkg.sha512",
     "C:\\Users\\WouterMalan\\.nuget\\packages\\system.composition\\7.0.0\\system.composition.7.0.0.nupkg.sha512",
