@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.WebSockets;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Bulky.DataAccess.Repository.IRepository;
@@ -56,7 +57,7 @@ namespace BulkyWeb.Areas.Customer.Controllers
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-           ShoppingCartVM = new ShoppingCartVM()
+            ShoppingCartVM = new ShoppingCartVM()
             {
                 ShoppingCartList = unitOfWork.ShoppingCart.GetAll(x => x.ApplicationUserId == userId, includeProperties: "Product"),
                 OrderHeader = new OrderHeader()
@@ -82,7 +83,7 @@ namespace BulkyWeb.Areas.Customer.Controllers
 
         [HttpPost]
         [ActionName("Summary")]
-         public IActionResult SummaryPOST()
+        public IActionResult SummaryPOST()
         {
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
@@ -106,7 +107,8 @@ namespace BulkyWeb.Areas.Customer.Controllers
                 ShoppingCartVM.OrderHeader.PaymentStatus = SD.PaymentStatusPending;
                 ShoppingCartVM.OrderHeader.OrderStatus = SD.StatusPending;
             }
-            else{
+            else
+            {
                 //company user
                 ShoppingCartVM.OrderHeader.PaymentStatus = SD.PaymentStatusDelayedPayment;
                 ShoppingCartVM.OrderHeader.OrderStatus = SD.StatusApproved;
@@ -132,8 +134,41 @@ namespace BulkyWeb.Areas.Customer.Controllers
             if (applicationUser.CompanyId.GetValueOrDefault() == 0)
             {
                 //regular customer and need to capture payment (stripe logic)
-                ShoppingCartVM.OrderHeader.PaymentStatus = SD.PaymentStatusPending;
-                ShoppingCartVM.OrderHeader.OrderStatus = SD.StatusPending;
+                var domain = "https://localhost:7223/";
+
+                var options = new Stripe.Checkout.SessionCreateOptions
+                {
+                    SuccessUrl = domain + $"Customer/Cart/OrderConfirmation?id={ShoppingCartVM.OrderHeader.Id}",
+                    CancelUrl = domain + "Customer/Cart/Index",
+                    LineItems = new List<Stripe.Checkout.SessionLineItemOptions>()
+                    {
+                        new Stripe.Checkout.SessionLineItemOptions
+                        {
+                            Price = "price_1MotwRLkdIwHu7ixYcPLm5uZ",
+                            Quantity = 2,
+                        },
+                    },
+                    Mode = "payment",
+                };
+
+                foreach (var item in ShoppingCartVM.ShoppingCartList)
+                {
+                    var sessionLineItem = new Stripe.Checkout.SessionLineItemOptions
+                    {
+                        PriceData = new Stripe.Checkout.SessionLineItemPriceDataOptions{
+                            UnitAmount = (long)(item.Price * 100), // 2.50 -> 250
+                            Currency = "zar",
+                            ProductData = new Stripe.Checkout.SessionLineItemPriceDataProductDataOptions{
+                                Name = item.Product.Title,
+                        },
+                    },
+                    Quantity = item.Count,
+                };
+                    options.LineItems.Add(sessionLineItem);
+                }
+                
+                var service = new Stripe.Checkout.SessionService();
+                service.Create(options);
             }
 
             return RedirectToAction(nameof(OrderConfirmation), new { id = ShoppingCartVM.OrderHeader.Id });
