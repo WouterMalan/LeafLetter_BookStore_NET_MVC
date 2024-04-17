@@ -42,7 +42,9 @@ namespace Bulky.DataAccess.Repository
         {
             var orderFromDb = dbContext.OrderHeaders.FirstOrDefault(o => o.Id == id);
 
-            if (!string.IsNullOrWhiteSpace(sessionId))
+            if (orderFromDb != null)
+            {
+                if (!string.IsNullOrWhiteSpace(sessionId))
             {
                 orderFromDb.SessionId = sessionId;
             }
@@ -51,6 +53,7 @@ namespace Bulky.DataAccess.Repository
             {
                 orderFromDb.PaymentIntentId = paymentIntentId;
                 orderFromDb.PaymentDate = DateTime.Now;
+            }
             }
         }
     }
