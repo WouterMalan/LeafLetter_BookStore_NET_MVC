@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\BulkyWeb.csproj": {}
+    "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\BulkyWeb.csproj": {}
   },
   "projects": {
-    "c:\\Udemy Courses\\NETCoreMvc Course\\Bulky.DataAccess\\Bulky.DataAccess.csproj": {
+    "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.DataAccess\\Bulky.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Udemy Courses\\NETCoreMvc Course\\Bulky.DataAccess\\Bulky.DataAccess.csproj",
+        "projectUniqueName": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.DataAccess\\Bulky.DataAccess.csproj",
         "projectName": "Bulky.DataAccess",
-        "projectPath": "c:\\Udemy Courses\\NETCoreMvc Course\\Bulky.DataAccess\\Bulky.DataAccess.csproj",
+        "projectPath": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.DataAccess\\Bulky.DataAccess.csproj",
         "packagesPath": "C:\\Users\\WouterMalan\\.nuget\\packages\\",
-        "outputPath": "c:\\Udemy Courses\\NETCoreMvc Course\\Bulky.DataAccess\\obj\\",
+        "outputPath": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -36,8 +36,8 @@
               "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Models\\Bulky.Models.csproj": {
                 "projectPath": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Models\\Bulky.Models.csproj"
               },
-              "c:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Utility\\Bulky.Utility.csproj": {
-                "projectPath": "c:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Utility\\Bulky.Utility.csproj"
+              "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Utility\\Bulky.Utility.csproj": {
+                "projectPath": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Utility\\Bulky.Utility.csproj"
               }
             }
           }
@@ -170,14 +170,14 @@
         }
       }
     },
-    "c:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Utility\\Bulky.Utility.csproj": {
+    "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Utility\\Bulky.Utility.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Utility\\Bulky.Utility.csproj",
+        "projectUniqueName": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Utility\\Bulky.Utility.csproj",
         "projectName": "Bulky.Utility",
-        "projectPath": "c:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Utility\\Bulky.Utility.csproj",
+        "projectPath": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Utility\\Bulky.Utility.csproj",
         "packagesPath": "C:\\Users\\WouterMalan\\.nuget\\packages\\",
-        "outputPath": "c:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Utility\\obj\\",
+        "outputPath": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Utility\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -241,14 +241,14 @@
         }
       }
     },
-    "c:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\BulkyWeb.csproj": {
+    "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\BulkyWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\BulkyWeb.csproj",
+        "projectUniqueName": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\BulkyWeb.csproj",
         "projectName": "BulkyWeb",
-        "projectPath": "c:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\BulkyWeb.csproj",
+        "projectPath": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\BulkyWeb.csproj",
         "packagesPath": "C:\\Users\\WouterMalan\\.nuget\\packages\\",
-        "outputPath": "c:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\obj\\",
+        "outputPath": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -270,8 +270,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "c:\\Udemy Courses\\NETCoreMvc Course\\Bulky.DataAccess\\Bulky.DataAccess.csproj": {
-                "projectPath": "c:\\Udemy Courses\\NETCoreMvc Course\\Bulky.DataAccess\\Bulky.DataAccess.csproj"
+              "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.DataAccess\\Bulky.DataAccess.csproj": {
+                "projectPath": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.DataAccess\\Bulky.DataAccess.csproj"
               },
               "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Models\\Bulky.Models.csproj": {
                 "projectPath": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.Models\\Bulky.Models.csproj"

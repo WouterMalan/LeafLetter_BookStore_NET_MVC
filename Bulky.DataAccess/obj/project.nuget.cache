@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TNHXAL5kvRLbnCBWk/QZhfPL1gMejTTaUBu3MaelXMmQTSwZ+3I841hEOUQ5wGKPjUa+AYXvpzmVHXcD1CQxHA==",
+  "dgSpecHash": "tvSkDty1REg10ClazkdVIvdCDtt6c5mmbeWomqJJkk7ZGzJbonqqJqpIsms76k59HN45iY8VAQ7dhiIhmLOVAg==",
   "success": true,
-  "projectFilePath": "c:\\Udemy Courses\\NETCoreMvc Course\\Bulky.DataAccess\\Bulky.DataAccess.csproj",
+  "projectFilePath": "C:\\Udemy Courses\\NETCoreMvc Course\\Bulky.DataAccess\\Bulky.DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\WouterMalan\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\WouterMalan\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "v41TK8OQdcR438VN4XPlZAQ7j94jb7cbiZi2ppeTphZ6Rr+18vvs4dL6V2vuC0eacU6e/L9g+oGjj0ZJpAasng==",
+  "dgSpecHash": "X8Y0JeVoihXYMYm/VxPhnljtmUsh4ASXA/le7BbZu3/p3qlQdVZDxRP8sb2yGJ1lRu1TWlt1/r9zmbuMLnGjSw==",
   "success": true,
-  "projectFilePath": "c:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\BulkyWeb.csproj",
+  "projectFilePath": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\BulkyWeb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\WouterMalan\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\WouterMalan\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
