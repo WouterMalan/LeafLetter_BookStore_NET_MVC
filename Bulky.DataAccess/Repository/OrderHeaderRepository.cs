@@ -45,15 +45,15 @@ namespace Bulky.DataAccess.Repository
             if (orderFromDb != null)
             {
                 if (!string.IsNullOrWhiteSpace(sessionId))
-            {
-                orderFromDb.SessionId = sessionId;
-            }
+                {
+                    orderFromDb.SessionId = sessionId;
+                }
 
-            if (!string.IsNullOrWhiteSpace(paymentIntentId))
-            {
-                orderFromDb.PaymentIntentId = paymentIntentId;
-                orderFromDb.PaymentDate = DateTime.Now;
-            }
+                if (!string.IsNullOrWhiteSpace(paymentIntentId))
+                {
+                    orderFromDb.PaymentIntentId = paymentIntentId;
+                    orderFromDb.PaymentDate = DateTime.Now;
+                }
             }
         }
     }
