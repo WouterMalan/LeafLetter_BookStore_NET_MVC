@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Bulky.DataAccess.Repository.IRepository;
 using Bulky.Models;
@@ -84,8 +85,21 @@ namespace BulkyWeb.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult GetAll(string status)
         {
-            IEnumerable<OrderHeader> objOrderHeaders = unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser").ToList();
+            IEnumerable<OrderHeader> objOrderHeaders;
             
+            if(User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+            {
+                objOrderHeaders = unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser");
+            }
+            else
+            {
+                var claimsIdentity = (ClaimsIdentity)User.Identity;
+                var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+                objOrderHeaders = unitOfWork.OrderHeader.GetAll(u => u.ApplicationUserId == userId.Value, includeProperties: "ApplicationUser");
+            }
+
+
+
             switch (status)
             {
                 case "pending":
