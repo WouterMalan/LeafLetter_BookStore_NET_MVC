@@ -24,13 +24,11 @@ $(document).ready(function () {
             }
         }
     }
-
-    loadDataTable();
 });
 
 // Load DataTable
 function loadDataTable(status) {
-    dataTable = $('#productTable').DataTable({
+    dataTable = $('#orderTable').DataTable({
         "ajax": {
             url: '/admin/order/getall?status=' + status
             // dataSrc: function(json) {

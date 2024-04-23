@@ -1,6 +1,5 @@
 ﻿
 @{
-    ViewData["Title"] = "Order List";
     var status = Context.Request.Query["status"];
     var pending = "text-primary";
     var inprocess = "text-primary";
@@ -30,10 +29,9 @@
 
 <div class="card shadow border-0 my-4">
     <div class="card-header bg-secondary bg-gradient ml-0 py-3">
-    using Microsoft.AspNetCore.DataProtection.KeyManagement.Internal;
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="text-white py-2">@ViewData["Title"]</h2>
+                <h2 class="text-white py-2">Order List</h2>
             </div>
         </div>
     </div>
@@ -60,7 +58,7 @@
         </div>
 
 
-<table id="productTable" class="table table-bordered table-striped">
+<table id="orderTable" class="table table-bordered table-striped">
     <thead>
     <tr>
       <th>ID</th>

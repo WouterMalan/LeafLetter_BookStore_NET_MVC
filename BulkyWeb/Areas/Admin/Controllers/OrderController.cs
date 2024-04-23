@@ -42,22 +42,22 @@ namespace BulkyWeb.Areas.Admin.Controllers
             IEnumerable<OrderHeader> objOrderHeaders = unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser").ToList();
             
             switch (status)
-    {
-        case "pending":
-           objOrderHeaders = objOrderHeaders.Where(x => x.PaymentStatus == SD.PaymentStatusDelayedPayment);
-            break;
-        case "inprocess":
-            objOrderHeaders = objOrderHeaders.Where(x => x.OrderStatus == SD.StatusInProcess);
-            break;
-        case "completed":
-            objOrderHeaders = objOrderHeaders.Where(x => x.OrderStatus == SD.StatusShipped);
-            break;
-        case "approved":
-            objOrderHeaders = objOrderHeaders.Where(x => x.OrderStatus == SD.StatusApproved);
-            break;
-        default:
-            break;
-    }
+            {
+                case "pending":
+                objOrderHeaders = objOrderHeaders.Where(x => x.PaymentStatus == SD.PaymentStatusDelayedPayment);
+                    break;
+                case "inprocess":
+                    objOrderHeaders = objOrderHeaders.Where(x => x.OrderStatus == SD.StatusInProcess);
+                    break;
+                case "completed":
+                    objOrderHeaders = objOrderHeaders.Where(x => x.OrderStatus == SD.StatusShipped);
+                    break;
+                case "approved":
+                    objOrderHeaders = objOrderHeaders.Where(x => x.OrderStatus == SD.StatusApproved);
+                    break;
+                default:
+                    break;
+            }
             
             return Json(new { data = objOrderHeaders });
         }
