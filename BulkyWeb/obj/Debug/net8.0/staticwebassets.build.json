@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aYRRR8FSAOsqOwztoMhcB1hGuxAO2tCNXsjRe2k9wr8=",
+  "Hash": "/BmHM0wkhyN/VLG1q1n6eCg8A7Sd7Ik0LJKApcqUPo4=",
   "Source": "BulkyWeb",
   "BasePath": "_content/BulkyWeb",
   "Mode": "Default",
@@ -300,6 +300,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\company.js"
+    },
+    {
+      "Identity": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\js\\order.js",
+      "SourceId": "BulkyWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\",
+      "BasePath": "_content/BulkyWeb",
+      "RelativePath": "js/order.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\order.js"
     },
     {
       "Identity": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\js\\product.js",

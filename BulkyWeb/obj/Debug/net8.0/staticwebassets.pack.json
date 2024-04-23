@@ -57,6 +57,10 @@
       "PackagePath": "staticwebassets\\js\\company.js"
     },
     {
+      "Id": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\js\\order.js",
+      "PackagePath": "staticwebassets\\js\\order.js"
+    },
+    {
       "Id": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\js\\product.js",
       "PackagePath": "staticwebassets\\js\\product.js"
     },

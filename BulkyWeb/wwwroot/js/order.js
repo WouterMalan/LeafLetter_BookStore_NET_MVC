@@ -15,12 +15,12 @@ function loadDataTable() {
             // }
         },
         "columns": [
-            { data: 'id', width: '5%' },
+            { data: 'id', width: '25%' },
             { data: 'name', width: '15%' },
-            { data: 'phoneNumber', width: '20%' },
+            { data: 'phoneNumber', width: '10%' },
             { data: 'applicationUser.email', width: '15%' },
-            { data: 'orderStatus', width: '15%' },
-            { data: 'orderTotal', width: '15%' },
+            { data: 'orderStatus', width: '10%' },
+            { data: 'orderTotal', width: '10%' },
             {
                 data: 'category', 
                 width: '10%',

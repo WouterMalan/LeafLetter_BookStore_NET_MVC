@@ -182,12 +182,13 @@ namespace BulkyWeb.Areas.Customer.Controllers
 
             if (orderHeader.PaymentStatus != SD.PaymentStatusDelayedPayment)
             {
+                //order by customer
                 var service = new SessionService();
                 Session session = service.Get(orderHeader.SessionId);
 
-                if (session.PaymentStatus == "paid")
+                if (session.PaymentStatus.ToLower() == "paid")
                 {
-                    unitOfWork.OrderHeader.UpdateStripePaymentId(ShoppingCartVM.OrderHeader.Id, session.Id, session.PaymentIntentId);
+                    unitOfWork.OrderHeader.UpdateStripePaymentId(id, session.Id, session.PaymentIntentId);
                     unitOfWork.OrderHeader.UpdateStatus(id, SD.StatusApproved, SD.PaymentStatusApproved);
                     unitOfWork.Save();
                 }
