@@ -113,7 +113,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
             return RedirectToAction(nameof(Details), new { orderId = OrderVM.OrderHeader.Id });
         }
 
-         [HttpPost]
+        [HttpPost]
         [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
         public IActionResult CancelOrder()
         {
@@ -144,6 +144,17 @@ namespace BulkyWeb.Areas.Admin.Controllers
 
         }
 
+        [ActionName("Details")]
+        [HttpPost]
+        public IActionResult Details_PAY_NOW()
+        {
+
+
+
+            return RedirectToAction(nameof(Details), new { orderId = OrderVM.OrderHeader.Id });
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
@@ -167,8 +178,6 @@ namespace BulkyWeb.Areas.Admin.Controllers
                 var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
                 objOrderHeaders = unitOfWork.OrderHeader.GetAll(u => u.ApplicationUserId == userId.Value, includeProperties: "ApplicationUser");
             }
-
-
 
             switch (status)
             {
