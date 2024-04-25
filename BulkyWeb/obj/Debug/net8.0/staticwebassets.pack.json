@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\images\\book.png",
+      "PackagePath": "staticwebassets\\images\\book.png"
+    },
+    {
+      "Id": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\images\\lawn_leaf.jpg",
+      "PackagePath": "staticwebassets\\images\\lawn_leaf.jpg"
+    },
+    {
       "Id": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\images\\product\\07955ca0-5164-474c-b2c9-40cac636b3b8.jpg",
       "PackagePath": "staticwebassets\\images\\product\\07955ca0-5164-474c-b2c9-40cac636b3b8.jpg"
     },
@@ -43,6 +51,14 @@
     {
       "Id": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\images\\product\\f1627143-769c-4064-9ab3-65bcf4a8e3b9.jpg",
       "PackagePath": "staticwebassets\\images\\product\\f1627143-769c-4064-9ab3-65bcf4a8e3b9.jpg"
+    },
+    {
+      "Id": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\js\\company.js",
+      "PackagePath": "staticwebassets\\js\\company.js"
+    },
+    {
+      "Id": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\js\\order.js",
+      "PackagePath": "staticwebassets\\js\\order.js"
     },
     {
       "Id": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\wwwroot\\js\\product.js",
