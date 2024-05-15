@@ -4,6 +4,7 @@ using Bulky.Models;
 using Bulky.DataAccess.Repository.IRepository;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using Bulky.Utility;
 
 namespace BulkyWeb.Areas.Customer.Controllers
 {
@@ -51,15 +52,18 @@ public class HomeController : Controller
 
         if (cartFromDb != null)
         {
+            //shopping cart exist
             cartFromDb.Count += shoppingCart.Count;
             this.unitOfWork.ShoppingCart.Update(cartFromDb);
+            unitOfWork.Save();
         }
         else
         {
+            //add cart record
             this.unitOfWork.ShoppingCart.Add(shoppingCart);
+            unitOfWork.Save();
+            HttpContext.Session.SetInt32(SD.SessionCart, unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == userId).Count());
         }
-
-        unitOfWork.Save();
 
         TempData["Success"] = "Product added to cart successfully";
 
