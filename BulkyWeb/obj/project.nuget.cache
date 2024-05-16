@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Atdnb6QVtZS6ztFxubgrTecY9vEqkbxKexTOPwzVdBUY1z3rSDK/jDAxxmZxpJnQYx4b8zZ3JLONLuh/LkkwZQ==",
+  "dgSpecHash": "AJJvKCpbNV3mEAsIchLoMNUIJIqVuRcz5W0b679Nosi7Yxmc4f3JsMVDIyfbkCwiJQJOoKdgRlIZulY5cCreig==",
   "success": true,
   "projectFilePath": "C:\\Udemy Courses\\NETCoreMvc Course\\BulkyWeb\\BulkyWeb.csproj",
   "expectedPackageFiles": [
@@ -145,10 +145,12 @@
     "C:\\Users\\WouterMalan\\.nuget\\packages\\nuget.projectmodel\\6.9.1\\nuget.projectmodel.6.9.1.nupkg.sha512",
     "C:\\Users\\WouterMalan\\.nuget\\packages\\nuget.protocol\\6.9.1\\nuget.protocol.6.9.1.nupkg.sha512",
     "C:\\Users\\WouterMalan\\.nuget\\packages\\nuget.versioning\\6.9.1\\nuget.versioning.6.9.1.nupkg.sha512",
+    "C:\\Users\\WouterMalan\\.nuget\\packages\\sendgrid\\9.29.3\\sendgrid.9.29.3.nupkg.sha512",
     "C:\\Users\\WouterMalan\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.6\\sqlitepclraw.bundle_e_sqlite3.2.1.6.nupkg.sha512",
     "C:\\Users\\WouterMalan\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
     "C:\\Users\\WouterMalan\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.6\\sqlitepclraw.lib.e_sqlite3.2.1.6.nupkg.sha512",
     "C:\\Users\\WouterMalan\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.6\\sqlitepclraw.provider.e_sqlite3.2.1.6.nupkg.sha512",
+    "C:\\Users\\WouterMalan\\.nuget\\packages\\starkbank-ecdsa\\1.3.3\\starkbank-ecdsa.1.3.3.nupkg.sha512",
     "C:\\Users\\WouterMalan\\.nuget\\packages\\stripe.net\\44.2.0\\stripe.net.44.2.0.nupkg.sha512",
     "C:\\Users\\WouterMalan\\.nuget\\packages\\system.codedom\\5.0.0\\system.codedom.5.0.0.nupkg.sha512",
     "C:\\Users\\WouterMalan\\.nuget\\packages\\system.collections.immutable\\7.0.0\\system.collections.immutable.7.0.0.nupkg.sha512",

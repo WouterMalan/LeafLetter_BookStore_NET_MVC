@@ -10,6 +10,8 @@ using Bulky.Models;
 using Bulky.Models.ViewModels;
 using Bulky.Utility;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Converters;
@@ -24,14 +26,16 @@ namespace BulkyWeb.Areas.Customer.Controllers
         private readonly ILogger<CartController> _logger;
 
         private readonly IUnitOfWork unitOfWork;
+        private readonly IEmailSender emailSender;
 
         [BindProperty]
         public ShoppingCartVM ShoppingCartVM { get; set; }
 
-        public CartController(ILogger<CartController> logger, IUnitOfWork unitOfWork)
+        public CartController(ILogger<CartController> logger, IUnitOfWork unitOfWork, IEmailSender emailSender)
         {
             _logger = logger;
             this.unitOfWork = unitOfWork;
+            this.emailSender = emailSender;
         }
 
         public IActionResult Index()
@@ -195,6 +199,8 @@ namespace BulkyWeb.Areas.Customer.Controllers
 
                 HttpContext.Session.Clear();
             }
+
+            this.emailSender.SendEmailAsync(orderHeader.ApplicationUser.Email, "New Order Created", $"<p>Order - {orderHeader.Id} has been submitted successfully</p>");
 
             List<ShoppingCart> shoppingCartsList = unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == orderHeader.ApplicationUserId).ToList();
 
