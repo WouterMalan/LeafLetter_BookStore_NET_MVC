@@ -9,11 +9,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BulkyWeb.ViewComponents
 {
-    public class ShopppingCartViewComponent : ViewComponent
+    public class ShoppingCartViewComponent : ViewComponent
     {
         private readonly IUnitOfWork unitOfWork;
 
-        public ShopppingCartViewComponent(IUnitOfWork unitOfWork)
+        public ShoppingCartViewComponent(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
         }

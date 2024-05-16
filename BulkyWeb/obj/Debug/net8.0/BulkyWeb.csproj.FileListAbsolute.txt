@@ -637,3 +637,4 @@ D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\BulkyWeb\bin\Debug\net
 D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\BulkyWeb\obj\Debug\net8.0\BulkyWeb.MvcApplicationPartsAssemblyInfo.cs
 C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\Stripe.net.dll
 D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\BulkyWeb\bin\Debug\net8.0\Stripe.net.dll
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Facebook.dll
