@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Identity;
 using Bulky.Utility;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Stripe;
+using Bulky.DataAccess.DbInitializer;
+using Bulky.DataAccess.DBInitializer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +27,20 @@ builder.Services.ConfigureApplicationCookie(option => {
     option.AccessDeniedPath = $"/Identity/Account/AccessDenied";
 });
 
+
+// builder.Services.AddAuthentication().AddFacebook(option => {
+//     option.AppId = builder.Configuration["Authentication:Facebook:AppId"];
+//     option.AppSecret = builder.Configuration["Authentication:Facebook:AppSecret"];
+// });
+
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(option => {
+    option.IdleTimeout = TimeSpan.FromMinutes(100);
+    option.Cookie.HttpOnly = true;
+    option.Cookie.IsEssential = true;
+});
+
+builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
@@ -44,6 +60,8 @@ app.UseStaticFiles();
 StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
 app.UseRouting();
 app.UseAuthentication();
+app.UseSession();
+SeeDataBase();
 app.UseAuthorization();
 app.MapRazorPages();
 
@@ -52,3 +70,13 @@ app.MapControllerRoute(
     pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+
+void SeeDataBase()
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+        dbInitializer.Initialize();
+    }
+}
