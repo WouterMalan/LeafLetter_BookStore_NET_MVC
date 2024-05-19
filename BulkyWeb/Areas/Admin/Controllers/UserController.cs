@@ -62,7 +62,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
                 return Json(new { success = false, message = "Error while Locking/Unlocking" });
             }
 
-            if (objFromDb.LockoutEnd != null & objFromDb.LockoutEnd > DateTime.Now)
+            if (objFromDb.LockoutEnd != null && objFromDb.LockoutEnd > DateTime.Now)
             {
                 //user is currently locked, we will unlock them
                 objFromDb.LockoutEnd = DateTime.Now;
@@ -74,7 +74,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
 
             this.dbContext.SaveChanges();
 
-            return Json(new { success = true, message = "Deleted successfully." });
+            return Json(new { success = true, message = "Operation successfully." });
         }
 
         #endregion

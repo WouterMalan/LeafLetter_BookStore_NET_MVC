@@ -8,11 +8,7 @@ $(document).ready(function () {
 function loadDataTable() {
     dataTable = $('#userTable').DataTable({
         "ajax": {
-            url: '/admin/user/getall'
-            // dataSrc: function(json) {
-            //     console.log(json);
-            //     return json;
-            // }
+            url: '/admin/user/getall',
         },
         "columns": [
             { data: 'name', width: '15%' },
@@ -42,7 +38,7 @@ function loadDataTable() {
                     {
                         return `
                         <div class="text-center">
-                        <a onclick=LockUnlock('${data.id}')class="btn btn-success text-white" style="cursor:pointer; width:100px;">
+                        <a onclick=LockUnlock('${data.id}') class="btn btn-success text-white" style="cursor:pointer; width:100px;">
                         <i class="bi bi-unlock-fill"></i> Unlock
                     </a>
                         <a class="btn btn-danger text-white" style="cursor:pointer; width:150px;">
@@ -75,34 +71,4 @@ function LockUnlock(id) {
             }
         }
     })
-}
-
-
-function Delete(url)
-{
-    Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
-      }).then((result) => {
-        if (result.isConfirmed) {
-            $.ajax({
-                type: "DELETE",
-                url: url,
-                success: function (data) {
-                    if (data.success) {
-                        toastr.success(data.message);
-                        dataTable.ajax.reload();
-                    }
-                    else {
-                        toastr.error(data.message);
-                    }
-                }
-            });
-        }
-      });
 }
