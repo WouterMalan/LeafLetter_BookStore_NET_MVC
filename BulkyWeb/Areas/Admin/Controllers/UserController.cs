@@ -52,12 +52,29 @@ namespace BulkyWeb.Areas.Admin.Controllers
             return Json(new { data = userList });
         }
 
-        [HttpDelete]
-        public IActionResult Delete(int? id)
+        [HttpPost]
+        public IActionResult LockUnlock([FromBody] string id)
         {
-         
+            var objFromDb = this.dbContext.ApplicationUsers.FirstOrDefault(u => u.Id == id);
 
-            return Json(new { success = true, message = "Company deleted successfully." });
+            if (objFromDb == null)
+            {
+                return Json(new { success = false, message = "Error while Locking/Unlocking" });
+            }
+
+            if (objFromDb.LockoutEnd != null & objFromDb.LockoutEnd > DateTime.Now)
+            {
+                //user is currently locked, we will unlock them
+                objFromDb.LockoutEnd = DateTime.Now;
+            }
+            else
+            {
+                objFromDb.LockoutEnd = DateTime.Now.AddYears(1);
+            }
+
+            this.dbContext.SaveChanges();
+
+            return Json(new { success = true, message = "Deleted successfully." });
         }
 
         #endregion
