@@ -26,10 +26,7 @@ namespace Bulky.DataAccess.Repository
 
             if (objFromDb != null)
             {
-                if (product.ImageUrl != null)
-                {
-                    objFromDb.ImageUrl = product.ImageUrl;
-                }
+                
                 
                 objFromDb.Title = product.Title;
                 objFromDb.Description = product.Description;

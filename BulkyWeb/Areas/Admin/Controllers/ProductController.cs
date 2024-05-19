@@ -82,23 +82,23 @@ namespace BulkyWeb.Areas.Admin.Controllers
                 string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
                 string productPath = Path.Combine(webRootPath, "images/product");
 
-                if (!string.IsNullOrEmpty(productVM.Product.ImageUrl))
-                {
-                    // delete the old image
-                    var oldImagePath = Path.Combine(webRootPath, productVM.Product.ImageUrl.TrimStart('\\'));
+                // if (!string.IsNullOrEmpty(productVM.Product.ImageUrl))
+                // {
+                //     // delete the old image
+                //     var oldImagePath = Path.Combine(webRootPath, productVM.Product.ImageUrl.TrimStart('\\'));
 
-                    if (System.IO.File.Exists(oldImagePath))
-                    {
-                        System.IO.File.Delete(oldImagePath);
-                    }
-                }
+                //     if (System.IO.File.Exists(oldImagePath))
+                //     {
+                //         System.IO.File.Delete(oldImagePath);
+                //     }
+                // }
 
                 using (var fileStream = new FileStream(Path.Combine(productPath, fileName), FileMode.Create))
                 {
                     file.CopyTo(fileStream);
                 }
 
-                productVM.Product.ImageUrl = @"\images\product\" + fileName;
+                // productVM.Product.ImageUrl = @"\images\product\" + fileName;
             }
 
                 if (productVM.Product.Id != 0)
@@ -184,12 +184,12 @@ namespace BulkyWeb.Areas.Admin.Controllers
                 return Json(new { success = false, message = "Error while deleting" });
             }
 
-            var oldImagePath = Path.Combine(webHostEnvironment.WebRootPath, productFromDbToBeDeleted.ImageUrl.TrimStart('\\'));
+            // var oldImagePath = Path.Combine(webHostEnvironment.WebRootPath, productFromDbToBeDeleted.ImageUrl.TrimStart('\\'));
 
-            if (System.IO.File.Exists(oldImagePath))
-            {
-                System.IO.File.Delete(oldImagePath);
-            }
+            // if (System.IO.File.Exists(oldImagePath))
+            // {
+            //     System.IO.File.Delete(oldImagePath);
+            // }
 
             unitOfWork.Product.Remove(productFromDbToBeDeleted);
 
