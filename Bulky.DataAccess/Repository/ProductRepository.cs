@@ -35,6 +35,7 @@ namespace Bulky.DataAccess.Repository
                 objFromDb.ListPrice = product.ListPrice;
                 objFromDb.Author = product.Author;
                 objFromDb.ISBN = product.ISBN;
+                objFromDb.ProductImages = product.ProductImages;
             }
         }
     }
