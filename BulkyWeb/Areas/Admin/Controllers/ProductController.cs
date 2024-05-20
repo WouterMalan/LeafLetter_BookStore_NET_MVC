@@ -141,22 +141,31 @@ namespace BulkyWeb.Areas.Admin.Controllers
             }
         }
 
-        // public IActionResult Delete(int? id)
-        // {
-        //     if (id == 0)
-        //     {
-        //         return NotFound();
-        //     }
+        public IActionResult DeleteImage(int imageId)
+        {
+            ProductImage productImage = unitOfWork.ProductImage.Get(x => x.Id == imageId);
 
-        //     Product productFromDb = unitOfWork.Product.Get(x => x.Id == id);
+            if (productImage != null)
+            {
+                if (!string.IsNullOrEmpty(productImage.ImageUrl))
+                {
+                    string oldImagePath = Path.Combine(webHostEnvironment.WebRootPath, productImage.ImageUrl.TrimStart('\\'));
 
-        //     if (productFromDb == null)
-        //     {
-        //         return NotFound();
-        //     }
+                if (System.IO.File.Exists(oldImagePath))
+                {
+                    System.IO.File.Delete(oldImagePath);
+                }
+                }
+                
 
-        //     return View(productFromDb);
-        // }
+                unitOfWork.ProductImage.Remove(productImage);
+                unitOfWork.Save();
+
+                TempData["Success"] = "Image deleted successfully";
+            }
+
+            return RedirectToAction("Upsert", new { id = productImage.ProductId });
+        }
 
         // [HttpPost,
         //  ActionName("Delete")]
