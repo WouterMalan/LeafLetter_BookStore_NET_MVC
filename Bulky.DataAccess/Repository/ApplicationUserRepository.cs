@@ -17,5 +17,10 @@ namespace Bulky.DataAccess.Repository
         {
             this.dbContext = dbContext;
         }
+
+        public void Update(ApplicationUser applicationUser)
+        {
+            dbContext.ApplicationUsers.Update(applicationUser);
+        }
     }
 }
