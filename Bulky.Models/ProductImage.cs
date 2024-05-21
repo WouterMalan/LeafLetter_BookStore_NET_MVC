@@ -15,8 +15,6 @@ namespace Bulky.Models
         [Required]
         public string ImageUrl { get; set; }
         
-        public string Url { get; set; }
-        
         public int ProductId { get; set; }
         
         [ForeignKey("ProductId")]

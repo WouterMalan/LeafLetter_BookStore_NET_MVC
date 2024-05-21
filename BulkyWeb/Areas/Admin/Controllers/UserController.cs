@@ -40,20 +40,20 @@ namespace BulkyWeb.Areas.Admin.Controllers
 
             RoleManagementVM roleManagementVM = new RoleManagementVM()
             {
-                ApplicationUser = dbContext.ApplicationUsers.FirstOrDefault(u => u.Id == userId),
+                ApplicationUser = this.dbContext.ApplicationUsers.FirstOrDefault(u => u.Id == userId),
                 RoleList = dbContext.Roles.Select(i => new SelectListItem
                 {
                     Text = i.Name,
                     Value = i.Id
                 }),
-                CompanyList = dbContext.Companies.Select(i => new SelectListItem
+                CompanyList = this.dbContext.Companies.Select(i => new SelectListItem
                 {
                     Text = i.Name,
                     Value = i.Id.ToString()
                 })
             };
 
-            roleManagementVM.ApplicationUser.Role = dbContext.Roles.FirstOrDefault(u => u.Id == roleId).Name;
+            roleManagementVM.ApplicationUser.Role = this.dbContext.Roles.FirstOrDefault(u => u.Id == roleId).Name;
             return View(roleManagementVM);
         }
 

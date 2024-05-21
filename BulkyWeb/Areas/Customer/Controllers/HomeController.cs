@@ -22,7 +22,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        IEnumerable<Product> productList = this.unitOfWork.Product.GetAll(includeProperties: "Category, ProductImages");
+        IEnumerable<Product> productList = this.unitOfWork.Product.GetAll(includeProperties: "Category,ProductImages");
 
         return View(productList);
     }
@@ -31,7 +31,7 @@ public class HomeController : Controller
     {
         ShoppingCart cart = new ShoppingCart()
         {
-            Product = this.unitOfWork.Product.Get(u => u.Id == productId, includeProperties: "Category, ProductImages"),
+            Product = this.unitOfWork.Product.Get(u => u.Id == productId, includeProperties: "Category,ProductImages"),
             Count = 1,
             ProductId = productId
         };

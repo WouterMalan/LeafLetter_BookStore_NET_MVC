@@ -15,7 +15,7 @@ namespace Bulky.DataAccess.Repository
 
         public void Update(ProductImage productImage)
         {
-            dbContext.ProductImages.Update(productImage);
+            this.dbContext.ProductImages.Update(productImage);
         }
     }
 } 
