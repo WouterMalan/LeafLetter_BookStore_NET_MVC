@@ -640,3 +640,8 @@ D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\BulkyWeb\bin\Debug\net
 C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Facebook.dll
 C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\SendGrid.dll
 C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\StarkbankEcdsa.dll
+C:\Udemy Courses\NETCoreMvc Course\BulkyWeb\bin\Debug\net8.0\appsettings.Production.json
+D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\BulkyWeb\bin\Debug\net8.0\appsettings.Production.json
+D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\BulkyWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Facebook.dll
+D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\BulkyWeb\bin\Debug\net8.0\SendGrid.dll
+D:\Udemy Courses\NET MVC Course\BulkyNETMVC\Bulky_NET_MVC\BulkyWeb\bin\Debug\net8.0\StarkbankEcdsa.dll

@@ -20,6 +20,8 @@ public class UnitOfWork : IUnitOfWork
 
     public IOrderDetailRepository OrderDetail { get; private set; }
 
+    public IProductImageRepository ProductImage { get; private set; }
+
     public UnitOfWork(ApplicationDbContext dbContext)
     {
         this.dbContext = dbContext;
@@ -30,6 +32,7 @@ public class UnitOfWork : IUnitOfWork
         ShoppingCart = new ShoppingCartRepository(dbContext);
         OrderHeader = new OrderHeaderRepository(dbContext);
         OrderDetail = new OrderDetailRepository(dbContext);
+        ProductImage = new ProductImageRepository(dbContext);
     }
 
     public void Save()

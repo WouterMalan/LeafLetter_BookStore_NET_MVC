@@ -8,11 +8,11 @@ $(document).ready(function () {
 function loadDataTable() {
     dataTable = $('#productTable').DataTable({
         "ajax": {
-            url: '/admin/product/getall'
-            // dataSrc: function(json) {
-            //     console.log(json);
-            //     return json;
-            // }
+            url: '/admin/product/getall',
+            dataSrc: function(json) {
+                console.log(json);
+                return json;
+            }
         },
         "columns": [
             { data: 'title', width: '25%' },
