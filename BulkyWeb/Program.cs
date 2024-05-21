@@ -45,9 +45,14 @@ builder.Services.ConfigureApplicationCookie(option => {
 //     option.AppSecret = builder.Configuration["Authentication:Facebook:AppSecret"];
 // });
 
+// builder.Services.AddAuthentication().AddMicrosoftAccount(option => {
+//     option.ClientId = builder.Configuration["Authentication:Microsoft:ClientId"];
+//     option.ClientSecret = builder.Configuration["Authentication:Microsoft:ClientSecret"];
+// });
+
 builder.Services.AddAuthentication().AddMicrosoftAccount(option => {
-    option.ClientId = builder.Configuration["Authentication:Microsoft:ClientId"];
-    option.ClientSecret = builder.Configuration["Authentication:Microsoft:ClientSecret"];
+    option.ClientId = "9211cd0e-9cbe-4721-8142-9588b5f33915";
+    option.ClientSecret = "21d7817b-45d1-4b8d-8b5b-8f2fbc694f40";
 });
 
 builder.Services.Configure<StripeSettings>(configuration =>
