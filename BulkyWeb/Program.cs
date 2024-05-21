@@ -55,11 +55,11 @@ builder.Services.AddAuthentication().AddMicrosoftAccount(option => {
     option.ClientSecret = "21d7817b-45d1-4b8d-8b5b-8f2fbc694f40";
 });
 
-builder.Services.Configure<StripeSettings>(configuration =>
-{
-    configuration.PublishableKey = builder.Configuration["Stripe:PublishableKey"];
-    configuration.SecretKey = builder.Configuration["Stripe:SecretKey"];
-});
+// builder.Services.Configure<StripeSettings>(configuration =>
+// {
+//     configuration.PublishableKey = builder.Configuration["Stripe:PublishableKey"];
+//     configuration.SecretKey = builder.Configuration["Stripe:SecretKey"];
+// });
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(option => {
