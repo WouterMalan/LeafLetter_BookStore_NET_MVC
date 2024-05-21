@@ -14,8 +14,20 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+// Build the connection string
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+if (builder.Environment.IsProduction())
+{
+    var dbPassword = builder.Configuration["DatabasePassword"];
+    connectionString += $"Password={dbPassword};";
+}
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(connectionString));
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(connectionString));
 
 builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
 
@@ -34,8 +46,14 @@ builder.Services.ConfigureApplicationCookie(option => {
 // });
 
 builder.Services.AddAuthentication().AddMicrosoftAccount(option => {
-    option.ClientId = "9211cd0e-9cbe-4721-8142-9588b5f33915";
-    option.ClientSecret = "21d7817b-45d1-4b8d-8b5b-8f2fbc694f40";
+    option.ClientId = builder.Configuration["Authentication:Microsoft:ClientId"];
+    option.ClientSecret = builder.Configuration["Authentication:Microsoft:ClientSecret"];
+});
+
+builder.Services.Configure<StripeSettings>(configuration =>
+{
+    configuration.PublishableKey = builder.Configuration["Stripe:PublishableKey"];
+    configuration.SecretKey = builder.Configuration["Stripe:SecretKey"];
 });
 
 builder.Services.AddDistributedMemoryCache();
@@ -66,7 +84,7 @@ StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey"
 app.UseRouting();
 app.UseAuthentication();
 app.UseSession();
-SeeDataBase();
+SeedDataBase();
 app.UseAuthorization();
 app.MapRazorPages();
 
@@ -77,7 +95,7 @@ app.MapControllerRoute(
 app.Run();
 
 
-void SeeDataBase()
+void SeedDataBase()
 {
     using (var scope = app.Services.CreateScope())
     {
