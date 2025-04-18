@@ -1,5 +1,4 @@
-﻿using Bulky.DataAccess.Data;
-using Bulky.DataAccess.Repository.IRepository;
+﻿using Bulky.DataAccess.Repository.IRepository;
 using Bulky.Models;
 using Bulky.Utility;
 using Microsoft.AspNetCore.Authorization;
@@ -19,9 +18,12 @@ namespace BulkyWeb.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            List<Category> objCategoryList = unitOfWork.Category.GetAll().OrderBy(x => x.DisplayOrder).ToList();
+            List<Category> categories = unitOfWork.Category
+                .GetAll()
+                .OrderBy(x => x.DisplayOrder)
+                .ToList();
 
-            return View(objCategoryList);
+            return View(categories);
         }
 
         public IActionResult Create()
