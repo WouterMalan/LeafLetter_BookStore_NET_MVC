@@ -106,7 +106,7 @@ namespace BulkyWeb.Areas.Identity.Pages.Account
             /// <summary>
             /// Gets or sets the state of the user.
             /// </summary>
-            public string? State { get; set; }
+            public string? Province { get; set; }
             
             /// <summary>
             /// Gets or sets the postal address of the user.
@@ -193,7 +193,7 @@ namespace BulkyWeb.Areas.Identity.Pages.Account
                 user.Name = Input.Name;
                 user.StreetAddress = Input.StreetAddress;
                 user.City = Input.City;
-                user.State = Input.State;
+                user.Province = Input.Province;
                 user.PostalAddress = Input.PostalAddress;
                 user.PhoneNumber = Input.PhoneNumber;
 

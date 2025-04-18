@@ -59,7 +59,7 @@ namespace Bulky.DataAccess.DBInitializer
                     EmailConfirmed = true,
                     PhoneNumber = "1234567890",
                     City = "Pretoria",
-                    State = "Gauteng",
+                    Province = "Gauteng",
                     StreetAddress = "Street 1",
                     PostalAddress = "0001"
                 }, "Admin123*").GetAwaiter().GetResult();
