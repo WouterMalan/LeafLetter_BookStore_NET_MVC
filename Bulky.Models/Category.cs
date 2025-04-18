@@ -14,6 +14,6 @@ namespace Bulky.Models
 
         [Display(Name = "Display Order")]
         [Range(1, int.MaxValue, ErrorMessage = "Display Order for category must be greater than 0")]
-        public int DisplayOrder { get; set; }
+                                                     public int DisplayOrder { get; set; }
     }
 }
