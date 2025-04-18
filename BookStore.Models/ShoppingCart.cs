@@ -46,6 +46,6 @@ namespace Bulky.Models
             /// Gets or sets the price of the product in the shopping cart item.
             /// </summary>
             [NotMapped]
-            public double Price { get; set; }
+            public decimal Price { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace Bulky.Models
 
         public DateTime ShippingDate { get; set; }  
 
-        public double OrderTotal { get; set; }
+        public decimal OrderTotal { get; set; }
 
         public string? OrderStatus { get; set; }    
 

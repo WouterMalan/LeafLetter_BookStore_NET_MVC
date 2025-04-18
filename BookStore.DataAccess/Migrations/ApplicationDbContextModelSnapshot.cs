@@ -22,7 +22,7 @@ namespace Bulky.DataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("BookStore.Models.Category", b =>
+            modelBuilder.Entity("Bulky.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -87,7 +87,7 @@ namespace Bulky.DataAccess.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BookStore.Models.Company", b =>
+            modelBuilder.Entity("Bulky.Models.Company", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -146,7 +146,7 @@ namespace Bulky.DataAccess.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BookStore.Models.OrderDetail", b =>
+            modelBuilder.Entity("Bulky.Models.OrderDetail", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -160,8 +160,8 @@ namespace Bulky.DataAccess.Migrations
                     b.Property<int>("OrderHeaderId")
                         .HasColumnType("int");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -175,7 +175,7 @@ namespace Bulky.DataAccess.Migrations
                     b.ToTable("OrderDetails");
                 });
 
-            modelBuilder.Entity("BookStore.Models.OrderHeader", b =>
+            modelBuilder.Entity("Bulky.Models.OrderHeader", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -204,8 +204,8 @@ namespace Bulky.DataAccess.Migrations
                     b.Property<string>("OrderStatus")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("OrderTotal")
-                        .HasColumnType("float");
+                    b.Property<decimal>("OrderTotal")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("PaymentDate")
                         .HasColumnType("datetime2");
@@ -251,7 +251,7 @@ namespace Bulky.DataAccess.Migrations
                     b.ToTable("OrderHeaders");
                 });
 
-            modelBuilder.Entity("BookStore.Models.Product", b =>
+            modelBuilder.Entity("Bulky.Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -274,17 +274,17 @@ namespace Bulky.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("ListPrice")
-                        .HasColumnType("float");
+                    b.Property<decimal>("ListPrice")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<double>("Price100")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Price100")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<double>("Price50")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Price50")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -304,10 +304,10 @@ namespace Bulky.DataAccess.Migrations
                             CategoryId = 1,
                             Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
                             ISBN = "SWD9999001",
-                            ListPrice = 99.0,
-                            Price = 90.0,
-                            Price100 = 80.0,
-                            Price50 = 85.0,
+                            ListPrice = 99m,
+                            Price = 90m,
+                            Price100 = 80m,
+                            Price50 = 85m,
                             Title = "Fortune of Time"
                         },
                         new
@@ -317,10 +317,10 @@ namespace Bulky.DataAccess.Migrations
                             CategoryId = 1,
                             Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
                             ISBN = "CAW777777701",
-                            ListPrice = 40.0,
-                            Price = 30.0,
-                            Price100 = 20.0,
-                            Price50 = 25.0,
+                            ListPrice = 40m,
+                            Price = 30m,
+                            Price100 = 20m,
+                            Price50 = 25m,
                             Title = "Dark Skies"
                         },
                         new
@@ -330,10 +330,10 @@ namespace Bulky.DataAccess.Migrations
                             CategoryId = 2,
                             Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
                             ISBN = "RITO5555501",
-                            ListPrice = 55.0,
-                            Price = 50.0,
-                            Price100 = 35.0,
-                            Price50 = 40.0,
+                            ListPrice = 55m,
+                            Price = 50m,
+                            Price100 = 35m,
+                            Price50 = 40m,
                             Title = "Vanish in the Sunset"
                         },
                         new
@@ -343,10 +343,10 @@ namespace Bulky.DataAccess.Migrations
                             CategoryId = 2,
                             Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
                             ISBN = "WS3333333301",
-                            ListPrice = 70.0,
-                            Price = 65.0,
-                            Price100 = 55.0,
-                            Price50 = 60.0,
+                            ListPrice = 70m,
+                            Price = 65m,
+                            Price100 = 55m,
+                            Price50 = 60m,
                             Title = "Cotton Candy"
                         },
                         new
@@ -356,10 +356,10 @@ namespace Bulky.DataAccess.Migrations
                             CategoryId = 3,
                             Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
                             ISBN = "SOTJ1111111101",
-                            ListPrice = 30.0,
-                            Price = 27.0,
-                            Price100 = 20.0,
-                            Price50 = 25.0,
+                            ListPrice = 30m,
+                            Price = 27m,
+                            Price100 = 20m,
+                            Price50 = 25m,
                             Title = "Rock in the Ocean"
                         },
                         new
@@ -369,15 +369,15 @@ namespace Bulky.DataAccess.Migrations
                             CategoryId = 3,
                             Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
                             ISBN = "FOT000000001",
-                            ListPrice = 25.0,
-                            Price = 23.0,
-                            Price100 = 20.0,
-                            Price50 = 22.0,
+                            ListPrice = 25m,
+                            Price = 23m,
+                            Price100 = 20m,
+                            Price50 = 22m,
                             Title = "Leaves and Wonders"
                         });
                 });
 
-            modelBuilder.Entity("BookStore.Models.ProductImage", b =>
+            modelBuilder.Entity("Bulky.Models.ProductImage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -399,7 +399,7 @@ namespace Bulky.DataAccess.Migrations
                     b.ToTable("ProductImages");
                 });
 
-            modelBuilder.Entity("BookStore.Models.ShoppingCart", b =>
+            modelBuilder.Entity("Bulky.Models.ShoppingCart", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -633,7 +633,7 @@ namespace Bulky.DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("BookStore.Models.ApplicationUser", b =>
+            modelBuilder.Entity("Bulky.Models.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
@@ -661,15 +661,15 @@ namespace Bulky.DataAccess.Migrations
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
-            modelBuilder.Entity("BookStore.Models.OrderDetail", b =>
+            modelBuilder.Entity("Bulky.Models.OrderDetail", b =>
                 {
-                    b.HasOne("BookStore.Models.OrderHeader", "OrderHeader")
+                    b.HasOne("Bulky.Models.OrderHeader", "OrderHeader")
                         .WithMany()
                         .HasForeignKey("OrderHeaderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BookStore.Models.Product", "Product")
+                    b.HasOne("Bulky.Models.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -680,9 +680,9 @@ namespace Bulky.DataAccess.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("BookStore.Models.OrderHeader", b =>
+            modelBuilder.Entity("Bulky.Models.OrderHeader", b =>
                 {
-                    b.HasOne("BookStore.Models.ApplicationUser", "ApplicationUser")
+                    b.HasOne("Bulky.Models.ApplicationUser", "ApplicationUser")
                         .WithMany()
                         .HasForeignKey("ApplicationUserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -691,9 +691,9 @@ namespace Bulky.DataAccess.Migrations
                     b.Navigation("ApplicationUser");
                 });
 
-            modelBuilder.Entity("BookStore.Models.Product", b =>
+            modelBuilder.Entity("Bulky.Models.Product", b =>
                 {
-                    b.HasOne("BookStore.Models.Category", "Category")
+                    b.HasOne("Bulky.Models.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -702,9 +702,9 @@ namespace Bulky.DataAccess.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("BookStore.Models.ProductImage", b =>
+            modelBuilder.Entity("Bulky.Models.ProductImage", b =>
                 {
-                    b.HasOne("BookStore.Models.Product", "Product")
+                    b.HasOne("Bulky.Models.Product", "Product")
                         .WithMany("ProductImages")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -713,15 +713,15 @@ namespace Bulky.DataAccess.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("BookStore.Models.ShoppingCart", b =>
+            modelBuilder.Entity("Bulky.Models.ShoppingCart", b =>
                 {
-                    b.HasOne("BookStore.Models.ApplicationUser", "ApplicationUser")
+                    b.HasOne("Bulky.Models.ApplicationUser", "ApplicationUser")
                         .WithMany()
                         .HasForeignKey("ApplicationUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BookStore.Models.Product", "Product")
+                    b.HasOne("Bulky.Models.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -783,16 +783,16 @@ namespace Bulky.DataAccess.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("BookStore.Models.ApplicationUser", b =>
+            modelBuilder.Entity("Bulky.Models.ApplicationUser", b =>
                 {
-                    b.HasOne("BookStore.Models.Company", "Company")
+                    b.HasOne("Bulky.Models.Company", "Company")
                         .WithMany()
                         .HasForeignKey("CompanyId");
 
                     b.Navigation("Company");
                 });
 
-            modelBuilder.Entity("BookStore.Models.Product", b =>
+            modelBuilder.Entity("Bulky.Models.Product", b =>
                 {
                     b.Navigation("ProductImages");
                 });

@@ -2,7 +2,6 @@ using Bulky.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
 
 namespace Bulky.DataAccess.Data
 {
@@ -137,10 +136,9 @@ namespace Bulky.DataAccess.Data
                     ListPrice = 25,
                     Price = 23,
                     Price50 = 22,
-                    Price100 = 20,
+                    Price100 = 20.50m,
                     CategoryId=3
                 }
-
             );
         }
     }

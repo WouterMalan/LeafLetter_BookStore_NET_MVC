@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using System.Threading.Tasks.Dataflow;
 using Bulky.DataAccess.Data;
 using Bulky.DataAccess.Repository.IRepository;
 using Bulky.Models;
@@ -13,21 +7,19 @@ namespace Bulky.DataAccess.Repository
     public class ProductRepository : Repository<Product> , IProductRepository
     {
 
-        private ApplicationDbContext dbContext;
+        private readonly ApplicationDbContext _dbContext;
 
         public ProductRepository(ApplicationDbContext dbContext) : base(dbContext)
         {
-            this.dbContext = dbContext;
+            _dbContext = dbContext;
         }
 
         public void Update(Product product)
         {
-            var objFromDb = dbContext.Products.FirstOrDefault(s => s.Id == product.Id);
+            var objFromDb = _dbContext.Products.FirstOrDefault(s => s.Id == product.Id);
 
             if (objFromDb != null)
             {
-                
-                
                 objFromDb.Title = product.Title;
                 objFromDb.Description = product.Description;
                 objFromDb.CategoryId = product.CategoryId;

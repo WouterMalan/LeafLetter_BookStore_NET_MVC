@@ -1,20 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Net.WebSockets;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using Bulky.DataAccess.Repository.IRepository;
 using Bulky.Models;
 using Bulky.Models.ViewModels;
 using Bulky.Utility;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json.Converters;
 using Stripe.Checkout;
 
 namespace BookStoreWeb.Areas.Customer.Controllers
@@ -264,7 +255,7 @@ namespace BookStoreWeb.Areas.Customer.Controllers
             return View("Error!");
         }
 
-        private double GetPriceBasedOnQuantity(ShoppingCart shoppingCart)
+        private decimal GetPriceBasedOnQuantity(ShoppingCart shoppingCart)
         {
             if (shoppingCart.Count <= 50)
             {
