@@ -158,7 +158,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
                 }
                 
 
-                unitOfWork.ProductImage.Remove(productImage);
+                unitOfWork.ProductImage.Delete(productImage);
                 unitOfWork.Save();
 
                 TempData["Success"] = "Image deleted successfully";
@@ -183,7 +183,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
         //         return NotFound();
         //     }
 
-        //     unitOfWork.Product.Remove(productFromDb);
+        //     unitOfWork.Product.Delete(productFromDb);
         //     unitOfWork.Save();
         //     TempData["Success"] = "Product deleted successfully";
         //     return RedirectToAction("Index");
@@ -222,7 +222,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
                             Directory.Delete(finalPath);
                         }
 
-            unitOfWork.Product.Remove(productFromDbToBeDeleted);
+            unitOfWork.Product.Delete(productFromDbToBeDeleted);
 
             unitOfWork.Save();
 

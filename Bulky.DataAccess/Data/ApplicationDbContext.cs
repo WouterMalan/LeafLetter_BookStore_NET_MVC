@@ -48,7 +48,8 @@ namespace Bulky.DataAccess.Data
                     Id = 1,
                     Name = "Tech Solution", 
                     StreetAddress = "123 Main St", 
-                    City = "New York", State = "NY", 
+                    City = "New York", 
+                    State = "NY", 
                     PostalCode = "10001", 
                     PhoneNumber = "1234567890" },
                 new Company {

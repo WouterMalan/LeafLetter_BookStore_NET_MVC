@@ -12,17 +12,17 @@ namespace BulkyWeb.Areas.Customer.Controllers
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-    private readonly IUnitOfWork unitOfWork;
+    private readonly IUnitOfWork _unitOfWork;
 
     public HomeController(ILogger<HomeController> logger, IUnitOfWork unitOfWork)
     {
         _logger = logger;
-        this.unitOfWork = unitOfWork;
+        this._unitOfWork = unitOfWork;
     }
 
     public IActionResult Index()
     {
-        IEnumerable<Product> productList = this.unitOfWork.Product.GetAll(includeProperties: "Category,ProductImages");
+        IEnumerable<Product> productList = this._unitOfWork.Product.GetAll(includeProperties: "Category,ProductImages");
 
         return View(productList);
     }
@@ -31,7 +31,7 @@ public class HomeController : Controller
     {
         ShoppingCart cart = new ShoppingCart()
         {
-            Product = this.unitOfWork.Product.Get(u => u.Id == productId, includeProperties: "Category,ProductImages"),
+            Product = this._unitOfWork.Product.Get(u => u.Id == productId, includeProperties: "Category,ProductImages"),
             Count = 1,
             ProductId = productId
         };
@@ -48,21 +48,21 @@ public class HomeController : Controller
         
         shoppingCart.ApplicationUserId = userId;
 
-        ShoppingCart cartFromDb = this.unitOfWork.ShoppingCart.Get(x => x.ApplicationUserId == userId && x.ProductId == shoppingCart.ProductId);
+        ShoppingCart cartFromDb = this._unitOfWork.ShoppingCart.Get(x => x.ApplicationUserId == userId && x.ProductId == shoppingCart.ProductId);
 
         if (cartFromDb != null)
         {
             //shopping cart exist
             cartFromDb.Count += shoppingCart.Count;
-            this.unitOfWork.ShoppingCart.Update(cartFromDb);
-            unitOfWork.Save();
+            this._unitOfWork.ShoppingCart.Update(cartFromDb);
+            _unitOfWork.Save();
         }
         else
         {
             //add cart record
-            this.unitOfWork.ShoppingCart.Add(shoppingCart);
-            unitOfWork.Save();
-            HttpContext.Session.SetInt32(SD.SessionCart, unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == userId).Count());
+            this._unitOfWork.ShoppingCart.Add(shoppingCart);
+            _unitOfWork.Save();
+            HttpContext.Session.SetInt32(SD.SessionCart, _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == userId).Count());
         }
 
         TempData["Success"] = "Product added to cart successfully";

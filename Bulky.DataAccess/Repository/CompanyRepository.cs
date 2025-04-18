@@ -10,16 +10,16 @@ namespace Bulky.DataAccess.Repository
 {
     public class CompanyRepository : Repository<Company>, ICompanyRepository
     {
-        private ApplicationDbContext dbContext;
+        private ApplicationDbContext _dbContext;
 
         public CompanyRepository(ApplicationDbContext dbContext) : base(dbContext)
         {
-            this.dbContext = dbContext;
+            _dbContext = dbContext;
         }
 
         public void Update(Company company)
         {
-            dbContext.Companies.Update(company);
+            _dbContext.Companies.Update(company);
         }
     }
 }

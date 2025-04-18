@@ -113,7 +113,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            _unitOfWork.Category.Remove(category);
+            _unitOfWork.Category.Delete(category);
             _unitOfWork.Save();
             TempData["Success"] = "Category deleted successfully";
             

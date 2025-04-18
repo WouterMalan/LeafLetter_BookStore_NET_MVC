@@ -13,14 +13,14 @@ namespace Bulky.DataAccess.Migrations
             migrationBuilder.RenameColumn(
                 name: "State",
                 table: "AspNetUsers",
-                newName: "Province");
+                newName: "State");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.RenameColumn(
-                name: "Province",
+                name: "State",
                 table: "AspNetUsers",
                 newName: "State");
         }

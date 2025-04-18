@@ -1,62 +1,48 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 using Bulky.DataAccess.Data;
 using Bulky.DataAccess.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Bulky.DataAccess.Repository
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-
-        private readonly ApplicationDbContext dbContext;
-        internal DbSet<T> dbSet;
+        private readonly ApplicationDbContext _dbContext;
+        private readonly DbSet<T> _dbSet;
 
         public Repository(ApplicationDbContext dbContext)
         {
-            this.dbContext = dbContext;
-            this.dbSet = dbContext.Set<T>();
-            this.dbContext.Products.Include(x => x.Category);
+            _dbContext = dbContext;
+            _dbSet = dbContext.Set<T>();
+            _dbContext.Products.Include(x => x.Category);
         }
 
         public void Add(T entity)
         {
-            dbSet.Add(entity);
+            _dbSet.Add(entity);
         }
 
         public T Get(Expression<Func<T, bool>> filter, string? includeProperties = null, bool tracked = false)
         {
-            IQueryable<T> query;
-            if (tracked)
+            IQueryable<T> query = tracked ? _dbSet : _dbSet.AsNoTracking();
+
+            query = query.Where(filter);
+
+            if (!string.IsNullOrEmpty(includeProperties))
             {
-                query = dbSet;
+                query = includeProperties
+                    .Split(',', StringSplitOptions.RemoveEmptyEntries)
+                    .Aggregate(query, (current, includeProperty) =>
+                        current.Include(includeProperty.Trim()));
             }
-            else
-            {
-                query = dbSet.AsNoTracking();
-            }
 
-                query = query.Where(filter);
-
-                if (!string.IsNullOrEmpty(includeProperties))
-                {
-                    foreach (var includeProp in includeProperties.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries))
-                    {
-                        query = query.Include(includeProp);
-                    }
-                }
-
-                return query.FirstOrDefault();
+            return query.FirstOrDefault();
         }
 
-        public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter = null,string? includeProperties = null)
+        public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter = null, string? includeProperties = null)
         {
-            IQueryable<T> query = dbSet;
-            
+            IQueryable<T> query = _dbSet;
+
             if (filter != null)
             {
                 query = query.Where(filter);
@@ -64,23 +50,23 @@ namespace Bulky.DataAccess.Repository
 
             if (!string.IsNullOrEmpty(includeProperties))
             {
-                foreach (var includeProp in includeProperties.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    query = query.Include(includeProp);
-                }
+                query = includeProperties
+                    .Split(',', StringSplitOptions.RemoveEmptyEntries)
+                    .Aggregate(query, (current, includeProperty) =>
+                        current.Include(includeProperty.Trim()));
             }
 
             return query.ToList();
         }
 
-        public void Remove(T entity)
+        public void Delete(T entity)
         {
-            dbSet.Remove(entity);
+            _dbSet.Remove(entity);
         }
 
-        public void RemoveRange(IEnumerable<T> entity)
+        public void DeleteRange(IEnumerable<T> entity)
         {
-            dbSet.RemoveRange(entity);
+            _dbSet.RemoveRange(entity);
         }
     }
 }
