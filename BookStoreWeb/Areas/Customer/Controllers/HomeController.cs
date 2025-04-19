@@ -20,12 +20,28 @@ namespace BookStoreWeb.Areas.Customer.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string? searchTerm = null, string? category = null)
         {
-            IEnumerable<Product> productList =
+            IEnumerable<Product> productList = 
                 _unitOfWork
                     .Product
                     .GetAll(includeProperties: "Category,ProductImages");
+            
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                searchTerm = searchTerm.ToLower();
+                productList = productList.Where(product => 
+                    product.Title.ToLower().Contains(searchTerm) || 
+                    product.Author.ToLower().Contains(searchTerm) ||
+                    product.ISBN.ToLower().Contains(searchTerm) ||
+                    product.Description.ToLower().Contains(searchTerm) ||
+                    product.Category.Name.ToLower().Contains(searchTerm));
+            }
+
+            if (!string.IsNullOrWhiteSpace(category))
+            {
+                productList = productList.Where(p => p.Category.Name == category);
+            }
 
             return View(productList);
         }

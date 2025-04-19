@@ -29,5 +29,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.MicrosoftAccount" Version="9.0.4" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Customer\Views\Shared\" />
+  </ItemGroup>
 
 </Project>

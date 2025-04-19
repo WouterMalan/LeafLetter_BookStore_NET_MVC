@@ -6,16 +6,16 @@ namespace Bulky.DataAccess.Repository
 {
     public class ProductImageRepository : Repository<ProductImage> , IProductImageRepository
     {
-        private ApplicationDbContext dbContext;
+        private readonly ApplicationDbContext _dbContext;
 
         public ProductImageRepository(ApplicationDbContext dbContext) : base(dbContext)
         {
-            this.dbContext = dbContext;
+            _dbContext = dbContext;
         }
 
         public void Update(ProductImage productImage)
         {
-            this.dbContext.ProductImages.Update(productImage);
+            _dbContext.ProductImages.Update(productImage);
         }
     }
 } 

@@ -52,8 +52,11 @@ namespace BookStoreWeb.Areas.Admin.Controllers
             };
 
             roleManagementVM.ApplicationUser.Role = _userManager
-                .GetRolesAsync(_unitOfWork.ApplicationUser.Get(u => u.Id == userId)).GetAwaiter().GetResult()
+                .GetRolesAsync(_unitOfWork.ApplicationUser.Get(u => u.Id == userId))
+                .GetAwaiter()
+                .GetResult()
                 .FirstOrDefault();
+            
             return View(roleManagementVM);
         }
 
@@ -61,11 +64,14 @@ namespace BookStoreWeb.Areas.Admin.Controllers
         public IActionResult RoleManagement(RoleManagementVM roleVM)
         {
             string oldRole = _userManager
-                .GetRolesAsync(_unitOfWork.ApplicationUser.Get(u => u.Id == roleVM.ApplicationUser.Id)).GetAwaiter()
+                .GetRolesAsync(_unitOfWork.ApplicationUser.Get(u => u.Id == roleVM.ApplicationUser.Id))
+                .GetAwaiter()
                 .GetResult().FirstOrDefault();
 
             ApplicationUser applicationUser =
-                this._unitOfWork.ApplicationUser.Get(u => u.Id == roleVM.ApplicationUser.Id);
+                                _unitOfWork
+                                    .ApplicationUser
+                                    .Get(u => u.Id == roleVM.ApplicationUser.Id);
 
             if (!(roleVM.ApplicationUser.Role == oldRole))
             {
@@ -155,7 +161,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
             }
             else
             {
-                objFromDb.LockoutEnd = DateTime.Now.AddYears(1);
+                objFromDb.LockoutEnd = DateTime.Now.AddDays(7);
             }
 
             _unitOfWork.ApplicationUser.Update(objFromDb);

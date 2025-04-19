@@ -53,6 +53,10 @@
       "PackagePath": "staticwebassets\\images\\product\\f1627143-769c-4064-9ab3-65bcf4a8e3b9.jpg"
     },
     {
+      "Id": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\wwwroot\\images\\product\\product-7\\759e0740-90a7-40eb-8bdd-dfdf65513dfb.png",
+      "PackagePath": "staticwebassets\\images\\product\\product-7\\759e0740-90a7-40eb-8bdd-dfdf65513dfb.png"
+    },
+    {
       "Id": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\wwwroot\\js\\company.js",
       "PackagePath": "staticwebassets\\js\\company.js"
     },

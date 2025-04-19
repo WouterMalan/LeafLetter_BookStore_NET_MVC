@@ -38,7 +38,7 @@
                                     @foreach (var imageWithIndex in Model.Product.ProductImages.Select((value, index) => new { Value = value, Index = index }))
                                     {
                                         <div class="carousel-item @(imageWithIndex.Index == 0 ? "active" : "")">
-                                            <img src="~/@imageWithIndex.Value.ImageUrl" class="d-block w-100" alt="@Model.Product.Title">
+                                            <img src="@imageWithIndex.Value.ImageUrl" class="d-block w-100" alt="@Model.Product.Title" style="height: 400px; object-fit: cover;">
                                         </div>
                                     }
                                 </div>
@@ -51,6 +51,10 @@
                                     <span class="visually-hidden">Next</span>
                                 </button>
                             </div>
+                        }
+                        else
+                        {
+                            <img src="https://placehold.co/600x800/png" class="rounded shadow w-100" alt="@Model.Product.Title">
                         }
                     </div>
                     <div class="col-12 col-lg-6 offset-lg-1">

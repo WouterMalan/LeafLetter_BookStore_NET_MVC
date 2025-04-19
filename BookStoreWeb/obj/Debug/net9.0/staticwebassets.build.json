@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FCIqCYXOb6jSLubzusFSeQBC41eDmuHOI4uolfb7Rh0=",
+  "Hash": "a0N1YtHbW8A7PqnwEcaAXcGook5Ys6xsD51bR8YaMio=",
   "Source": "BookStoreWeb",
   "BasePath": "_content/BookStoreWeb",
   "Mode": "Default",
@@ -1760,12 +1760,12 @@
       "OriginalItemSpec": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\obj\\Debug\\net9.0\\compressed\\pvh27uab2z-5uw1dyfq7n.gz",
+      "Identity": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\obj\\Debug\\net9.0\\compressed\\pvh27uab2z-79ajq6j0uj.gz",
       "SourceId": "BookStoreWeb",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/BookStoreWeb",
-      "RelativePath": "js/user#[.{fingerprint=5uw1dyfq7n}]?.js.gz",
+      "RelativePath": "js/user#[.{fingerprint=79ajq6j0uj}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1774,8 +1774,8 @@
       "RelatedAsset": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\wwwroot\\js\\user.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "62vnwytiw3",
-      "Integrity": "AsvfacirU/KhbYnfiA0BkvZyuLW4X1/MzHkLYMHcqKI=",
+      "Fingerprint": "omleowiho8",
+      "Integrity": "AKMwMs0+0bnJhbARx6fXpLetVfZc7grtSa/qprmZXhg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\wwwroot\\js\\user.js"
@@ -3020,6 +3020,27 @@
       "OriginalItemSpec": "wwwroot\\images\\product\\f1627143-769c-4064-9ab3-65bcf4a8e3b9.jpg"
     },
     {
+      "Identity": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\wwwroot\\images\\product\\product-7\\759e0740-90a7-40eb-8bdd-dfdf65513dfb.png",
+      "SourceId": "BookStoreWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\wwwroot\\",
+      "BasePath": "_content/BookStoreWeb",
+      "RelativePath": "images/product/product-7/759e0740-90a7-40eb-8bdd-dfdf65513dfb#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "iq0medbhjv",
+      "Integrity": "xkBYHsCjmt7hnX3jS/6oDyhenEXPpeQW8fUMwWz3X44=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\product\\product-7\\759e0740-90a7-40eb-8bdd-dfdf65513dfb.png"
+    },
+    {
       "Identity": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\wwwroot\\js\\company.js",
       "SourceId": "BookStoreWeb",
       "SourceType": "Discovered",
@@ -3118,8 +3139,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "5uw1dyfq7n",
-      "Integrity": "gz7AY6irV1nydS/HD+l6Rk0yPZhMjC/cXXJWM50v2YE=",
+      "Fingerprint": "79ajq6j0uj",
+      "Integrity": "qxxQ94h8aXtG52rbnNq/eewg5XPk3M1XEWrU+eAwR+8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\user.js"
@@ -16649,6 +16670,88 @@
       ]
     },
     {
+      "Route": "images/product/product-7/759e0740-90a7-40eb-8bdd-dfdf65513dfb.iq0medbhjv.png",
+      "AssetFile": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\wwwroot\\images\\product\\product-7\\759e0740-90a7-40eb-8bdd-dfdf65513dfb.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1701559"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xkBYHsCjmt7hnX3jS/6oDyhenEXPpeQW8fUMwWz3X44=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 19 Apr 2025 17:52:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "iq0medbhjv"
+        },
+        {
+          "Name": "label",
+          "Value": "images/product/product-7/759e0740-90a7-40eb-8bdd-dfdf65513dfb.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-xkBYHsCjmt7hnX3jS/6oDyhenEXPpeQW8fUMwWz3X44="
+        }
+      ]
+    },
+    {
+      "Route": "images/product/product-7/759e0740-90a7-40eb-8bdd-dfdf65513dfb.png",
+      "AssetFile": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\wwwroot\\images\\product\\product-7\\759e0740-90a7-40eb-8bdd-dfdf65513dfb.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1701559"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xkBYHsCjmt7hnX3jS/6oDyhenEXPpeQW8fUMwWz3X44=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 19 Apr 2025 17:52:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-xkBYHsCjmt7hnX3jS/6oDyhenEXPpeQW8fUMwWz3X44="
+        }
+      ]
+    },
+    {
       "Route": "js/company.e7ajjxyk1v.js",
       "AssetFile": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\obj\\Debug\\net9.0\\compressed\\aelu902hhq-e7ajjxyk1v.gz",
       "Selectors": [
@@ -17878,13 +17981,13 @@
       ]
     },
     {
-      "Route": "js/user.5uw1dyfq7n.js",
-      "AssetFile": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\obj\\Debug\\net9.0\\compressed\\pvh27uab2z-5uw1dyfq7n.gz",
+      "Route": "js/user.79ajq6j0uj.js",
+      "AssetFile": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\obj\\Debug\\net9.0\\compressed\\pvh27uab2z-79ajq6j0uj.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001369863014"
+          "Quality": "0.001366120219"
         }
       ],
       "ResponseHeaders": [
@@ -17894,15 +17997,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "729"
+          "Value": "731"
         },
         {
           "Name": "ETag",
-          "Value": "\"AsvfacirU/KhbYnfiA0BkvZyuLW4X1/MzHkLYMHcqKI=\""
+          "Value": "\"AKMwMs0+0bnJhbARx6fXpLetVfZc7grtSa/qprmZXhg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 06:52:51 GMT"
+          "Value": "Sat, 19 Apr 2025 17:19:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17922,13 +18025,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"gz7AY6irV1nydS/HD+l6Rk0yPZhMjC/cXXJWM50v2YE=\""
+          "Value": "W/\"qxxQ94h8aXtG52rbnNq/eewg5XPk3M1XEWrU+eAwR+8=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "5uw1dyfq7n"
+          "Value": "79ajq6j0uj"
         },
         {
           "Name": "label",
@@ -17936,12 +18039,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-gz7AY6irV1nydS/HD+l6Rk0yPZhMjC/cXXJWM50v2YE="
+          "Value": "sha256-qxxQ94h8aXtG52rbnNq/eewg5XPk3M1XEWrU+eAwR+8="
         }
       ]
     },
     {
-      "Route": "js/user.5uw1dyfq7n.js",
+      "Route": "js/user.79ajq6j0uj.js",
       "AssetFile": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\wwwroot\\js\\user.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -17951,7 +18054,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2726"
+          "Value": "2714"
         },
         {
           "Name": "Content-Type",
@@ -17959,11 +18062,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"gz7AY6irV1nydS/HD+l6Rk0yPZhMjC/cXXJWM50v2YE=\""
+          "Value": "\"qxxQ94h8aXtG52rbnNq/eewg5XPk3M1XEWrU+eAwR+8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 06:52:51 GMT"
+          "Value": "Sat, 19 Apr 2025 17:19:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17973,7 +18076,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "5uw1dyfq7n"
+          "Value": "79ajq6j0uj"
         },
         {
           "Name": "label",
@@ -17981,13 +18084,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-gz7AY6irV1nydS/HD+l6Rk0yPZhMjC/cXXJWM50v2YE="
+          "Value": "sha256-qxxQ94h8aXtG52rbnNq/eewg5XPk3M1XEWrU+eAwR+8="
         }
       ]
     },
     {
-      "Route": "js/user.5uw1dyfq7n.js.gz",
-      "AssetFile": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\obj\\Debug\\net9.0\\compressed\\pvh27uab2z-5uw1dyfq7n.gz",
+      "Route": "js/user.79ajq6j0uj.js.gz",
+      "AssetFile": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\obj\\Debug\\net9.0\\compressed\\pvh27uab2z-79ajq6j0uj.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -17996,7 +18099,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "729"
+          "Value": "731"
         },
         {
           "Name": "Content-Type",
@@ -18004,11 +18107,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"AsvfacirU/KhbYnfiA0BkvZyuLW4X1/MzHkLYMHcqKI=\""
+          "Value": "\"AKMwMs0+0bnJhbARx6fXpLetVfZc7grtSa/qprmZXhg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 06:52:51 GMT"
+          "Value": "Sat, 19 Apr 2025 17:19:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18026,7 +18129,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "5uw1dyfq7n"
+          "Value": "79ajq6j0uj"
         },
         {
           "Name": "label",
@@ -18034,18 +18137,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-AsvfacirU/KhbYnfiA0BkvZyuLW4X1/MzHkLYMHcqKI="
+          "Value": "sha256-AKMwMs0+0bnJhbARx6fXpLetVfZc7grtSa/qprmZXhg="
         }
       ]
     },
     {
       "Route": "js/user.js",
-      "AssetFile": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\obj\\Debug\\net9.0\\compressed\\pvh27uab2z-5uw1dyfq7n.gz",
+      "AssetFile": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\obj\\Debug\\net9.0\\compressed\\pvh27uab2z-79ajq6j0uj.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001369863014"
+          "Quality": "0.001366120219"
         }
       ],
       "ResponseHeaders": [
@@ -18055,15 +18158,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "729"
+          "Value": "731"
         },
         {
           "Name": "ETag",
-          "Value": "\"AsvfacirU/KhbYnfiA0BkvZyuLW4X1/MzHkLYMHcqKI=\""
+          "Value": "\"AKMwMs0+0bnJhbARx6fXpLetVfZc7grtSa/qprmZXhg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 06:52:51 GMT"
+          "Value": "Sat, 19 Apr 2025 17:19:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18083,13 +18186,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"gz7AY6irV1nydS/HD+l6Rk0yPZhMjC/cXXJWM50v2YE=\""
+          "Value": "W/\"qxxQ94h8aXtG52rbnNq/eewg5XPk3M1XEWrU+eAwR+8=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-gz7AY6irV1nydS/HD+l6Rk0yPZhMjC/cXXJWM50v2YE="
+          "Value": "sha256-qxxQ94h8aXtG52rbnNq/eewg5XPk3M1XEWrU+eAwR+8="
         }
       ]
     },
@@ -18104,7 +18207,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2726"
+          "Value": "2714"
         },
         {
           "Name": "Content-Type",
@@ -18112,11 +18215,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"gz7AY6irV1nydS/HD+l6Rk0yPZhMjC/cXXJWM50v2YE=\""
+          "Value": "\"qxxQ94h8aXtG52rbnNq/eewg5XPk3M1XEWrU+eAwR+8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 06:52:51 GMT"
+          "Value": "Sat, 19 Apr 2025 17:19:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18126,13 +18229,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-gz7AY6irV1nydS/HD+l6Rk0yPZhMjC/cXXJWM50v2YE="
+          "Value": "sha256-qxxQ94h8aXtG52rbnNq/eewg5XPk3M1XEWrU+eAwR+8="
         }
       ]
     },
     {
       "Route": "js/user.js.gz",
-      "AssetFile": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\obj\\Debug\\net9.0\\compressed\\pvh27uab2z-5uw1dyfq7n.gz",
+      "AssetFile": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\obj\\Debug\\net9.0\\compressed\\pvh27uab2z-79ajq6j0uj.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -18141,7 +18244,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "729"
+          "Value": "731"
         },
         {
           "Name": "Content-Type",
@@ -18149,11 +18252,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"AsvfacirU/KhbYnfiA0BkvZyuLW4X1/MzHkLYMHcqKI=\""
+          "Value": "\"AKMwMs0+0bnJhbARx6fXpLetVfZc7grtSa/qprmZXhg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 06:52:51 GMT"
+          "Value": "Sat, 19 Apr 2025 17:19:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18171,7 +18274,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-AsvfacirU/KhbYnfiA0BkvZyuLW4X1/MzHkLYMHcqKI="
+          "Value": "sha256-AKMwMs0+0bnJhbARx6fXpLetVfZc7grtSa/qprmZXhg="
         }
       ]
     },

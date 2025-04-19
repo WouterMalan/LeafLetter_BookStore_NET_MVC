@@ -93,7 +93,6 @@ namespace BookStoreWeb.Areas.Admin.Controllers
 
                 _unitOfWork.Save();
 
-                // Save images to the root folder
                 string webRootPath = _webHostEnvironment.WebRootPath;
 
                 if (files != null)
@@ -101,7 +100,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
                     foreach (IFormFile file in files)
                     {
                         string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
-                        string productPath = @"images\product\product-" + productVm.Product.Id;
+                        string productPath = Path.Combine("images", "product");
                         string finalPath = Path.Combine(webRootPath, productPath);
 
                         if (!Directory.Exists(finalPath))
@@ -114,10 +113,10 @@ namespace BookStoreWeb.Areas.Admin.Controllers
                             file.CopyTo(fileStream);
                         }
 
-                        ProductImage productImages = new ProductImage
+                        ProductImage productImage = new ProductImage
                         {
                             ProductId = productVm.Product.Id,
-                            ImageUrl = @"\" + productPath + @"\" + fileName
+                            ImageUrl = "/" + Path.Combine(productPath, fileName).Replace("\\", "/")
                         };
 
                         if (productVm.Product.ProductImages == null)
@@ -125,23 +124,24 @@ namespace BookStoreWeb.Areas.Admin.Controllers
                             productVm.Product.ProductImages = new List<ProductImage>();
                         }
 
-                        productVm.Product.ProductImages.Add(productImages);
+                        productVm.Product.ProductImages.Add(productImage);
                     }
 
                     _unitOfWork.Product.Update(productVm.Product);
                     _unitOfWork.Save();
                 }
 
-                TempData["Success"] = "Product created/updated successfully";
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
             else
             {
-                productVm.CategoryList = _unitOfWork.Category.GetAll().Select(x => new SelectListItem
-                {
-                    Text = x.Name,
-                    Value = x.Id.ToString()
-                });
+                productVm.CategoryList = _unitOfWork.Category
+                    .GetAll()
+                    .Select(u => new SelectListItem
+                    {
+                        Text = u.Name,
+                        Value = u.Id.ToString()
+                    });
 
                 return View(productVm);
             }
@@ -149,7 +149,10 @@ namespace BookStoreWeb.Areas.Admin.Controllers
 
         public IActionResult DeleteImage(int imageId)
         {
-            ProductImage productImage = _unitOfWork.ProductImage.Get(x => x.Id == imageId);
+            ProductImage productImage = 
+                _unitOfWork
+                    .ProductImage
+                    .Get(x => x.Id == imageId);
 
             if (productImage != null)
             {
