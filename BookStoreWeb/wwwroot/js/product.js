@@ -1,18 +1,12 @@
-var dataTable;
 
 $(document).ready(function () {
     loadDataTable();
 });
 
-// Load DataTable
 function loadDataTable() {
     dataTable = $('#productTable').DataTable({
-        "ajax": {
-            url: '/admin/product/getall',
-            dataSrc: function(json) {
-                console.log(json);
-                return json;
-            }
+        ajax: {
+            url: '/admin/product/getall'
         },
         "columns": [
             { data: 'title', width: '25%' },
@@ -20,7 +14,7 @@ function loadDataTable() {
             { data: 'listPrice', width: '10%' },
             { data: 'author', width: '15%' },
             {
-                data: 'category', 
+                data: 'category',
                 width: '10%',
                 "render": function(data, type, row) {
                     return data ? data.name : '';
@@ -46,32 +40,30 @@ function loadDataTable() {
     });
 }
 
-
-function Delete(url)
-{
+function Delete(url) {
     Swal.fire({
-        title: "Are you sure?",
+        title: 'Are you sure?',
         text: "You won't be able to revert this!",
-        icon: "warning",
+        icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
-      }).then((result) => {
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
-                type: "DELETE",
                 url: url,
+                type: 'DELETE',
                 success: function (data) {
                     if (data.success) {
-                        toastr.success(data.message);
                         dataTable.ajax.reload();
+                        toastr.success(data.message);
                     }
                     else {
                         toastr.error(data.message);
                     }
                 }
-            });
+            })
         }
-      });
+    })
 }

@@ -14,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
 // Build the connection string
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
@@ -26,8 +27,6 @@ if (builder.Environment.IsProduction())
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
 
 builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
 

@@ -30,6 +30,7 @@ namespace Bulky.DataAccess.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // For Identity
             base.OnModelCreating(modelBuilder);
         
             modelBuilder.Entity<Category>().HasData(

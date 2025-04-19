@@ -173,35 +173,17 @@ namespace BookStoreWeb.Areas.Admin.Controllers
 
             return RedirectToAction("Upsert", new { id = productImage.ProductId });
         }
-
-        // [HttpPost,
-        //  ActionName("Delete")]
-        //   public IActionResult DeletePost(int? id)
-        // {
-        //     if (id == 0)
-        //     {
-        //         return NotFound();
-        //     }
-
-        //     Product productFromDb = _unitOfWork.Product.Get(x => x.Id == id);
-
-        //     if (productFromDb == null)
-        //     {
-        //         return NotFound();
-        //     }
-
-        //     _unitOfWork.Product.Delete(productFromDb);
-        //     _unitOfWork.Save();
-        //     TempData["Success"] = "Product deleted successfully";
-        //     return RedirectToAction("Index");
-        // }
-
+        
         #region API CALLS
 
         [HttpGet]
         public IActionResult GetAll()
         {
-            List<Product> allObjProduct = _unitOfWork.Product.GetAll(includeProperties: "Category").ToList();
+            List<Product> allObjProduct = 
+                _unitOfWork
+                .Product
+                .GetAll(includeProperties: "Category").ToList();
+            
             return Json(new { data = allObjProduct });
         }
 
