@@ -23,7 +23,7 @@ namespace BookStoreWeb.Areas.Customer.Controllers
         public IActionResult Index()
         {
             IEnumerable<Product> productList =
-                    _unitOfWork
+                _unitOfWork
                     .Product
                     .GetAll(includeProperties: "Category,ProductImages");
 
@@ -34,10 +34,10 @@ namespace BookStoreWeb.Areas.Customer.Controllers
         {
             ShoppingCart cart = new ShoppingCart()
             {
-                Product = 
+                Product =
                     _unitOfWork
-                    .Product
-                    .Get(u => u.Id == productId, includeProperties: "Category,ProductImages"),
+                        .Product
+                        .Get(u => u.Id == productId, includeProperties: "Category,ProductImages"),
                 Count = 1,
                 ProductId = productId
             };
@@ -49,41 +49,44 @@ namespace BookStoreWeb.Areas.Customer.Controllers
         [Authorize]
         public IActionResult Details(ShoppingCart shoppingCart)
         {
-            var claimsIdentity = (ClaimsIdentity)User.Identity;
-            var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
-
-            shoppingCart.ApplicationUserId = userId;
-
-            ShoppingCart cartFromDb =
-                _unitOfWork
-                    .ShoppingCart
-                    .Get(x => x.ApplicationUserId == userId && x.ProductId == shoppingCart.ProductId);
-
-            if (cartFromDb != null)
+            try
             {
-                //shopping cart exist
-                cartFromDb.Count += shoppingCart.Count;
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-                _unitOfWork.ShoppingCart.Update(cartFromDb);
+                if (string.IsNullOrEmpty(userId))
+                {
+                    return RedirectToAction("Login", "Account", new { area = "Identity" });
+                }
+
+                shoppingCart.ApplicationUserId = userId;
+
+                var cartFromDb = _unitOfWork.ShoppingCart
+                    .Get(x => x.ApplicationUserId == userId &&
+                              x.ProductId == shoppingCart.ProductId);
+
+                if (cartFromDb != null)
+                {
+                    cartFromDb.Count += shoppingCart.Count;
+                    _unitOfWork.ShoppingCart.Update(cartFromDb);
+                }
+                else
+                {
+                    _unitOfWork.ShoppingCart.Add(shoppingCart);
+                }
 
                 _unitOfWork.Save();
+                UpdateCartItemCount(userId);
+
+                TempData["Success"] = "Product added to cart successfully";
+                return RedirectToAction(nameof(Index));
             }
-            else
+            catch (Exception ex)
             {
-                //add cart record
-                _unitOfWork.ShoppingCart.Add(shoppingCart);
+                _logger.LogError(ex, "Error adding item to cart");
+                TempData["Error"] = "Failed to add product to cart";
 
-                _unitOfWork.Save();
-
-                HttpContext
-                    .Session
-                    .SetInt32(SD.SessionCart,
-                        _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == userId).Count());
+                return RedirectToAction(nameof(Details), new { productId = shoppingCart.ProductId });
             }
-
-            TempData["Success"] = "Product added to cart successfully";
-
-            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult Privacy()
@@ -95,6 +98,15 @@ namespace BookStoreWeb.Areas.Customer.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+
+        private void UpdateCartItemCount(string userId)
+        {
+            var cartItemCount = _unitOfWork.ShoppingCart
+                .GetAll(u => u.ApplicationUserId == userId)
+                .Count();
+            HttpContext.Session.SetInt32(SD.SessionCart, cartItemCount);
         }
     }
 }

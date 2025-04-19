@@ -54,7 +54,7 @@ namespace Bulky.DataAccess.Data
                     PhoneNumber = "1234567890" },
                 new Company {
                     Id = 2, 
-                    Name = "Vivid Books", 
+                    Name = "Online Books", 
                     StreetAddress = "456 Main St", 
                     City = "New York", 
                     State = "NY", 

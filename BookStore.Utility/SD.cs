@@ -1,17 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Bulky.Utility
 {
     public static class SD
     {
         // Roles
-        public const string Role_Customer = "Customer";
-        public const string Role_Company = "Company";
-        public const string Role_Admin = "Admin";
-        public const string Role_Employee = "Employee";
+        public const string RoleCustomer = "Customer";
+        public const string RoleCompany = "Company";
+        public const string RoleAdmin = "Admin";
+        public const string RoleEmployee = "Employee";
 
         // Order Status
         public const string StatusPending = "Pending";

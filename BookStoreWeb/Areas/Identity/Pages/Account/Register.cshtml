@@ -5,15 +5,13 @@
     <div class="card-header bg-secondary bg-gradient ml-0 py-4">
         <div class="row">
             <div class="col-12 text-center">
-            @if (User.IsInRole(SD.Role_Admin))
+            @if (User.IsInRole(SD.RoleAdmin))
             {
                 <h2 class="py-2 text-white">Register - Admin Portal</h2>
             }
             else{
                 <h2 class="py-2 text-white">Register</h2>
             }
-
-          
         </div>
         </div>
     </div>
@@ -71,7 +69,8 @@
                 <label asp-for="Input.PostalAddress" class="ms-2 text-muted">Postal Address</label>
                 <span asp-validation-for="Input.PostalAddress" class="text-danger"></span>
             </div>
-            @if (User.IsInRole(SD.Role_Admin))
+            
+            @if (User.IsInRole(SD.RoleAdmin))
             {
                 <div class="form-floating mb-3 col-md-6">
                 <select asp-for="Input.Role" asp-items="@Model.Input.RoleList" class="form-select">
@@ -84,12 +83,13 @@
                 </select>
             </div>
             }
+            
             <div class="col-12">
                 <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
             </div>
         </form>
     </div>
-   @if (!User.IsInRole(SD.Role_Admin))
+   @if (!User.IsInRole(SD.RoleAdmin))
    {
      <div class="col-md-12 p-3 text-center">
         
@@ -130,20 +130,29 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    
     <script>
         $(document).ready(function() {
+            var roleSelected = $('#Input_Role option:selected').text();
+            
+            if(roleSelected == 'Company') {
+                $('#Input_CompanyId').show();
+            } else {
+                $('#Input_CompanyId').hide();
+            }
+
+            // Change event handler
             $('#Input_Role').change(function(){
                 var roleSelected = $('#Input_Role option:selected').text();
 
-                if(role == 'Company')
-                {
-                    $('Input_CompanyId').show();
+                if(roleSelected == 'Company') {
+                    $('#Input_CompanyId').show();
+                } else {
+                    $('#Input_CompanyId').hide();
                 }
-                else
-                {
-                    $('Input_CompanyId').hide();
-                }
-            })
-        })
+            });
+        });
     </script>
+}
+
 }

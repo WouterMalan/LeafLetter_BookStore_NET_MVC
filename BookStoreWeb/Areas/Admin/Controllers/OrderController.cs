@@ -47,7 +47,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
+        [Authorize(Roles = SD.RoleAdmin + "," + SD.RoleEmployee)]
         public IActionResult UpdateOrderDetail()
         {
             var orderHeaderFromDb = unitOfWork.OrderHeader.Get(u => u.Id == OrderVM.OrderHeader.Id);
@@ -77,7 +77,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
+        [Authorize(Roles = SD.RoleAdmin + "," + SD.RoleEmployee)]
         public IActionResult StartProcessing()
         {
             unitOfWork.OrderHeader.UpdateStatus(OrderVM.OrderHeader.Id, SD.StatusInProcess);
@@ -89,7 +89,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
+        [Authorize(Roles = SD.RoleAdmin + "," + SD.RoleEmployee)]
         public IActionResult ShipOrder()
         {
             var orderHeader = unitOfWork.OrderHeader.Get(u => u.Id == OrderVM.OrderHeader.Id);
@@ -115,7 +115,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
+        [Authorize(Roles = SD.RoleAdmin + "," + SD.RoleEmployee)]
         public IActionResult CancelOrder()
         {
             var orderHeader = unitOfWork.OrderHeader.Get(u => u.Id == OrderVM.OrderHeader.Id);
@@ -225,7 +225,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
         {
             IEnumerable<OrderHeader> objOrderHeaders;
             
-            if(User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+            if(User.IsInRole(SD.RoleAdmin) || User.IsInRole(SD.RoleEmployee))
             {
                 objOrderHeaders = unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser");
             }

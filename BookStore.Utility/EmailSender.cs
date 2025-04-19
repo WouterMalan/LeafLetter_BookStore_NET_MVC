@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Configuration;
 using SendGrid.Helpers.Mail;
@@ -22,12 +18,12 @@ namespace Bulky.Utility
             var client = new SendGrid.SendGridClient(SendGridSecret);
 
             //TODO: Change the email address to a real one
-            var from = new EmailAddress("testingSendGrid@gmail.com", "Bulky Book");
+            var from = new EmailAddress("testingSendGrid@gmail.com", "Book Store");
             var to = new EmailAddress(email);
 
-            var msg = MailHelper.CreateSingleEmail(from, to, subject, "", htmlMessage);
+            var message = MailHelper.CreateSingleEmail(from, to, subject, "", htmlMessage);
 
-            return client.SendEmailAsync(msg);
+            return client.SendEmailAsync(message);
         }
     }
 }

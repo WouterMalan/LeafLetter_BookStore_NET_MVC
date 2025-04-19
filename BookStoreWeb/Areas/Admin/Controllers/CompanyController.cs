@@ -1,35 +1,28 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using Bulky.DataAccess.Repository.IRepository;
 using Bulky.Models;
 using Bulky.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace BookStoreWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = SD.Role_Admin)]
+    [Authorize(Roles = SD.RoleAdmin)]
     public class CompanyController : Controller
     {
-         private readonly IUnitOfWork unitOfWork;
+         private readonly IUnitOfWork _unitOfWork;
 
         private readonly ILogger<CompanyController> _logger;
 
         public CompanyController(ILogger<CompanyController> logger, IUnitOfWork unitOfWork)
         {
             _logger = logger;
-            this.unitOfWork = unitOfWork;
+            _unitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
         {
-            List<Company> companyList = unitOfWork.Company.GetAll().OrderBy(x => x.Name).ToList();
+            List<Company> companyList = _unitOfWork.Company.GetAll().OrderBy(x => x.Name).ToList();
 
             return View(companyList);
         }
@@ -50,7 +43,8 @@ namespace BookStoreWeb.Areas.Admin.Controllers
             else
             {
                 //Update
-                Company company = unitOfWork.Company.Get(x => x.Id == id);
+                Company company = _unitOfWork.Company.Get(x => x.Id == id);
+                
                 if (company == null)
                 {
                     return NotFound();
@@ -67,14 +61,15 @@ namespace BookStoreWeb.Areas.Admin.Controllers
             {
                 if(company.Id ==0)
                 {
-                    unitOfWork.Company.Add(company);
+                    _unitOfWork.Company.Add(company);
                 }
                 else
                 {
-                    unitOfWork.Company.Update(company);
+                    _unitOfWork.Company.Update(company);
                 }
 
-                unitOfWork.Save();
+                _unitOfWork.Save();
+                
                 TempData["Success"] = "Company created successfully.";
 
                 return RedirectToAction(nameof(Index));
@@ -89,7 +84,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            List<Company> companyList = unitOfWork.Company.GetAll().ToList();
+            List<Company> companyList = _unitOfWork.Company.GetAll().ToList();
 
             return Json(new { data = companyList });
         }
@@ -97,15 +92,15 @@ namespace BookStoreWeb.Areas.Admin.Controllers
         [HttpDelete]
         public IActionResult Delete(int? id)
         {
-            var companyToBeDeleted = unitOfWork.Company.Get(x => x.Id == id);
+            var companyToBeDeleted = _unitOfWork.Company.Get(x => x.Id == id);
 
             if (companyToBeDeleted == null)
             {
                 return Json(new { success = false, message = "Error while deleting." });
             }
 
-            unitOfWork.Company.Delete(companyToBeDeleted);
-            unitOfWork.Save();
+            _unitOfWork.Company.Delete(companyToBeDeleted);
+            _unitOfWork.Save();
 
             return Json(new { success = true, message = "Company deleted successfully." });
         }

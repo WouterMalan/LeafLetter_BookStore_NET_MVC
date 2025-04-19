@@ -9,10 +9,6 @@ function loadDataTable() {
     dataTable = $('#companyTable').DataTable({
         "ajax": {
             url: '/admin/company/getall'
-            // dataSrc: function(json) {
-            //     console.log(json);
-            //     return json;
-            // }
         },
         "columns": [
             { data: 'name', width: '15%' },

@@ -30,9 +30,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
 
-builder.Services.ConfigureApplicationCookie(option => {
+builder.Services.ConfigureApplicationCookie(option =>
+{
     option.LoginPath = $"/Identity/Account/Login";
     option.LogoutPath = $"/Identity/Account/Logout";
     option.AccessDeniedPath = $"/Identity/Account/AccessDenied";
@@ -44,7 +46,8 @@ builder.Services.ConfigureApplicationCookie(option => {
 //     option.AppSecret = builder.Configuration["Authentication:Facebook:AppSecret"];
 // });
 
-builder.Services.AddAuthentication().AddMicrosoftAccount(option => {
+builder.Services.AddAuthentication().AddMicrosoftAccount(option =>
+{
     option.ClientId = builder.Configuration["Authentication:Microsoft:ClientId"];
     option.ClientSecret = builder.Configuration["Authentication:Microsoft:ClientSecret"];
 });
@@ -61,7 +64,8 @@ builder.Services.Configure<StripeSettings>(configuration =>
 });
 
 builder.Services.AddDistributedMemoryCache();
-builder.Services.AddSession(option => {
+builder.Services.AddSession(option =>
+{
     option.IdleTimeout = TimeSpan.FromMinutes(100);
     option.Cookie.HttpOnly = true;
     option.Cookie.IsEssential = true;

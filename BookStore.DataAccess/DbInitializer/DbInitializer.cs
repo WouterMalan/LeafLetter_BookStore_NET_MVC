@@ -43,12 +43,12 @@ namespace Bulky.DataAccess.DBInitializer
             }
 
             //create roles if they are not created
-            if (!this.roleManager.RoleExistsAsync(SD.Role_Customer).GetAwaiter().GetResult())
+            if (!this.roleManager.RoleExistsAsync(SD.RoleCustomer).GetAwaiter().GetResult())
             {
-                this.roleManager.CreateAsync(new IdentityRole(SD.Role_Customer)).GetAwaiter().GetResult();
-                this.roleManager.CreateAsync(new IdentityRole(SD.Role_Admin)).GetAwaiter().GetResult();
-                this.roleManager.CreateAsync(new IdentityRole(SD.Role_Employee)).GetAwaiter().GetResult();
-                this.roleManager.CreateAsync(new IdentityRole(SD.Role_Company)).GetAwaiter().GetResult();
+                this.roleManager.CreateAsync(new IdentityRole(SD.RoleCustomer)).GetAwaiter().GetResult();
+                this.roleManager.CreateAsync(new IdentityRole(SD.RoleAdmin)).GetAwaiter().GetResult();
+                this.roleManager.CreateAsync(new IdentityRole(SD.RoleEmployee)).GetAwaiter().GetResult();
+                this.roleManager.CreateAsync(new IdentityRole(SD.RoleCompany)).GetAwaiter().GetResult();
 
                 //if roles are not created, then we wil create admin user as well.
                 userManager.CreateAsync(new ApplicationUser
@@ -65,7 +65,7 @@ namespace Bulky.DataAccess.DBInitializer
                 }, "Admin123*").GetAwaiter().GetResult();
 
                 ApplicationUser user = this.dbContext.ApplicationUsers.Where(u => u.Email == "admin@email.com").FirstOrDefault();
-                this.userManager.AddToRoleAsync(user, SD.Role_Admin).GetAwaiter().GetResult();
+                this.userManager.AddToRoleAsync(user, SD.RoleAdmin).GetAwaiter().GetResult();
             }
 
             return ;

@@ -15,7 +15,7 @@ using NuGet.Protocol.Plugins;
 namespace BookStoreWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = SD.Role_Admin)]
+    [Authorize(Roles = SD.RoleAdmin)]
     public class UserController : Controller
     {
          private readonly RoleManager<IdentityRole> roleManager;
@@ -68,12 +68,12 @@ namespace BookStoreWeb.Areas.Admin.Controllers
             if (!(roleVM.ApplicationUser.Role == oldRole))
             {
                 // a role change has been made
-                if (roleVM.ApplicationUser.Role == SD.Role_Company)
+                if (roleVM.ApplicationUser.Role == SD.RoleCompany)
                 {
                     applicationUser.CompanyId = roleVM.ApplicationUser.CompanyId;
                 }
 
-                if (oldRole == SD.Role_Company)
+                if (oldRole == SD.RoleCompany)
                 {
                     applicationUser.CompanyId = null;
                 }
@@ -86,7 +86,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
             }
             else{
                 // no role change has been made
-                if (oldRole == SD.Role_Company && roleVM.ApplicationUser.CompanyId != applicationUser.CompanyId)
+                if (oldRole == SD.RoleCompany && roleVM.ApplicationUser.CompanyId != applicationUser.CompanyId)
                 {
                     applicationUser.CompanyId = roleVM.ApplicationUser.CompanyId;
                     this.unitOfWork.ApplicationUser.Update(applicationUser);
