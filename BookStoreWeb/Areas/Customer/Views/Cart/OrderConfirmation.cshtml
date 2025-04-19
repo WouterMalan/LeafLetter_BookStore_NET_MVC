@@ -1,13 +1,64 @@
+
 @model int
 
-<div class="container row pt-4">
-    <div class="col-12 text-center">
-        <h1 class="text-primary text-center">Order Placed Successfully</h1>
-        Your Order ID is: <strong>@Model</strong><br/><br/>
-        <img src="~/images/lawn_leaf.jpg" width="65%" alt="lawn leaf" />
-    </div>
-    <div class="col-12 text-center" style="color: maroon;">
-        <br/>
-        Your order has been placed successfully! <br/>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow border-0">
+                <div class="card-header bg-success text-white text-center py-4">
+                    <i class="bi bi-check-circle-fill" style="font-size: 3rem;"></i>
+                    <h2 class="mt-2">Thank You for Your Order!</h2>
+                </div>
+                <div class="card-body p-4">
+                    <div class="text-center mb-4">
+                        <h4 class="text-muted">Order #@Model has been placed successfully</h4>
+                        <div class="border-bottom my-4"></div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="card h-100 border-0 bg-light">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="bi bi-info-circle me-2"></i>Order Details
+                                    </h5>
+                                    <p class="card-text">
+                                        Your order confirmation has been sent to your email address.
+                                        Please keep this order number for your reference.
+                                    </p>
+                                    <p class="fw-bold">Order ID: <span class="text-primary">@Model</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="card h-100 border-0 bg-light">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="bi bi-truck me-2"></i>Shipping Information
+                                    </h5>
+                                    <p class="card-text">
+                                        Your order will be processed within 1-2 business days.
+                                        You will receive a shipping confirmation email once your order has been shipped.
+                                    </p>
+                                    <p>Estimated delivery: <span class="fw-bold">@DateTime.Now.AddDays(7).ToShortDateString() - @DateTime.Now.AddDays(14).ToShortDateString()</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <a asp-area="Customer" asp-controller="Home" asp-action="Index" class="btn btn-primary">
+                            <i class="bi bi-house-door me-2"></i>Continue Shopping
+                        </a>
+                        <a asp-area="Admin" asp-controller="Order" asp-action="Details" asp-route-orderId="@Model" class="btn btn-outline-primary ms-2">
+                            <i class="bi bi-eye me-2"></i>View Order Details
+                        </a>
+                    </div>
+                </div>
+                <div class="card-footer bg-light text-center py-3">
+                    <p class="text-muted mb-0">Thank you for shopping with us!</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

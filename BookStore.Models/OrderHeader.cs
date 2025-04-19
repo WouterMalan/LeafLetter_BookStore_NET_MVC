@@ -9,8 +9,7 @@ namespace Bulky.Models
         public int Id { get; set; }
 
         public string ApplicationUserId { get; set; }
-
-
+        
         [ForeignKey("ApplicationUserId")]
         [ValidateNever]
         public ApplicationUser ApplicationUser { get; set; }
@@ -41,6 +40,7 @@ namespace Bulky.Models
         public string Name { get; set; }
 
         [Required]
+        [Display(Name = "Street Address")]
         public string StreetAddress { get; set; }
 
         [Required]
@@ -50,10 +50,11 @@ namespace Bulky.Models
         public string State { get; set; }
         
         [Required]
+        [Display(Name = "Postal Code")]
         public string PostalAddress { get; set; }
 
         [Required]
+        [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
-
     }
 }

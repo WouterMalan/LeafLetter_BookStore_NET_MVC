@@ -17,5 +17,10 @@ namespace Bulky.DataAccess.Repository
         {
             _dbContext.OrderDetails.Update(obj);
         }
+        
+        public void AddRange(IEnumerable<OrderDetail> entities)
+        {
+            _dbContext.OrderDetails.AddRange(entities);
+        }
     }
 }
