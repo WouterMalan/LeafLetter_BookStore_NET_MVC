@@ -90,7 +90,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
+
 app.UseRouting();
 app.UseAuthentication();
 app.UseSession();
@@ -107,9 +109,9 @@ app.Run();
 
 void SeedDataBase()
 {
-    using (var scope = app.Services.CreateScope())
-    {
-        var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
-        dbInitializer.Initialize();
-    }
+    using var scope = app.Services.CreateScope();
+    
+    var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+    
+    dbInitializer.Initialize();
 }

@@ -146,6 +146,7 @@ namespace BookStoreWeb.Areas.Identity.Pages.Account
 
             // Sign in the user with this external login provider if the user already has a login.
             var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
+            
             if (result.Succeeded)
             {
                 _logger.LogInformation("{Name} logged in with {LoginProvider} provider.", info.Principal.Identity.Name, info.LoginProvider);
@@ -175,8 +176,10 @@ namespace BookStoreWeb.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPostConfirmationAsync(string returnUrl = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");
+           
             // Get the information about the user from the external login provider
             var info = await _signInManager.GetExternalLoginInfoAsync();
+         
             if (info == null)
             {
                 ErrorMessage = "Error loading external login information during confirmation.";
@@ -198,11 +201,14 @@ namespace BookStoreWeb.Areas.Identity.Pages.Account
                 user.PhoneNumber = Input.PhoneNumber;
 
                 var result = await _userManager.CreateAsync(user);
+               
                 if (result.Succeeded)
                 {
+                    // Default role for new users is Customer
                     await _userManager.AddToRoleAsync(user, SD.RoleCustomer);
                     
                     result = await _userManager.AddLoginAsync(user, info);
+                    
                     if (result.Succeeded)
                     {
                         _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);

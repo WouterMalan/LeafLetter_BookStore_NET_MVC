@@ -1,11 +1,13 @@
 ﻿using Bulky.DataAccess.Repository.IRepository;
 using Bulky.Models;
+using Bulky.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStoreWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    // [Authorize(Roles =SD.Role_Admin)]
+    [Authorize(Roles =SD.RoleAdmin)]
     public class CategoryController : Controller
     {
         public CategoryController(IUnitOfWork unitOfWork)

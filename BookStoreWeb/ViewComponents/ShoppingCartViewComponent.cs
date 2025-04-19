@@ -7,11 +7,11 @@ namespace BookStoreWeb.ViewComponents
 {
     public class ShoppingCartViewComponent : ViewComponent
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
         public ShoppingCartViewComponent(IUnitOfWork unitOfWork)
         {
-            this.unitOfWork = unitOfWork;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
@@ -23,12 +23,17 @@ namespace BookStoreWeb.ViewComponents
             {
                 if (HttpContext.Session.GetInt32(SD.SessionCart) == null)
                 {
-                    HttpContext.Session.SetInt32(SD.SessionCart, this.unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value).ToList().Count);
+                    HttpContext.Session
+                        .SetInt32(SD.SessionCart,
+                            _unitOfWork.ShoppingCart
+                                .GetAll(u => u.ApplicationUserId == claim.Value)
+                                .ToList().Count);
                 }
 
                 return View(HttpContext.Session.GetInt32(SD.SessionCart));
             }
-            else{
+            else
+            {
                 HttpContext.Session.Clear();
                 return View(0);
             }

@@ -1,29 +1,13 @@
 var dataTable;
 
-$(document).ready(function () {
-    var url = window.location.search;
-
-    if (url.includes("inprocess")) {
-        loadDataTable("inprocess");
-    }
-    else {
-        if (url.includes("completed")) {
-            loadDataTable("completed");
-        }
-        else {
-            if (url.includes("pending")) {
-                loadDataTable("pending");
-            }
-            else {
-                if (url.includes("approved")) {
-                    loadDataTable("approved");
-                }
-                else {
-                    loadDataTable("all");
-                }
-            }
-        }
-    }
+$(document).ready(() => {
+    const url = window.location.search;
+    
+    const orderStatuses = ['inprocess', 'completed', 'pending', 'approved'];
+    
+    const status = orderStatuses.find(status => url.includes(status)) || 'all';
+    
+    loadDataTable(status);
 });
 
 // Load DataTable
@@ -31,10 +15,6 @@ function loadDataTable(status) {
     dataTable = $('#orderTable').DataTable({
         "ajax": {
             url: '/admin/order/getall?status=' + status
-            // dataSrc: function(json) {
-            //     console.log(json);
-            //     return json;
-            // }
         },
         "columns": [
             { data: 'id', width: '25%' },

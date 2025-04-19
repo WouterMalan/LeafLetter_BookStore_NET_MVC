@@ -1,6 +1,3 @@
-
-using System.Diagnostics;
-using Bulky.DataAccess.Data;
 using Bulky.DataAccess.Repository.IRepository;
 using Bulky.Models;
 using Bulky.Models.ViewModels;
@@ -9,8 +6,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using NuGet.Protocol.Plugins;
 
 namespace BookStoreWeb.Areas.Admin.Controllers
 {
@@ -18,18 +13,19 @@ namespace BookStoreWeb.Areas.Admin.Controllers
     [Authorize(Roles = SD.RoleAdmin)]
     public class UserController : Controller
     {
-         private readonly RoleManager<IdentityRole> roleManager;
-         private readonly UserManager<IdentityUser> userManager;
-         private readonly IUnitOfWork unitOfWork;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly IUnitOfWork _unitOfWork;
 
         private readonly ILogger<UserController> _logger;
 
-        public UserController(ILogger<UserController> logger, IUnitOfWork unitOfWork, RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager)
+        public UserController(ILogger<UserController> logger, IUnitOfWork unitOfWork,
+            RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager)
         {
             _logger = logger;
-            this.unitOfWork = unitOfWork;
-            this.roleManager = roleManager;
-            this.userManager = userManager;
+            _unitOfWork = unitOfWork;
+            _roleManager = roleManager;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
@@ -41,29 +37,35 @@ namespace BookStoreWeb.Areas.Admin.Controllers
         {
             RoleManagementVM roleManagementVM = new RoleManagementVM()
             {
-                ApplicationUser = this.unitOfWork.ApplicationUser.Get(u => u.Id == userId, includeProperties: "Company"),
-                RoleList = roleManager.Roles.Select(i => new SelectListItem
+                ApplicationUser =
+                    this._unitOfWork.ApplicationUser.Get(u => u.Id == userId, includeProperties: "Company"),
+                RoleList = _roleManager.Roles.Select(i => new SelectListItem
                 {
                     Text = i.Name,
                     Value = i.Id
                 }),
-                CompanyList = this.unitOfWork.Company.GetAll().Select(i => new SelectListItem
+                CompanyList = this._unitOfWork.Company.GetAll().Select(i => new SelectListItem
                 {
                     Text = i.Name,
                     Value = i.Id.ToString()
                 })
             };
 
-            roleManagementVM.ApplicationUser.Role = userManager.GetRolesAsync(unitOfWork.ApplicationUser.Get(u => u.Id == userId)).GetAwaiter().GetResult().FirstOrDefault();
+            roleManagementVM.ApplicationUser.Role = _userManager
+                .GetRolesAsync(_unitOfWork.ApplicationUser.Get(u => u.Id == userId)).GetAwaiter().GetResult()
+                .FirstOrDefault();
             return View(roleManagementVM);
         }
 
         [HttpPost]
-         public IActionResult RoleManagement(RoleManagementVM roleVM)
+        public IActionResult RoleManagement(RoleManagementVM roleVM)
         {
-            string oldRole = userManager.GetRolesAsync(unitOfWork.ApplicationUser.Get(u => u.Id == roleVM.ApplicationUser.Id)).GetAwaiter().GetResult().FirstOrDefault();
+            string oldRole = _userManager
+                .GetRolesAsync(_unitOfWork.ApplicationUser.Get(u => u.Id == roleVM.ApplicationUser.Id)).GetAwaiter()
+                .GetResult().FirstOrDefault();
 
-            ApplicationUser applicationUser = this.unitOfWork.ApplicationUser.Get(u => u.Id == roleVM.ApplicationUser.Id);
+            ApplicationUser applicationUser =
+                this._unitOfWork.ApplicationUser.Get(u => u.Id == roleVM.ApplicationUser.Id);
 
             if (!(roleVM.ApplicationUser.Role == oldRole))
             {
@@ -78,19 +80,20 @@ namespace BookStoreWeb.Areas.Admin.Controllers
                     applicationUser.CompanyId = null;
                 }
 
-                this.unitOfWork.ApplicationUser.Update(applicationUser);
-                this.unitOfWork.Save();
+                _unitOfWork.ApplicationUser.Update(applicationUser);
+                _unitOfWork.Save();
 
-                this.userManager.RemoveFromRoleAsync(applicationUser, oldRole).GetAwaiter().GetResult();
-                this.userManager.AddToRoleAsync(applicationUser, roleVM.ApplicationUser.Role).GetAwaiter().GetResult();
+                _userManager.RemoveFromRoleAsync(applicationUser, oldRole).GetAwaiter().GetResult();
+                _userManager.AddToRoleAsync(applicationUser, roleVM.ApplicationUser.Role).GetAwaiter().GetResult();
             }
-            else{
+            else
+            {
                 // no role change has been made
                 if (oldRole == SD.RoleCompany && roleVM.ApplicationUser.CompanyId != applicationUser.CompanyId)
                 {
                     applicationUser.CompanyId = roleVM.ApplicationUser.CompanyId;
-                    this.unitOfWork.ApplicationUser.Update(applicationUser);
-                    this.unitOfWork.Save();
+                    _unitOfWork.ApplicationUser.Update(applicationUser);
+                    _unitOfWork.Save();
                 }
             }
 
@@ -102,26 +105,43 @@ namespace BookStoreWeb.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            List<ApplicationUser> userList = this.unitOfWork.ApplicationUser.GetAll(includeProperties: "Company").ToList();
-
-            foreach (var user in userList)
+            try
             {
-                user.Role = userManager.GetRolesAsync(user).GetAwaiter().GetResult().FirstOrDefault();
+                List<ApplicationUser> userList =
+                    _unitOfWork
+                        .ApplicationUser.GetAll(includeProperties: "Company")
+                        .ToList();
 
-                // if the user does not have a company, create a new company with an empty name
-                if (user.CompanyId == null)
+                foreach (var user in userList)
                 {
-                    user.Company = new Company() { Name = "" };
-                }
-            }
+                    user.Role = _userManager
+                        .GetRolesAsync(user)
+                        .GetAwaiter()
+                        .GetResult()
+                        .FirstOrDefault();
 
-            return Json(new { data = userList });
+                    // if the user does not have a company, create a new company with an empty name
+                    if (user.CompanyId == null)
+                    {
+                        user.Company = new Company() { Name = "" };
+                    }
+                }
+
+                return Json(new { data = userList });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Error while loading users" });
+            }
         }
 
         [HttpPost]
         public IActionResult LockUnlock([FromBody] string id)
         {
-            var objFromDb = this.unitOfWork.ApplicationUser.Get(u => u.Id == id);
+            var objFromDb =
+                _unitOfWork
+                    .ApplicationUser
+                    .Get(u => u.Id == id);
 
             if (objFromDb == null)
             {
@@ -138,8 +158,9 @@ namespace BookStoreWeb.Areas.Admin.Controllers
                 objFromDb.LockoutEnd = DateTime.Now.AddYears(1);
             }
 
-            this.unitOfWork.ApplicationUser.Update(objFromDb);
-            this.unitOfWork.Save();
+            _unitOfWork.ApplicationUser.Update(objFromDb);
+
+            _unitOfWork.Save();
 
             return Json(new { success = true, message = "Operation successfully." });
         }

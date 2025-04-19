@@ -13,15 +13,17 @@ namespace Bulky.DataAccess.Repository
             _dbContext = dbContext;
         }
 
-        public void Update(OrderHeader obj)
+        public void Update(OrderHeader orderHeader)
         {
-            _dbContext.OrderHeaders.Update(obj);
+            _dbContext.OrderHeaders.Update(orderHeader);
 
         }
 
         public void UpdateStatus(int id, string orderStatus, string? paymentStatus = null)
         {
-            var orderFromDb = _dbContext.OrderHeaders.FirstOrDefault(o => o.Id == id);
+            var orderFromDb = _dbContext
+                .OrderHeaders
+                .FirstOrDefault(orderHeader => orderHeader.Id == id);
 
             if(orderFromDb != null)
             {
@@ -36,7 +38,7 @@ namespace Bulky.DataAccess.Repository
 
         public void UpdateStripePaymentId(int id, string sessionId, string paymentIntentId)
         {
-            var orderFromDb = _dbContext.OrderHeaders.FirstOrDefault(o => o.Id == id);
+            var orderFromDb = _dbContext.OrderHeaders.FirstOrDefault(orderHeader => orderHeader.Id == id);
 
             if (orderFromDb != null)
             {

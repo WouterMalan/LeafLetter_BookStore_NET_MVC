@@ -1,9 +1,9 @@
 @model ShoppingCart
 
 <form method="post">
-    <input hidden asp-for="ProductId"/>
+    <input hidden asp-for="ProductId" />
     <div class="card shadow border-0 mt-4 mb-4">
-        <div class="card-header bg-secondary bg-gradient text-light py-4">
+        <div class="card-header bg-primary bg-gradient text-light py-4">
             <div class="row">
                 <div class="col-12 text-center">
                     <h3 class="text-white text-uppercase">@Model.Product.Title</h3>
@@ -15,9 +15,8 @@
             <div class="py-3">
                 <div class="row">
                     <div class="col-6 col-md-2 offset-lg-1 pb-1">
-                        <a asp-action="Index"
-                           class="btn btn-outline-primary bg-gradient mb-5 fw-semibold btn-sm text-uppercase">
-                            <small>Back to home</small>
+                        <a asp-action="Index" class="btn btn-outline-primary bg-gradient mb-5 fw-semibold btn-sm text-uppercase">
+                            <i class="bi bi-arrow-left"></i> Back to Books
                         </a>
                     </div>
                 </div>
@@ -25,103 +24,102 @@
                     <div class="col-12 col-lg-3 offset-lg-1 text-center mb-3">
                         @if (Model.Product.ProductImages != null && Model.Product.ProductImages.Count() > 0)
                         {
-                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                <ol class="carousel-indicators">
-                                    @foreach (var imageWithIndex in Model.Product
-                                                      .ProductImages
-                                                      .Select((value, index) => new { Value = value, Index = index }))
+                            <div id="bookCarousel" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    @foreach (var imageWithIndex in Model.Product.ProductImages.Select((value, index) => new { Value = value, Index = index }))
                                     {
-                                        <li data-target="#carouselExampleIndicators"
-                                            data-slide-to="@imageWithIndex.Index"
-                                            class="@(imageWithIndex.Index == 0 ? "active" : "")"></li>
+                                        <button type="button" data-bs-target="#bookCarousel" data-bs-slide-to="@imageWithIndex.Index"
+                                                class="@(imageWithIndex.Index == 0 ? "active" : "")"
+                                                aria-current="@(imageWithIndex.Index == 0 ? "true" : "false")"
+                                                aria-label="Slide @(imageWithIndex.Index + 1)"></button>
                                     }
-                                </ol>
-                                <div class="carousel-inner">
+                                </div>
+                                <div class="carousel-inner rounded shadow">
                                     @foreach (var imageWithIndex in Model.Product.ProductImages.Select((value, index) => new { Value = value, Index = index }))
                                     {
                                         <div class="carousel-item @(imageWithIndex.Index == 0 ? "active" : "")">
-                                            <img src="~/@imageWithIndex.Value.ImageUrl" class="d-block w-100" alt="...">
+                                            <img src="~/@imageWithIndex.Value.ImageUrl" class="d-block w-100" alt="@Model.Product.Title">
                                         </div>
                                     }
                                 </div>
-                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
-                                   data-slide="prev">
+                                <button class="carousel-control-prev" type="button" data-bs-target="#bookCarousel" data-bs-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
-                                   data-slide="next">
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#bookCarousel" data-bs-slide="next">
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
                             </div>
                         }
                     </div>
-
                     <div class="col-12 col-lg-6 offset-lg-1">
-
                         <div class="col-12 col-md-6 pb-4">
-                            <span class="badge">@Model.Product.Category.Name</span>
+                            <span class="badge bg-primary">@Model.Product.Category.Name</span>
                         </div>
                         <div class="row ps-2">
-                            <h6 class="text-dark text-opacity-50 ">ISBN : @Model.Product.ISBN</h6>
-                        </div>
-                        <div class="row ps-2">
-                            <h6 class="text-dark text-opacity-50  pb-2">List Price:
-                                <span class="text-decoration-line-through">
-                                    @Model.Product.ListPrice
-                                </span>
-                            </h6>
-                        </div>
-                        <div class="row text-center ps-2">
-                            <div class="p-1 col-3 col-lg-2 bg-white border-bottom">
-                                <div class="text-dark text-opacity-50 fw-semibold">Quantity</div>
-                            </div>
-                            <div class="p-1 col-3 col-lg-2 bg-white border-bottom">
-                                <div class="text-dark text-opacity-50 fw-semibold">1-50</div>
-                            </div>
-                            <div class="p-1 col-3 col-lg-2 bg-white border-bottom">
-                                <div class="text-dark text-opacity-50 fw-semibold">51-100</div>
-                            </div>
-                            <div class="p-1 col-3 col-lg-2 bg-white border-bottom">
-                                <div class="text-dark text-opacity-50 fw-semibold">100+</div>
+                            <div class="col-12">
+                                <h6 class="text-dark text-opacity-50 mb-3">
+                                    <i class="bi bi-book"></i> ISBN: @Model.Product.ISBN
+                                </h6>
                             </div>
                         </div>
-                        <div class="row text-center ps-2">
-                            <div class="p-1 col-3 col-lg-2 bg-white text-warning fw-bold">
-                                <div>Price</div>
-                            </div>
-                            <div class="p-1 col-3 col-lg-2 bg-white text-warning fw-bold">
-                                <div>@Model.Product.Price.ToString("c")</div>
-                            </div>
-                            <div class="p-1 col-3 col-lg-2 bg-white text-warning fw-bold">
-                                <div>@Model.Product.Price50.ToString("c")</div>
-                            </div>
-                            <div class="p-1 col-3 col-lg-2 bg-white text-warning fw-bold">
-                                <div>@Model.Product.Price100.ToString("c")</div>
+                        <div class="row ps-2 mb-4">
+                            <div class="col-12">
+                                <h5 class="text-dark">
+                                    <span class="text-decoration-line-through text-muted">@Model.Product.ListPrice.ToString("c")</span>
+                                    <span class="text-primary ms-2">@Model.Product.Price.ToString("c")</span>
+                                </h5>
                             </div>
                         </div>
-                        <div class="row pl-2 my-3">
-                            <p class="text-secondary lh-sm">@Html.Raw(Model.Product.Description)</p>
+                        <div class="row ps-2 mb-4">
+                            <div class="col-12">
+                                <h6 class="text-dark">Bulk Pricing</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead class="table-light">
+                                        <tr>
+                                            <th>Quantity</th>
+                                            <th>1-50</th>
+                                            <th>51-100</th>
+                                            <th>100+</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Price</td>
+                                            <td>@Model.Product.Price.ToString("c")</td>
+                                            <td>@Model.Product.Price50.ToString("c")</td>
+                                            <td>@Model.Product.Price100.ToString("c")</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
-                        <div class="row pl-2 mb-3">
+                        <div class="row ps-2 mb-4">
+                            <div class="col-12">
+                                <h6 class="text-dark mb-3">Description</h6>
+                                <div class="p-3 bg-light rounded">
+                                    @Html.Raw(Model.Product.Description)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ps-2 mb-4">
                             <div class="col-md-4">
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text bg-primary text-white border-0 fw-semibold"
-                                          id="inputGroup-sizing-default">
-                                        Count
+                                <div class="input-group">
+                                    <span class="input-group-text bg-primary text-white border-0">
+                                        <i class="bi bi-cart-plus"></i>
                                     </span>
                                     <input asp-for="Count" type="number" value="1" class="form-control text-end"
-                                           aria-label="Sizing example input"
-                                           aria-describedby="inputGroup-sizing-default"/>
+                                           min="1" max="100" />
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-6 pb-1">
-                                <button type="submit"
-                                        class="btn btn-primary bg-gradient  w-100 py-2 text-uppercase fw-semibold">
-                                    Add to Cart
+                                <button type="submit" class="btn btn-primary bg-gradient w-100 py-2 text-uppercase fw-semibold">
+                                    <i class="bi bi-cart-plus"></i> Add to Cart
                                 </button>
                             </div>
                         </div>
@@ -131,3 +129,16 @@
         </div>
     </div>
 </form>
+
+<style>
+    .carousel-item img {
+        max-height: 400px;
+        object-fit: contain;
+    }
+    .table {
+        font-size: 0.9rem;
+    }
+    .table th {
+        font-weight: 600;
+    }
+</style>

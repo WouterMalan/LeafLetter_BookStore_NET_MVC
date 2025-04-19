@@ -1,16 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using Bulky.DataAccess.Repository.IRepository;
 using Bulky.Models;
 using Bulky.Models.ViewModels;
 using Bulky.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Stripe;
 using Stripe.Checkout;
 
@@ -20,14 +14,13 @@ namespace BookStoreWeb.Areas.Admin.Controllers
     [Authorize]
     public class OrderController : Controller
     {
-        private readonly IUnitOfWork unitOfWork;
-        
-        [BindProperty]
-        public OrderVM OrderVM { get; set; }
+        private readonly IUnitOfWork _unitOfWork;
+
+        [BindProperty] public OrderVM OrderVm { get; set; }
 
         public OrderController(IUnitOfWork unitOfWork)
         {
-            this.unitOfWork = unitOfWork;
+            _unitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
@@ -37,64 +30,72 @@ namespace BookStoreWeb.Areas.Admin.Controllers
 
         public IActionResult Details(int orderId)
         {
-            OrderVM = new OrderVM()
+            OrderVm = new OrderVM()
             {
-                OrderHeader = unitOfWork.OrderHeader.Get(u => u.Id == orderId, includeProperties: "ApplicationUser"),
-                OrderDetails = unitOfWork.OrderDetail.GetAll(o => o.OrderHeaderId == orderId, includeProperties: "Product")
+                OrderHeader = _unitOfWork
+                    .OrderHeader
+                    .Get(u => u.Id == orderId, includeProperties: "ApplicationUser"),
+                OrderDetails =
+                    _unitOfWork
+                        .OrderDetail
+                        .GetAll(o => o.OrderHeaderId == orderId, includeProperties: "Product")
             };
 
-            return View(OrderVM);
+            return View(OrderVm);
         }
 
         [HttpPost]
         [Authorize(Roles = SD.RoleAdmin + "," + SD.RoleEmployee)]
         public IActionResult UpdateOrderDetail()
         {
-            var orderHeaderFromDb = unitOfWork.OrderHeader.Get(u => u.Id == OrderVM.OrderHeader.Id);
-            orderHeaderFromDb.Name = OrderVM.OrderHeader.Name;
-            orderHeaderFromDb.PhoneNumber = OrderVM.OrderHeader.PhoneNumber;
-            orderHeaderFromDb.StreetAddress = OrderVM.OrderHeader.StreetAddress;
-            orderHeaderFromDb.City = OrderVM.OrderHeader.City;
-            orderHeaderFromDb.State = OrderVM.OrderHeader.State;
-            orderHeaderFromDb.PostalAddress = OrderVM.OrderHeader.PostalAddress;
-
-            if (!string.IsNullOrWhiteSpace(OrderVM.OrderHeader.Carrier))
+            try
             {
-                orderHeaderFromDb.Carrier = OrderVM.OrderHeader.Carrier;
+                if (!ModelState.IsValid)
+                {
+                    TempData["Error"] = "Invalid order details";
+                    return RedirectToAction(nameof(Details), new { orderId = OrderVm.OrderHeader.Id });
+                }
+
+                var orderHeaderFromDb = _unitOfWork.OrderHeader.Get(u => u.Id == OrderVm.OrderHeader.Id)
+                                        ?? throw new InvalidOperationException(
+                                            $"Order {OrderVm.OrderHeader.Id} not found");
+
+                UpdateOrderBasicDetails(orderHeaderFromDb);
+
+                UpdateShippingDetails(orderHeaderFromDb);
+
+                _unitOfWork.OrderHeader.Update(orderHeaderFromDb);
+                _unitOfWork.Save();
+
+                TempData["Success"] = "Order details updated successfully";
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "Failed to update order details";
             }
 
-            if (!string.IsNullOrWhiteSpace(OrderVM.OrderHeader.TrackingNumber))
-            {
-                orderHeaderFromDb.Carrier = OrderVM.OrderHeader.TrackingNumber;
-            }
-
-            unitOfWork.OrderHeader.Update(orderHeaderFromDb);
-            unitOfWork.Save();
-
-            TempData["Success"] = "Order details updated successfully";
-
-            return RedirectToAction(nameof(Details), new { orderId = orderHeaderFromDb.Id });
+            return RedirectToAction(nameof(Details), new { orderId = OrderVm.OrderHeader.Id });
         }
 
         [HttpPost]
         [Authorize(Roles = SD.RoleAdmin + "," + SD.RoleEmployee)]
         public IActionResult StartProcessing()
         {
-            unitOfWork.OrderHeader.UpdateStatus(OrderVM.OrderHeader.Id, SD.StatusInProcess);
-            unitOfWork.Save();
+            _unitOfWork.OrderHeader.UpdateStatus(OrderVm.OrderHeader.Id, SD.StatusInProcess);
+            _unitOfWork.Save();
 
             TempData["Success"] = "Order is in process";
 
-            return RedirectToAction(nameof(Details), new { orderId = OrderVM.OrderHeader.Id });
+            return RedirectToAction(nameof(Details), new { orderId = OrderVm.OrderHeader.Id });
         }
 
         [HttpPost]
         [Authorize(Roles = SD.RoleAdmin + "," + SD.RoleEmployee)]
         public IActionResult ShipOrder()
         {
-            var orderHeader = unitOfWork.OrderHeader.Get(u => u.Id == OrderVM.OrderHeader.Id);
-            orderHeader.TrackingNumber = OrderVM.OrderHeader.TrackingNumber;
-            orderHeader.Carrier = OrderVM.OrderHeader.Carrier;
+            var orderHeader = _unitOfWork.OrderHeader.Get(u => u.Id == OrderVm.OrderHeader.Id);
+            orderHeader.TrackingNumber = OrderVm.OrderHeader.TrackingNumber;
+            orderHeader.Carrier = OrderVm.OrderHeader.Carrier;
             orderHeader.OrderStatus = SD.StatusShipped;
             orderHeader.ShippingDate = DateTime.Now;
 
@@ -103,25 +104,27 @@ namespace BookStoreWeb.Areas.Admin.Controllers
                 orderHeader.PaymentDueDate = DateOnly.FromDateTime(DateTime.Now.AddDays(30));
             }
 
-            unitOfWork.OrderHeader.Update(orderHeader);
-            unitOfWork.Save();
+            _unitOfWork.OrderHeader.Update(orderHeader);
+            _unitOfWork.Save();
 
-            unitOfWork.OrderHeader.UpdateStatus(OrderVM.OrderHeader.Id, SD.StatusShipped);
-            unitOfWork.Save();
+            _unitOfWork.OrderHeader.UpdateStatus(OrderVm.OrderHeader.Id, SD.StatusShipped);
+            
+            _unitOfWork.Save();
 
             TempData["Success"] = "Order is shipped";
 
-            return RedirectToAction(nameof(Details), new { orderId = OrderVM.OrderHeader.Id });
+            return RedirectToAction(nameof(Details), new { orderId = OrderVm.OrderHeader.Id });
         }
 
         [HttpPost]
         [Authorize(Roles = SD.RoleAdmin + "," + SD.RoleEmployee)]
         public IActionResult CancelOrder()
         {
-            var orderHeader = unitOfWork.OrderHeader.Get(u => u.Id == OrderVM.OrderHeader.Id);
+            var orderHeader = _unitOfWork.OrderHeader.Get(u => u.Id == OrderVm.OrderHeader.Id);
 
             if (orderHeader.PaymentStatus == SD.PaymentStatusApproved)
             {
+                // Stripe refund logic
                 var options = new RefundCreateOptions
                 {
                     Reason = RefundReasons.RequestedByCustomer,
@@ -131,68 +134,74 @@ namespace BookStoreWeb.Areas.Admin.Controllers
                 var service = new RefundService();
                 Refund refund = service.Create(options);
 
-                unitOfWork.OrderHeader.UpdateStatus(orderHeader.Id, SD.StatusCancelled, SD.StatusRefunded);
+                _unitOfWork.OrderHeader.UpdateStatus(orderHeader.Id, SD.StatusCancelled, SD.StatusRefunded);
             }
             else
             {
-                unitOfWork.OrderHeader.UpdateStatus(orderHeader.Id, SD.StatusCancelled);
+                _unitOfWork.OrderHeader.UpdateStatus(orderHeader.Id, SD.StatusCancelled);
             }
 
-            unitOfWork.Save();
+            _unitOfWork.Save();
             TempData["Success"] = "Order has been cancelled";
 
-            return RedirectToAction(nameof(Details), new { orderId = OrderVM.OrderHeader.Id });
-
+            return RedirectToAction(nameof(Details), new { orderId = OrderVm.OrderHeader.Id });
         }
 
         [ActionName("Details")]
         [HttpPost]
         public IActionResult Details_PAY_NOW()
         {
-            OrderVM.OrderHeader = unitOfWork.OrderHeader.Get(u => u.Id == OrderVM.OrderHeader.Id, includeProperties: "ApplicationUser");
-            OrderVM.OrderDetails = unitOfWork.OrderDetail.GetAll(o => o.OrderHeaderId == OrderVM.OrderHeader.Id, includeProperties: "Product");
+            OrderVm.OrderHeader = _unitOfWork.OrderHeader.Get(u => u.Id == OrderVm.OrderHeader.Id,
+                includeProperties: "ApplicationUser");
+            OrderVm.OrderDetails = _unitOfWork.OrderDetail.GetAll(o => o.OrderHeaderId == OrderVm.OrderHeader.Id,
+                includeProperties: "Product");
 
-                //regular customer and need to capture payment (stripe logic)
-                var domain = Request.Scheme + "://" + Request.Host.Value + "/";
+            //regular customer and need to capture payment (stripe logic)
+            var domain = Request.Scheme + "://" + Request.Host.Value + "/";
 
-                var options = new SessionCreateOptions
+            var options = new SessionCreateOptions
+            {
+                SuccessUrl = domain + $"Admin/Order/PaymentConfirmation?orderHeaderId={OrderVm.OrderHeader.Id}",
+                CancelUrl = domain + $"Admin/Order/details?orderHeader={OrderVm.OrderHeader.Id}",
+                LineItems = new List<SessionLineItemOptions>(),
+                Mode = "payment",
+            };
+
+            foreach (var item in OrderVm.OrderDetails)
+            {
+                var sessionLineItem = new SessionLineItemOptions
                 {
-                    SuccessUrl = domain + $"Admin/Order/PaymentConfirmation?orderHeaderId={OrderVM.OrderHeader.Id}",
-                    CancelUrl = domain + $"Admin/Order/details?orderHeader={OrderVM.OrderHeader.Id}",
-                    LineItems = new List<SessionLineItemOptions>(),
-                    Mode = "payment",
-                };
-
-                foreach (var item in OrderVM.OrderDetails)
-                {
-                    var sessionLineItem = new SessionLineItemOptions
+                    PriceData = new SessionLineItemPriceDataOptions
                     {
-                        PriceData = new SessionLineItemPriceDataOptions{
-                            UnitAmount = (long)(item.Price * 100), // 2.50 -> 250
-                            Currency = "zar",
-                            ProductData = new SessionLineItemPriceDataProductDataOptions{
-                                Name = item.Product.Title,
+                        UnitAmount = (long)(item.Price * 100), // 2.50 -> 250
+                        Currency = "zar",
+                        ProductData = new SessionLineItemPriceDataProductDataOptions
+                        {
+                            Name = item.Product.Title,
                         },
                     },
-                        Quantity = item.Count,
-                    };
-                        options.LineItems.Add(sessionLineItem);
-                }
-                
-                var service = new SessionService();
-                Session session = service.Create(options);
+                    Quantity = item.Count,
+                };
+                options.LineItems.Add(sessionLineItem);
+            }
 
-                unitOfWork.OrderHeader.UpdateStripePaymentId(OrderVM.OrderHeader.Id, session.Id, session.PaymentIntentId);
-                unitOfWork.Save();
+            var service = new SessionService();
+            Session session = service.Create(options);
 
-                Response.Headers.Add("Location", session.Url);
+            _unitOfWork.OrderHeader.UpdateStripePaymentId(OrderVm.OrderHeader.Id, session.Id, session.PaymentIntentId);
+           
+            _unitOfWork.Save();
 
-                return StatusCode(303);
+            Response.Headers.Append("Location", session.Url);
+
+            return StatusCode(303);
         }
 
         public IActionResult PaymentConfirmation(int orderHeaderId)
         {
-            OrderHeader orderHeader = unitOfWork.OrderHeader.Get(u => u.Id == orderHeaderId);
+            OrderHeader orderHeader = _unitOfWork
+                .OrderHeader
+                .Get(u => u.Id == orderHeaderId);
 
             if (orderHeader.PaymentStatus == SD.PaymentStatusDelayedPayment)
             {
@@ -202,15 +211,21 @@ namespace BookStoreWeb.Areas.Admin.Controllers
 
                 if (session.PaymentStatus.ToLower() == "paid")
                 {
-                    unitOfWork.OrderHeader.UpdateStripePaymentId(orderHeaderId, session.Id, session.PaymentIntentId);
-                    unitOfWork.OrderHeader.UpdateStatus(orderHeaderId, orderHeader.OrderStatus, SD.PaymentStatusApproved);
-                    unitOfWork.Save();
+                    _unitOfWork
+                        .OrderHeader
+                        .UpdateStripePaymentId(orderHeaderId, session.Id, session.PaymentIntentId);
+                   
+                    _unitOfWork.
+                        OrderHeader
+                        .UpdateStatus(orderHeaderId, orderHeader.OrderStatus,
+                        SD.PaymentStatusApproved);
+                   
+                    _unitOfWork.Save();
                 }
             }
 
             return View(orderHeaderId);
         }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
@@ -218,28 +233,39 @@ namespace BookStoreWeb.Areas.Admin.Controllers
             return View("Error!");
         }
 
-         #region API CALLS
+        #region API CALLS
 
         [HttpGet]
         public IActionResult GetAll(string status)
         {
             IEnumerable<OrderHeader> objOrderHeaders;
-            
-            if(User.IsInRole(SD.RoleAdmin) || User.IsInRole(SD.RoleEmployee))
+
+            if (User.IsInRole(SD.RoleAdmin) || User.IsInRole(SD.RoleEmployee))
             {
-                objOrderHeaders = unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser");
+                objOrderHeaders = _unitOfWork
+                    .OrderHeader
+                    .GetAll(includeProperties: "ApplicationUser");
             }
             else
             {
                 var claimsIdentity = (ClaimsIdentity)User.Identity;
                 var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-                objOrderHeaders = unitOfWork.OrderHeader.GetAll(u => u.ApplicationUserId == userId.Value, includeProperties: "ApplicationUser");
+                
+                if (userId == null)
+                {
+                    return Json(new { data = new List<OrderHeader>() });
+                }
+
+                objOrderHeaders = _unitOfWork
+                    .OrderHeader
+                    .GetAll(u => u.ApplicationUserId == userId.Value,
+                    includeProperties: "ApplicationUser");
             }
 
             switch (status)
             {
                 case "pending":
-                objOrderHeaders = objOrderHeaders.Where(x => x.PaymentStatus == SD.PaymentStatusDelayedPayment);
+                    objOrderHeaders = objOrderHeaders.Where(x => x.PaymentStatus == SD.PaymentStatusDelayedPayment);
                     break;
                 case "inprocess":
                     objOrderHeaders = objOrderHeaders.Where(x => x.OrderStatus == SD.StatusInProcess);
@@ -253,10 +279,33 @@ namespace BookStoreWeb.Areas.Admin.Controllers
                 default:
                     break;
             }
-            
+
             return Json(new { data = objOrderHeaders });
         }
 
         #endregion
+
+        private void UpdateOrderBasicDetails(OrderHeader orderHeader)
+        {
+            orderHeader.Name = OrderVm.OrderHeader.Name?.Trim();
+            orderHeader.PhoneNumber = OrderVm.OrderHeader.PhoneNumber?.Trim();
+            orderHeader.StreetAddress = OrderVm.OrderHeader.StreetAddress?.Trim();
+            orderHeader.City = OrderVm.OrderHeader.City?.Trim();
+            orderHeader.State = OrderVm.OrderHeader.State?.Trim();
+            orderHeader.PostalAddress = OrderVm.OrderHeader.PostalAddress?.Trim();
+        }
+
+        private void UpdateShippingDetails(OrderHeader orderHeader)
+        {
+            if (!string.IsNullOrWhiteSpace(OrderVm.OrderHeader.Carrier))
+            {
+                orderHeader.Carrier = OrderVm.OrderHeader.Carrier.Trim();
+            }
+
+            if (!string.IsNullOrWhiteSpace(OrderVm.OrderHeader.TrackingNumber))
+            {
+                orderHeader.TrackingNumber = OrderVm.OrderHeader.TrackingNumber.Trim();
+            }
+        }
     }
 }

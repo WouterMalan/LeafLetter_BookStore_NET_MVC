@@ -75,9 +75,11 @@ namespace BookStoreWeb.Areas.Customer.Controllers
                 }
 
                 _unitOfWork.Save();
+                
                 UpdateCartItemCount(userId);
 
                 TempData["Success"] = "Product added to cart successfully";
+                
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
@@ -99,13 +101,14 @@ namespace BookStoreWeb.Areas.Customer.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
-
+        
         private void UpdateCartItemCount(string userId)
         {
-            var cartItemCount = _unitOfWork.ShoppingCart
+            var cartItemCount = _unitOfWork
+                .ShoppingCart
                 .GetAll(u => u.ApplicationUserId == userId)
                 .Count();
+            
             HttpContext.Session.SetInt32(SD.SessionCart, cartItemCount);
         }
     }

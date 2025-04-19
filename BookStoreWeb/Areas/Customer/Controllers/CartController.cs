@@ -78,27 +78,27 @@ namespace BookStoreWeb.Areas.Customer.Controllers
                     throw new InvalidOperationException("User not found");
                 }
 
-                
+
                 var applicationUser = _unitOfWork.ApplicationUser
                                           .Get(x => x.Id == userId, tracked: false)
                                       ?? throw new InvalidOperationException("User details not found");
 
                 InitializeOrder(userId);
-                
+
                 // if (!ModelState.IsValid)
                 // {
                 //     ShoppingCartVM = LoadOrderSummary(claimsIdentity);
                 //     return View(nameof(Summary), ShoppingCartVM);
                 // }
-                
+
                 var cartItems = _unitOfWork.ShoppingCart
                     .GetAll(x => x.ApplicationUserId == userId, includeProperties: "Product");
-                
+
                 if (!cartItems.Any())
                 {
                     throw new InvalidOperationException("Shopping cart is empty");
                 }
-                
+
                 CalculateOrderTotal();
                 SetOrderStatus(applicationUser.CompanyId);
                 SaveOrderHeader();
@@ -121,32 +121,37 @@ namespace BookStoreWeb.Areas.Customer.Controllers
 
         public IActionResult OrderConfirmation(int id)
         {
-            OrderHeader orderHeader =
-                _unitOfWork.OrderHeader.Get(u => u.Id == id, includeProperties: "ApplicationUser");
+            OrderHeader orderHeader = _unitOfWork
+                .OrderHeader
+                .Get(u => u.Id == id, includeProperties: "ApplicationUser");
 
             if (orderHeader.PaymentStatus != SD.PaymentStatusDelayedPayment)
             {
-                //order by customer
+                //Order by customer
                 var service = new SessionService();
                 Session session = service.Get(orderHeader.SessionId);
 
+                // Check if the session is paid (From Stripe)
                 if (session.PaymentStatus.ToLower() == "paid")
                 {
                     _unitOfWork.OrderHeader.UpdateStripePaymentId(id, session.Id, session.PaymentIntentId);
                     _unitOfWork.OrderHeader.UpdateStatus(id, SD.StatusApproved, SD.PaymentStatusApproved);
+
                     _unitOfWork.Save();
                 }
 
                 HttpContext.Session.Clear();
             }
 
-            this._emailSender.SendEmailAsync(orderHeader.ApplicationUser.Email, "New Order Created",
+            _emailSender.SendEmailAsync(orderHeader.ApplicationUser.Email, "New Order Created",
                 $"<p>Order - {orderHeader.Id} has been submitted successfully</p>");
 
-            List<ShoppingCart> shoppingCartsList = _unitOfWork.ShoppingCart
+            List<ShoppingCart> shoppingCartsList = _unitOfWork
+                .ShoppingCart
                 .GetAll(u => u.ApplicationUserId == orderHeader.ApplicationUserId).ToList();
 
             _unitOfWork.ShoppingCart.DeleteRange(shoppingCartsList);
+
             _unitOfWork.Save();
 
             return View(id);
@@ -193,11 +198,17 @@ namespace BookStoreWeb.Areas.Customer.Controllers
 
         public IActionResult Remove(int cartId)
         {
-            var cart = _unitOfWork.ShoppingCart.Get(x => x.Id == cartId, tracked: true);
+            var cart = _unitOfWork
+                .ShoppingCart
+                .Get(x => x.Id == cartId, tracked: true);
 
             _unitOfWork.ShoppingCart.Delete(cart);
+
             HttpContext.Session.SetInt32(SD.SessionCart,
-                _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == cart.ApplicationUserId).Count() - 1);
+                _unitOfWork
+                    .ShoppingCart
+                    .GetAll(u => u.ApplicationUserId == cart.ApplicationUserId).Count() - 1);
+
             _unitOfWork.Save();
 
             TempData["Success"] = "Product removed from cart successfully";
@@ -362,15 +373,18 @@ namespace BookStoreWeb.Areas.Customer.Controllers
             var domain = $"{Request.Scheme}://{Request.Host}/";
             var options = CreateStripeSessionOptions(domain);
             var service = new SessionService();
-            var session = service.Create(options);
+            Session session = service.Create(options);
 
             _unitOfWork.OrderHeader.UpdateStripePaymentId(
                 ShoppingCartVM.OrderHeader.Id,
                 session.Id,
                 session.PaymentIntentId);
+
             _unitOfWork.Save();
 
-            Response.Headers.Add("Location", session.Url);
+            Response.Headers.Append("Location", session.Url);
+
+            // Redirect to Stripe Checkout
             return StatusCode(303);
         }
 
