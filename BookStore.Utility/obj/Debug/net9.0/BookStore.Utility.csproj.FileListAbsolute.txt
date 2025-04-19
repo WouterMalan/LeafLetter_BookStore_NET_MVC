@@ -1,0 +1,13 @@
+D:\Udemy Courses\BookStoreWebAppMVC\BookStore.Utility\bin\Debug\net9.0\BookStore.Utility.deps.json
+D:\Udemy Courses\BookStoreWebAppMVC\BookStore.Utility\bin\Debug\net9.0\BookStore.Utility.dll
+D:\Udemy Courses\BookStoreWebAppMVC\BookStore.Utility\bin\Debug\net9.0\BookStore.Utility.pdb
+D:\Udemy Courses\BookStoreWebAppMVC\BookStore.Utility\obj\Debug\net9.0\BookStore.Utility.csproj.AssemblyReference.cache
+D:\Udemy Courses\BookStoreWebAppMVC\BookStore.Utility\obj\Debug\net9.0\BookStore.Utility.GeneratedMSBuildEditorConfig.editorconfig
+D:\Udemy Courses\BookStoreWebAppMVC\BookStore.Utility\obj\Debug\net9.0\BookStore.Utility.AssemblyInfoInputs.cache
+D:\Udemy Courses\BookStoreWebAppMVC\BookStore.Utility\obj\Debug\net9.0\BookStore.Utility.AssemblyInfo.cs
+D:\Udemy Courses\BookStoreWebAppMVC\BookStore.Utility\obj\Debug\net9.0\BookStore.Utility.csproj.CoreCompileInputs.cache
+D:\Udemy Courses\BookStoreWebAppMVC\BookStore.Utility\obj\Debug\net9.0\BookStore.Utility.sourcelink.json
+D:\Udemy Courses\BookStoreWebAppMVC\BookStore.Utility\obj\Debug\net9.0\BookStore.Utility.dll
+D:\Udemy Courses\BookStoreWebAppMVC\BookStore.Utility\obj\Debug\net9.0\refint\BookStore.Utility.dll
+D:\Udemy Courses\BookStoreWebAppMVC\BookStore.Utility\obj\Debug\net9.0\BookStore.Utility.pdb
+D:\Udemy Courses\BookStoreWebAppMVC\BookStore.Utility\obj\Debug\net9.0\ref\BookStore.Utility.dll
