@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\BookStoreWeb.sdho7j492x.bundle.scp.css"
     },
     {
+      "Id": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\wwwroot\\css\\cart.css",
+      "PackagePath": "staticwebassets\\css\\cart.css"
+    },
+    {
+      "Id": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\wwwroot\\css\\cusom.css",
+      "PackagePath": "staticwebassets\\css\\cusom.css"
+    },
+    {
       "Id": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -15,6 +23,10 @@
     {
       "Id": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\wwwroot\\images\\book.png",
       "PackagePath": "staticwebassets\\images\\book.png"
+    },
+    {
+      "Id": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\wwwroot\\images\\bookshelf_7287897.png",
+      "PackagePath": "staticwebassets\\images\\bookshelf_7287897.png"
     },
     {
       "Id": "D:\\Udemy Courses\\BookStoreWebAppMVC\\BookStoreWeb\\wwwroot\\images\\lawn_leaf.jpg",

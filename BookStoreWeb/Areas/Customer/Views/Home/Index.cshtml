@@ -1,75 +1,77 @@
-﻿@model IEnumerable<Product>
-@{
-    var categories = Model
-        .Select(p => p.Category)
-        .DistinctBy(c => c.Id)
-        .OrderBy(c => c.Name);
-    
-    var selectedCategory = Context.Request.Query["category"].ToString();
-}
+﻿@model HomeViewModel
 
-<div class="hero-section mb-5" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; background-position: center; height: 400px;">
+<div class="hero-section mb-5">
     <div class="container h-100">
         <div class="row h-100 align-items-center">
             <div class="col-12 text-center text-white">
-                <h1 class="display-4 fw-bold">Welcome to Our Bookstore</h1>
-                <p class="lead">Discover thousands of books at amazing prices</p>
-                <form asp-action="Index" method="get" class="search-box mt-4">
-                    <div class="input-group search-group w-75 mx-auto">
-                        <input type="text" name="searchTerm" class="form-control form-control-lg" placeholder="Search by title, author, or category..." 
-                               value="@Context.Request.Query["searchTerm"]">
-                        <button class="btn btn-primary btn-lg" type="submit">
-                            <i class="bi bi-search"></i> Search
-                        </button>
-                        @if (!string.IsNullOrEmpty(Context.Request.Query["searchTerm"]) || !string.IsNullOrEmpty(selectedCategory))
-                        {
-                            <a asp-action="Index" class="btn btn-outline-light btn-lg clear-btn">
-                                <i class="bi bi-x-lg"></i>
-                            </a>
-                        }
-                    </div>
-                </form>
+                <h1 class="display-4 fw-bold mb-4">Welcome to Leaf & Letter</h1>
+                <p class="lead mb-5">Discover thousands of books at amazing prices</p>
+                <div class="search-container">
+                    <form asp-action="Index" method="get">
+                        <div class="search-group">
+                            <div class="search-icon">
+                                <i class="bi bi-search"></i>
+                            </div>
+                            <div class="search-box flex-grow-1">
+                                <input type="text" 
+                                       name="searchTerm" 
+                                       class="form-control" 
+                                       placeholder="Search by title, author, or category..." 
+                                       value="@Model.SearchFilters.SearchTerm">
+                            </div>
+                            <button class="btn search-btn" type="submit">
+                                <i class="bi bi-search me-2"></i>Search
+                            </button>
+                            @if (!string.IsNullOrEmpty(Model.SearchFilters.SearchTerm) || !string.IsNullOrEmpty(Model.SearchFilters.Category))
+                            {
+                                <a asp-action="Index" class="clear-btn">
+                                    <i class="bi bi-x-lg"></i>
+                                </a>
+                            }
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="container">
-    <div class="row mb-4">
-        <div class="col-12">
-            <div class="category-filter text-center mb-4">
-                <h5 class="text-muted mb-3">Filter by Category</h5>
-                <div class="category-buttons">
-                    <a asp-action="Index" asp-route-searchTerm="@Context.Request.Query["searchTerm"]"
-                       class="btn @(string.IsNullOrEmpty(selectedCategory) ? "btn-primary" : "btn-outline-primary") category-btn mb-2">
-                        All Books
-                    </a>
-                    @foreach (var category in categories)
-                    {
-                        <a asp-action="Index" 
-                           asp-route-category="@category.Name"
-                           asp-route-searchTerm="@Context.Request.Query["searchTerm"]"
-                           class="btn @(selectedCategory == category.Name ? "btn-primary" : "btn-outline-primary") category-btn mb-2">
-                            @category.Name
-                        </a>
-                    }
-                </div>
-            </div>
-
-            @if (!string.IsNullOrEmpty(Context.Request.Query["searchTerm"]))
+<div class="filter-section">
+    <div class="container">
+        <h5 class="filter-title text-center">Filter by Category</h5>
+        <div class="category-buttons">
+            <a asp-action="Index" 
+               asp-route-searchTerm="@Model.SearchFilters.SearchTerm"
+               class="btn category-btn @(string.IsNullOrEmpty(Model.SearchFilters.Category) ? "active" : "")">
+                All Books
+            </a>
+            @foreach (var category in Model.Categories)
             {
-                <h2 class="text-center mb-4">Search Results for "@Context.Request.Query["searchTerm"]"</h2>
-            }
-            else
-            {
-                <h2 class="text-center mb-4">
-                    @(string.IsNullOrEmpty(selectedCategory) ? "All Books" : $"{selectedCategory}")
-                </h2>
+                <a asp-action="Index" 
+                   asp-route-category="@category.Name"
+                   asp-route-searchTerm="@Model.SearchFilters.SearchTerm"
+                   class="btn category-btn @(Model.SearchFilters.Category == category.Name ? "active" : "")">
+                    @category.Name
+                </a>
             }
         </div>
     </div>
-    <div class="row pb-3">
-        @if (!Model.Any())
+</div>
+
+<div class="container py-4">
+    @if (!string.IsNullOrEmpty(Model.SearchFilters.SearchTerm))
+    {
+        <h2 class="text-center mb-4">Search Results for "@Model.SearchFilters.SearchTerm"</h2>
+    }
+    else
+    {
+        <h2 class="text-center mb-4">
+            @(string.IsNullOrEmpty(Model.SearchFilters.Category) ? "All Books" : Model.SearchFilters.Category)
+        </h2>
+    }
+
+    <div class="row g-4">
+        @if (!Model.Products.Any())
         {
             <div class="col-12 text-center py-5">
                 <div class="mb-4">
@@ -82,43 +84,46 @@
         }
         else
         {
-            foreach (var product in Model)
+            @foreach (var product in Model.Products)
             {
-                <div class="col-lg-3 col-sm-6">
-                    <div class="row p-2">
-                        <div class="col-12 p-1">
-                            <div class="card border-0 p-3 shadow border-top border-5 rounded h-100 book-card">
-                                <div class="book-image-container">
-                                    @if(product.ProductImages != null && product.ProductImages.Count() > 0)
-                                    {
-                                        <img src="@product.ProductImages.FirstOrDefault().ImageUrl" class="card-img-top rounded" alt="@product.Title"/>
-                                    }
-                                    else
-                                    {
-                                        <img src="https://placehold.co/500x600/png" class="card-img-top rounded" alt="@product.Title"/>
-                                    }
-                                    <div class="book-overlay">
-                                        <a asp-action="Details" asp-route-productId="@product.Id" class="btn btn-light">Quick View</a>
-                                    </div>
-                                </div>
-                                <div class="card-body pb-0">
-                                    <p class="card-title h5 text-dark opacity-75 text-uppercase text-center">@product.Title</p>
-                                    <p class="text-muted text-center mb-2">by <b>@product.Author</b></p>
-                                    <div class="d-flex justify-content-center align-items-center mb-2">
-                                        <span class="badge bg-primary">@product.Category.Name</span>
-                                    </div>
-                                </div>
-                                <div class="card-footer bg-white pt-0 border-0">
-                                    <div class="text-center mb-3">
-                                        <span class="text-decoration-line-through text-muted me-2">@product.ListPrice.ToString("c")</span>
-                                        <span class="text-primary fw-bold">@product.Price.ToString("c")</span>
-                                    </div>
-                                    <a asp-action="Details" asp-route-productId="@product.Id" 
-                                       class="btn btn-primary bg-gradient border-0 form-control">
-                                        View Details
-                                    </a>
-                                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card book-card h-100">
+                        <div class="book-image-container">
+                            @if(product.ProductImages != null && product.ProductImages.Count() > 0)
+                            {
+                                <img src="@product.ProductImages.FirstOrDefault().ImageUrl" 
+                                     class="img-fluid" 
+                                     alt="@product.Title"/>
+                            }
+                            else
+                            {
+                                <img src="https://placehold.co/500x600/png" 
+                                     class="img-fluid" 
+                                     alt="@product.Title"/>
+                            }
+                            <div class="book-overlay">
+                                <a asp-action="Details" 
+                                   asp-route-productId="@product.Id" 
+                                   class="btn btn-light">
+                                    <i class="bi bi-eye me-2"></i>Quick View
+                                </a>
                             </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">@product.Title</h5>
+                            <p class="book-author text-center">by @product.Author</p>
+                            <div class="d-flex justify-content-center mb-3">
+                                <span class="book-category">@product.Category.Name</span>
+                            </div>
+                            <div class="text-center mb-3">
+                                <span class="book-original-price me-2">@product.ListPrice.ToString("c")</span>
+                                <span class="book-price">@product.Price.ToString("c")</span>
+                            </div>
+                            <a asp-action="Details" 
+                               asp-route-productId="@product.Id" 
+                               class="btn btn-primary w-100">
+                                <i class="bi bi-cart-plus me-2"></i>View Details
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -126,107 +131,3 @@
         }
     </div>
 </div>
-
-<style>
-    .book-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .book-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
-    }
-    .book-image-container {
-        position: relative;
-        overflow: hidden;
-        height: 300px;
-        border-radius: 8px;
-    }
-    .book-image-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-    }
-    .book-card:hover .book-image-container img {
-        transform: scale(1.05);
-    }
-    .book-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0,0,0,0.5);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-    .book-card:hover .book-overlay {
-        opacity: 1;
-    }
-    .search-box .form-control {
-        border-radius: 30px 0 0 30px;
-        padding: 0.75rem 1.5rem;
-    }
-    .search-box .btn-primary {
-        border-radius: 0 30px 30px 0;
-        padding: 0.75rem 1.5rem;
-    }
-    .clear-btn {
-        position: relative;
-        margin-left: 0.5rem !important;
-        width: 48px;
-        height: 48px;
-        padding: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        border: 2px solid rgba(255,255,255,0.3);
-        background: rgba(255,255,255,0.1);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-        transition: all 0.3s ease;
-    }
-    .clear-btn i {
-        font-size: 1.5rem;
-        color: rgba(255,255,255,0.9);
-        transition: all 0.3s ease;
-    }
-    .clear-btn:hover {
-        background: rgba(255,255,255,0.2);
-        border-color: rgba(255,255,255,0.5);
-        transform: scale(1.05);
-        box-shadow: 0 0 20px rgba(255,255,255,0.2);
-    }
-    .clear-btn:hover i {
-        transform: rotate(90deg);
-    }
-    .clear-btn:active {
-        transform: scale(0.95);
-    }
-    .category-btn {
-        margin: 0 0.25rem;
-        border-radius: 20px;
-        padding: 0.5rem 1.25rem;
-        transition: all 0.2s ease;
-        font-weight: 500;
-    }
-    .category-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .btn-primary {
-        position: relative;
-        z-index: 1;
-    }
-    .category-buttons {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
-        padding: 0.5rem;
-    }
-</style>

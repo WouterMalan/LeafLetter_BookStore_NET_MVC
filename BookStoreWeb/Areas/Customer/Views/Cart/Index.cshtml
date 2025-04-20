@@ -38,42 +38,42 @@
                             @foreach(var item in Model.ShoppingCartList)
                             {
                                 <div class="row border-bottom pb-3 mb-3 cart-item">
-                                    <div class="d-none d-lg-block col-lg-1 text-center py-2">
-                                        <div class="book-image-container">
+                                    <div class="col-lg-2 text-center py-2">
+                                        <div class="cart-image-container">
                                             @if(item.Product.ProductImages != null && item.Product.ProductImages.Count() > 0)
                                             {
-                                                <img src="@item.Product.ProductImages.FirstOrDefault().ImageUrl" class="card-img-top rounded shadow-sm" alt="@item.Product.Title"/>
+                                                <img src="@item.Product.ProductImages.FirstOrDefault().ImageUrl" alt="@item.Product.Title"/>
                                             }
                                             else
                                             {
-                                                <img src="https://placehold.co/500x600/png" class="card-img-top rounded shadow-sm" alt="@item.Product.Title"/>
+                                                <img src="https://placehold.co/500x600/png" alt="@item.Product.Title"/>
                                             }
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-6 pt-md-3">
-                                        <h5 class="text-uppercase text-dark"><strong>@item.Product.Title</strong></h5>
-                                        <p class="text-muted"><small>by <span class="fw-semibold">@item.Product.Author</span></small></p>
+                                        <h5 class="text-uppercase text-dark mb-2"><strong>@item.Product.Title</strong></h5>
+                                        <p class="text-muted mb-2"><small>by <span class="fw-semibold">@item.Product.Author</span></small></p>
                                         <p class="text-muted book-description"><small>@Html.Raw(item.Product.Description)</small></p>
                                     </div>
-                                    <div class="col-12 col-lg-5 text-center row">
-                                        <div class="col-3 text-md-right pt-2 pt-md-4">
+                                    <div class="col-12 col-lg-4 text-center row">
+                                        <div class="col-4 text-md-right pt-2">
                                             <h6 class="fw-semibold">
                                                 <span class="text-primary">@item.Price.ToString("c")</span>
                                                 <span class="text-muted">&nbsp;x&nbsp;</span>@item.Count
                                             </h6>
                                         </div>
-                                        <div class="col-6 col-sm-4 col-lg-6 pt-2">
+                                        <div class="col-6 pt-2">
                                             <div class="w-75 btn-group" role="group">
-                                                <a asp-action="plus" asp-route-cartId="@item.Id" class="btn btn-outline-primary bg-gradient py-2 rounded-start">
+                                                <a asp-action="plus" asp-route-cartId="@item.Id" class="btn btn-outline-primary bg-gradient py-2">
                                                     <i class="bi bi-plus-square"></i>
                                                 </a>
-                                                <a asp-action="minus" asp-route-cartId="@item.Id" class="btn btn-outline-primary bg-gradient py-2 rounded-end">
+                                                <a asp-action="minus" asp-route-cartId="@item.Id" class="btn btn-outline-primary bg-gradient py-2">
                                                     <i class="bi bi-dash-square"></i>
                                                 </a>
                                             </div>
                                         </div>
-                                        <div class="col-3 col-sm-4 col-lg-2 offset-lg-1 text-right pt-2">
-                                            <a asp-action="remove" asp-route-cartId="@item.Id" class="btn btn-danger bg-gradient py-2 rounded-circle">
+                                        <div class="col-2 pt-2">
+                                            <a asp-action="remove" asp-route-cartId="@item.Id" class="btn btn-danger bg-gradient py-2">
                                                 <i class="bi bi-trash-fill"></i>
                                             </a>
                                         </div>
@@ -99,7 +99,7 @@
                         <div class="row mt-4">
                             <div class="col-md-2 offset-md-5">
                                 <a asp-action="Summary" class="btn btn-primary border-0 bg-gradient w-100 py-2 rounded-pill">
-                                    <i class="bi bi-arrow-right me-1"></i> Proceed to Checkout
+                                    <i class="bi bi-arrow-right me-1"></i> Checkout
                                 </a>
                             </div>
                         </div>
@@ -109,63 +109,3 @@
         </div>
     </div>
 </form>
-
-<style>
-    .cart-item {
-        transition: all 0.3s ease;
-        border-radius: 8px;
-        padding: 15px;
-        margin-bottom: 20px;
-        border: 1px solid rgba(0,0,0,0.05);
-    }
-    .cart-item:hover {
-        background-color: #f8f9fa;
-    }
-    .btn-group .btn {
-        transition: all 0.3s ease;
-    }
-    .book-image-container {
-        position: relative;
-        overflow: hidden;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        background-color: #f8f9fa;
-        padding: 5px;
-    }
-    .card-img-top {
-        max-height: 120px;
-        object-fit: contain;
-    }
-    .book-description {
-        max-height: 60px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-    }
-    .total-card {
-        background: linear-gradient(to right, #f8f9fa, #ffffff);
-        border-left: 4px solid #0d6efd;
-    }
-    .empty-cart-icon {
-        color: #dee2e6;
-        font-size: 5rem;
-    }
-    .rounded-4 {
-        border-radius: 1rem !important;
-    }
-    .rounded-top {
-        border-top-left-radius: 1rem !important;
-        border-top-right-radius: 1rem !important;
-    }
-    .card-header {
-        background: linear-gradient(135deg, #0d6efd, #0a58ca);
-    }
-    .text-primary {
-        color: #0d6efd !important;
-    }
-    .btn-outline-primary {
-        border-width: 2px;
-    }
-</style>

@@ -370,7 +370,7 @@ namespace BookStoreWeb.Areas.Customer.Controllers
 
         private IActionResult ProcessStripePayment()
         {
-            var domain = $"{Request.Scheme}://{Request.Host}/";
+            var domain = $"{Request.Scheme}://{Request.Host.Value}/";
             var options = CreateStripeSessionOptions(domain);
             var service = new SessionService();
             Session session = service.Create(options);

@@ -1,0 +1,279 @@
+﻿/*Home Screen*/
+.book-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.08) !important;
+    padding: 0;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+    border-color: rgba(25, 46, 47, 0.15) !important;
+}
+
+.book-image-container {
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+    background: #f8f9fa;
+    margin: 0;
+    border-radius: 8px 8px 0 0;
+}
+
+.book-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.book-card:hover .book-image-container img {
+    transform: scale(1.05);
+}
+
+.book-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(2px);
+}
+
+.book-overlay .btn {
+    padding: 0.8rem 1.5rem;
+    font-weight: 500;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.book-card:hover .book-overlay {
+    opacity: 1;
+}
+
+.book-card:hover .book-overlay .btn {
+    transform: translateY(0);
+}
+
+/* Category Filter Section */
+.filter-section {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.filter-title {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+.category-btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    color: #333;
+}
+
+.category-btn:hover, 
+.category-btn.active {
+    background: #192E2F;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Hero Section and Search */
+.hero-section {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)),
+                url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    position: relative;
+    margin-bottom: 0;
+}
+
+.search-container {
+    position: relative;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.search-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50px;
+    padding: 0.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.search-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+}
+
+.search-box .form-control {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    padding: 0.75rem 1rem;
+    width: 100%;
+}
+
+.search-box .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-box .form-control:focus {
+    box-shadow: none;
+}
+
+.search-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-weight: 500;
+    min-width: 120px;
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateX(5px);
+}
+
+.clear-btn {
+    margin-left: 0.5rem;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.clear-btn i {
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.clear-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: rotate(90deg);
+}
+
+/* Card Content Styling */
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+    line-height: 1.4;
+}
+
+.book-author {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+}
+
+.book-category {
+    background: #192E2F;
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    display: inline-block;
+}
+
+.book-price {
+    font-size: 1.25rem;
+    color: #192E2F;
+    font-weight: 600;
+}
+
+.book-original-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        height: 300px;
+    }
+
+    .search-container {
+        padding: 1rem;
+    }
+
+    .search-group {
+        flex-wrap: wrap;
+    }
+
+    .search-box {
+        width: 100%;
+        order: 1;
+    }
+
+    .search-btn {
+        width: calc(100% - 50px);
+        order: 2;
+        margin: 0.5rem 0;
+    }
+
+    .clear-btn {
+        order: 3;
+        margin: 0.5rem 0 0.5rem 0.5rem;
+    }
+
+    .book-image-container {
+        height: 300px;
+    }
+}

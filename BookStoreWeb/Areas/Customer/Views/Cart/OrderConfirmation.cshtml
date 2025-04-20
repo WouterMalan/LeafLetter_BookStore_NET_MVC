@@ -2,27 +2,37 @@
 
 <div class="container py-5">
     <div class="row justify-content-center">
-        <div class="col-md-8 text-center">
-            <div class="card shadow border-0">
-                <div class="card-body p-5">
-                    <div class="mb-4">
-                        <i class="bi bi-check-circle-fill text-success display-1"></i>
+        <div class="col-md-8">
+            <div class="confirmation-card">
+                <div class="success-animation">
+                    <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                        <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                        <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                    </svg>
+                </div>
+                
+                <div class="confirmation-content text-center">
+                    <h1 class="display-4 fw-bold mb-4" style="color: #192E2F;">Thank You!</h1>
+                    <div class="order-info mb-4">
+                        <span class="badge bg-success fs-6 mb-3">Order Confirmed</span>
+                        <h4 class="text-dark mb-3">Order #@Model</h4>
+                        <div class="divider">
+                            <span></span>
+                            <span><i class="bi bi-check2-circle"></i></span>
+                            <span></span>
+                        </div>
                     </div>
-                    <h1 class="text-primary mb-4">Order Placed Successfully!</h1>
-                    <div class="alert alert-success mb-4">
-                        <h4 class="alert-heading">Thank you for your order!</h4>
-                        <p class="mb-0">Your Order ID is: <strong>@Model</strong></p>
+                    
+                    <div class="confirmation-message">
+                        <p class="lead text-muted mb-4">
+                            Your order has been successfully placed and will be processed shortly.
+                            We'll send you an email with your order details and tracking information.
+                        </p>
                     </div>
-                    <div class="mb-4">
-                        <img src="~/images/lawn_leaf.jpg" class="img-fluid rounded shadow-sm" style="max-height: 300px; width: auto;" alt="Order confirmation" />
-                    </div>
-                    <div class="text-muted mb-4">
-                        <p>We've received your order and will begin processing it right away.</p>
-                        <p>You'll receive an email confirmation with your order details shortly.</p>
-                    </div>
-                    <div class="d-grid gap-2 col-md-6 mx-auto">
-                        <a asp-controller="Home" asp-action="Index" class="btn btn-primary">
-                            <i class="bi bi-house-door"></i> Return to Home
+                    
+                    <div class="next-steps">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">
+                            <i class="bi bi-house-heart me-2"></i>Continue Shopping
                         </a>
                     </div>
                 </div>
@@ -30,21 +40,3 @@
         </div>
     </div>
 </div>
-
-<style>
-    .card {
-        border-radius: 15px;
-    }
-    .alert {
-        border-radius: 10px;
-    }
-    .btn {
-        border-radius: 8px;
-    }
-    .img-fluid {
-        transition: transform 0.3s ease;
-    }
-    .img-fluid:hover {
-        transform: scale(1.02);
-    }
-</style>

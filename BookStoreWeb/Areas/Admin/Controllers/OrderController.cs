@@ -82,6 +82,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
         public IActionResult StartProcessing()
         {
             _unitOfWork.OrderHeader.UpdateStatus(OrderVm.OrderHeader.Id, SD.StatusInProcess);
+            
             _unitOfWork.Save();
 
             TempData["Success"] = "Order is in process";
@@ -153,7 +154,10 @@ namespace BookStoreWeb.Areas.Admin.Controllers
         {
             OrderVm.OrderHeader = _unitOfWork.OrderHeader.Get(u => u.Id == OrderVm.OrderHeader.Id,
                 includeProperties: "ApplicationUser");
-            OrderVm.OrderDetails = _unitOfWork.OrderDetail.GetAll(o => o.OrderHeaderId == OrderVm.OrderHeader.Id,
+           
+            OrderVm.OrderDetails = _unitOfWork
+                .OrderDetail
+                .GetAll(o => o.OrderHeaderId == OrderVm.OrderHeader.Id,
                 includeProperties: "Product");
 
             //regular customer and need to capture payment (stripe logic)

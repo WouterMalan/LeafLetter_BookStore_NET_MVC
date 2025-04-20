@@ -5,6 +5,7 @@ using Bulky.DataAccess.Repository.IRepository;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using Bulky.Utility;
+using Bulky.Models.ViewModels;
 
 namespace BookStoreWeb.Areas.Customer.Controllers
 {
@@ -19,7 +20,7 @@ namespace BookStoreWeb.Areas.Customer.Controllers
             _logger = logger;
             _unitOfWork = unitOfWork;
         }
-
+        
         public IActionResult Index(string? searchTerm = null, string? category = null)
         {
             IEnumerable<Product> productList = 
@@ -43,7 +44,18 @@ namespace BookStoreWeb.Areas.Customer.Controllers
                 productList = productList.Where(p => p.Category.Name == category);
             }
 
-            return View(productList);
+            var viewModel = new HomeViewModel
+            {
+                Products = productList,
+                Categories = GetCategories(),
+                SearchFilters = new SearchFilters
+                {
+                    SearchTerm = searchTerm,
+                    Category = category
+                }
+            };
+
+            return View(viewModel);
         }
 
         public IActionResult Details(int productId)
@@ -116,6 +128,14 @@ namespace BookStoreWeb.Areas.Customer.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        
+        private IEnumerable<Category> GetCategories()
+        {
+            return _unitOfWork
+                .Category
+                .GetAll()
+                .OrderBy(c => c.DisplayOrder);
         }
         
         private void UpdateCartItemCount(string userId)
