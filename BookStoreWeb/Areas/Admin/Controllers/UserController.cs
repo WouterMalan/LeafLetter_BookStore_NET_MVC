@@ -35,53 +35,56 @@ namespace BookStoreWeb.Areas.Admin.Controllers
 
         public IActionResult RoleManagement(string userId)
         {
-            RoleManagementVM roleManagementVM = new RoleManagementVM()
+            RoleManagementVM roleManagementVm = new RoleManagementVM()
             {
                 ApplicationUser =
-                    this._unitOfWork.ApplicationUser.Get(u => u.Id == userId, includeProperties: "Company"),
+                    _unitOfWork.ApplicationUser.Get(u => u.Id == userId, includeProperties: "Company"),
                 RoleList = _roleManager.Roles.Select(i => new SelectListItem
                 {
                     Text = i.Name,
-                    Value = i.Id
+                    Value = i.Name  
                 }),
-                CompanyList = this._unitOfWork.Company.GetAll().Select(i => new SelectListItem
+                CompanyList = _unitOfWork.Company.GetAll().Select(i => new SelectListItem
                 {
                     Text = i.Name,
                     Value = i.Id.ToString()
                 })
             };
 
-            roleManagementVM.ApplicationUser.Role = _userManager
+            roleManagementVm.ApplicationUser.Role = _userManager
                 .GetRolesAsync(_unitOfWork.ApplicationUser.Get(u => u.Id == userId))
                 .GetAwaiter()
                 .GetResult()
                 .FirstOrDefault();
             
-            return View(roleManagementVM);
+            return View(roleManagementVm);
         }
-
+        
         [HttpPost]
         public IActionResult RoleManagement(RoleManagementVM roleVM)
         {
-            string oldRole = _userManager
-                .GetRolesAsync(_unitOfWork.ApplicationUser.Get(u => u.Id == roleVM.ApplicationUser.Id))
-                .GetAwaiter()
-                .GetResult().FirstOrDefault();
+            ApplicationUser applicationUser = _unitOfWork.ApplicationUser
+                .Get(u => u.Id == roleVM.ApplicationUser.Id, includeProperties: "Company");
 
-            ApplicationUser applicationUser =
-                                _unitOfWork
-                                    .ApplicationUser
-                                    .Get(u => u.Id == roleVM.ApplicationUser.Id);
-
-            if (!(roleVM.ApplicationUser.Role == oldRole))
+            if (applicationUser == null)
             {
-                // a role change has been made
+                return NotFound();
+            }
+
+            // Get the current role of the user
+            string oldRole = _userManager
+                .GetRolesAsync(applicationUser)
+                .GetAwaiter()
+                .GetResult()
+                .FirstOrDefault();
+
+            if (roleVM.ApplicationUser.Role != oldRole)
+            {
                 if (roleVM.ApplicationUser.Role == SD.RoleCompany)
                 {
                     applicationUser.CompanyId = roleVM.ApplicationUser.CompanyId;
                 }
-
-                if (oldRole == SD.RoleCompany)
+                else if (oldRole == SD.RoleCompany)
                 {
                     applicationUser.CompanyId = null;
                 }
@@ -89,12 +92,15 @@ namespace BookStoreWeb.Areas.Admin.Controllers
                 _unitOfWork.ApplicationUser.Update(applicationUser);
                 _unitOfWork.Save();
 
-                _userManager.RemoveFromRoleAsync(applicationUser, oldRole).GetAwaiter().GetResult();
+                if (!string.IsNullOrEmpty(oldRole))
+                {
+                    _userManager.RemoveFromRoleAsync(applicationUser, oldRole).GetAwaiter().GetResult();
+                }
+
                 _userManager.AddToRoleAsync(applicationUser, roleVM.ApplicationUser.Role).GetAwaiter().GetResult();
             }
             else
             {
-                // no role change has been made
                 if (oldRole == SD.RoleCompany && roleVM.ApplicationUser.CompanyId != applicationUser.CompanyId)
                 {
                     applicationUser.CompanyId = roleVM.ApplicationUser.CompanyId;
@@ -105,6 +111,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
 
             return RedirectToAction("Index");
         }
+
 
         #region API CALLS
 
