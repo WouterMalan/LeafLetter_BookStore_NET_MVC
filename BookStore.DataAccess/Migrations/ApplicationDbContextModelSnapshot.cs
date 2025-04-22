@@ -138,7 +138,7 @@ namespace Bulky.DataAccess.Migrations
                         {
                             Id = 2,
                             City = "New York",
-                            Name = "Vivid Books",
+                            Name = "Online Books",
                             PhoneNumber = "1234567890",
                             PostalCode = "10001",
                             State = "NY",
@@ -371,7 +371,7 @@ namespace Bulky.DataAccess.Migrations
                             ISBN = "FOT000000001",
                             ListPrice = 25m,
                             Price = 23m,
-                            Price100 = 20m,
+                            Price100 = 20.50m,
                             Price50 = 22m,
                             Title = "Leaves and Wonders"
                         });

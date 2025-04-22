@@ -11,3 +11,16 @@ D:\Udemy Courses\BookStoreWebAppMVC\BookStore.Models\obj\Debug\net9.0\BookStore.
 D:\Udemy Courses\BookStoreWebAppMVC\BookStore.Models\obj\Debug\net9.0\refint\BookStore.Models.dll
 D:\Udemy Courses\BookStoreWebAppMVC\BookStore.Models\obj\Debug\net9.0\BookStore.Models.pdb
 D:\Udemy Courses\BookStoreWebAppMVC\BookStore.Models\obj\Debug\net9.0\ref\BookStore.Models.dll
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Models\bin\Debug\net9.0\BookStore.Models.deps.json
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Models\bin\Debug\net9.0\BookStore.Models.dll
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Models\bin\Debug\net9.0\BookStore.Models.pdb
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Models\obj\Debug\net9.0\BookStore.Models.csproj.AssemblyReference.cache
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Models\obj\Debug\net9.0\BookStore.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Models\obj\Debug\net9.0\BookStore.Models.AssemblyInfoInputs.cache
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Models\obj\Debug\net9.0\BookStore.Models.AssemblyInfo.cs
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Models\obj\Debug\net9.0\BookStore.Models.csproj.CoreCompileInputs.cache
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Models\obj\Debug\net9.0\BookStore.Models.sourcelink.json
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Models\obj\Debug\net9.0\BookStore.Models.dll
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Models\obj\Debug\net9.0\refint\BookStore.Models.dll
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Models\obj\Debug\net9.0\BookStore.Models.pdb
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Models\obj\Debug\net9.0\ref\BookStore.Models.dll
