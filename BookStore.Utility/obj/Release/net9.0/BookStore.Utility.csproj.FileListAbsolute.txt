@@ -1,0 +1,13 @@
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Utility\bin\Release\net9.0\BookStore.Utility.deps.json
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Utility\bin\Release\net9.0\BookStore.Utility.dll
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Utility\bin\Release\net9.0\BookStore.Utility.pdb
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Utility\obj\Release\net9.0\BookStore.Utility.csproj.AssemblyReference.cache
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Utility\obj\Release\net9.0\BookStore.Utility.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Utility\obj\Release\net9.0\BookStore.Utility.AssemblyInfoInputs.cache
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Utility\obj\Release\net9.0\BookStore.Utility.AssemblyInfo.cs
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Utility\obj\Release\net9.0\BookStore.Utility.csproj.CoreCompileInputs.cache
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Utility\obj\Release\net9.0\BookStore.Utility.sourcelink.json
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Utility\obj\Release\net9.0\BookStore.Utility.dll
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Utility\obj\Release\net9.0\refint\BookStore.Utility.dll
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Utility\obj\Release\net9.0\BookStore.Utility.pdb
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStore.Utility\obj\Release\net9.0\ref\BookStore.Utility.dll

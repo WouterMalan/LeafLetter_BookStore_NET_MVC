@@ -839,11 +839,8 @@ C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStoreWeb\obj\Debug\net9
 C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStoreWeb\obj\Debug\net9.0\compressed\nezrqnk58p-muycvpuwrr.gz
 C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStoreWeb\obj\Debug\net9.0\compressed\v0zgfp0y55-87fc7y1x7t.gz
 C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStoreWeb\obj\Debug\net9.0\compressed\yfc7ypekbg-mlv21k5csn.gz
-C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStoreWeb\obj\Debug\net9.0\compressed\yhwfc9hbjm-uq1s4a56a1.gz
 C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStoreWeb\obj\Debug\net9.0\compressed\jn0x6t3g0l-qriivuv2l3.gz
-C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStoreWeb\obj\Debug\net9.0\compressed\miaoir5der-61n19gt1b8.gz
 C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStoreWeb\obj\Debug\net9.0\compressed\aelu902hhq-e7ajjxyk1v.gz
-C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStoreWeb\obj\Debug\net9.0\compressed\agrdqk35y6-b56w4oaip1.gz
 C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStoreWeb\obj\Debug\net9.0\compressed\1wsav0iw7a-ijnem33etp.gz
 C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStoreWeb\obj\Debug\net9.0\compressed\e71z6y5mna-xtxxf3hu2r.gz
 C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStoreWeb\obj\Debug\net9.0\compressed\pvh27uab2z-kyrn1yxpfi.gz
@@ -921,3 +918,6 @@ C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStoreWeb\obj\Debug\net9
 C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStoreWeb\obj\Debug\net9.0\BookStoreWeb.pdb
 C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStoreWeb\obj\Debug\net9.0\BookStoreWeb.genruntimeconfig.cache
 C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStoreWeb\obj\Debug\net9.0\ref\BookStoreWeb.dll
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStoreWeb\obj\Debug\net9.0\compressed\agrdqk35y6-r3yagtxail.gz
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStoreWeb\obj\Debug\net9.0\compressed\yhwfc9hbjm-5wfuujhae7.gz
+C:\Users\WouterMalan\source\repos\LeafAndLetterStore\BookStoreWeb\obj\Debug\net9.0\compressed\miaoir5der-19ylyux2vx.gz

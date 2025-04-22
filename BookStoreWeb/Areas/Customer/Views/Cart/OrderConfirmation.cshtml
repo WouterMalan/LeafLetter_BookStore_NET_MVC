@@ -11,11 +11,13 @@
                     </svg>
                 </div>
                 
-                <div class="confirmation-content text-center">
-                    <h1 class="display-4 fw-bold mb-4" style="color: #192E2F;">Thank You!</h1>
+                <div class="confirmation-content">
+                    <h1 class="display-4 fw-bold mb-4" style="color: #192E2F;">Success!</h1>
                     <div class="order-info mb-4">
-                        <span class="badge bg-success fs-6 mb-3">Order Confirmed</span>
-                        <h4 class="text-dark mb-3">Order #@Model</h4>
+                        <span class="badge bg-success fs-6 mb-3 px-4 py-2 rounded-pill">
+                            <i class="bi bi-check2-circle me-2"></i>Order Confirmed
+                        </span>
+                        <h4 class="text-dark mt-3 mb-0">Order #@Model</h4>
                         <div class="divider">
                             <span></span>
                             <span><i class="bi bi-check2-circle"></i></span>
@@ -24,10 +26,22 @@
                     </div>
                     
                     <div class="confirmation-message">
-                        <p class="lead text-muted mb-4">
-                            Your order has been successfully placed and will be processed shortly.
-                            We'll send you an email with your order details and tracking information.
+                        <p class="lead text-muted mb-2">
+                            Thank you for shopping with Leaf & Letter!
                         </p>
+                        <p class="text-muted">
+                            Your order has been successfully placed and will be processed shortly.
+                            You will receive an email confirmation with order details and tracking information.
+                        </p>
+                        <div class="alert alert-light border mt-4 p-4 rounded-4">
+                            <div class="d-flex align-items-center text-primary">
+                                <i class="bi bi-truck fs-4 me-3"></i>
+                                <div class="text-start">
+                                    <h6 class="mb-1">Estimated Delivery</h6>
+                                    <p class="mb-0 small">@DateTime.Now.AddDays(7).ToString("MMM dd") - @DateTime.Now.AddDays(14).ToString("MMM dd, yyyy")</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="next-steps">

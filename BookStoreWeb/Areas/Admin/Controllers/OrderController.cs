@@ -16,7 +16,8 @@ namespace BookStoreWeb.Areas.Admin.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        [BindProperty] public OrderVM OrderVm { get; set; }
+        [BindProperty] 
+        public OrderVM OrderVm { get; set; }
 
         public OrderController(IUnitOfWork unitOfWork)
         {
@@ -50,21 +51,26 @@ namespace BookStoreWeb.Areas.Admin.Controllers
         {
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    TempData["Error"] = "Invalid order details";
-                    return RedirectToAction(nameof(Details), new { orderId = OrderVm.OrderHeader.Id });
-                }
-
                 var orderHeaderFromDb = _unitOfWork.OrderHeader.Get(u => u.Id == OrderVm.OrderHeader.Id)
                                         ?? throw new InvalidOperationException(
                                             $"Order {OrderVm.OrderHeader.Id} not found");
+                
+                if (string.IsNullOrWhiteSpace(OrderVm.OrderHeader.Carrier))
+                {
+                    throw new InvalidOperationException("Carrier cannot be empty.");
+                }
+
+                if (string.IsNullOrWhiteSpace(OrderVm.OrderHeader.TrackingNumber))
+                {
+                    throw new InvalidOperationException("Tracking number cannot be empty.");
+                }
 
                 UpdateOrderBasicDetails(orderHeaderFromDb);
 
                 UpdateShippingDetails(orderHeaderFromDb);
 
                 _unitOfWork.OrderHeader.Update(orderHeaderFromDb);
+                
                 _unitOfWork.Save();
 
                 TempData["Success"] = "Order details updated successfully";
