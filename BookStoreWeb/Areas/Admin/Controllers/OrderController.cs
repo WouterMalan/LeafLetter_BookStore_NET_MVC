@@ -275,7 +275,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
             switch (status)
             {
                 case "pending":
-                    objOrderHeaders = objOrderHeaders.Where(x => x.PaymentStatus == SD.PaymentStatusDelayedPayment);
+                    objOrderHeaders = objOrderHeaders.Where(x => x.PaymentStatus == SD.StatusPending);
                     break;
                 case "inprocess":
                     objOrderHeaders = objOrderHeaders.Where(x => x.OrderStatus == SD.StatusInProcess);
